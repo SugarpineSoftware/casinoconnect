@@ -9,32 +9,35 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  qrData = "http://www.sugarpinesoftware.com";
-  scannedCode= null;
+  qrData = 'http://www.sugarpinesoftware.com';
+  scannedCode = null;
   elementType: 'url' | 'canvas' | 'img' = 'canvas';
   constructor(private barcodeScanner: BarcodeScanner, private base64ToGallery: Base64ToGallery, private toastCtrl: ToastController) {}
 
-  scanCode(){
+  scanCode() {
     this.barcodeScanner.scan().then(
       barcodeData => {
         this.scannedCode = barcodeData.text;
       }
-    )
+    );
   }
-  downloadQR(){
+
+
+  downloadQR() {
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL('image/png').toString();
 
-    let data = imageData.split(',')[1];
+    // let data = imageData.split(',')[1];
+    const data = imageData.split(',')[1];
 
     this.base64ToGallery.base64ToGallery(data,
       { prefix: '_img', mediaScanner: true})
       .then(async res => {
-        let toast = await this.toastCtrl.create({
+        const toast = await this.toastCtrl.create({
           header: 'QR Code saved'
         });
         toast.present();
-      }, err => console.log('err: ',err)
+      }, err => console.log('err: ', err)
       );
   }
 }
