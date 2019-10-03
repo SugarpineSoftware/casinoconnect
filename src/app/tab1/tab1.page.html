@@ -29,10 +29,10 @@
   </ion-button>
 
   <ion-card *ngIf="qrData" text-center>
-    <ngx-qrcode [qrc-value]="qrData" [qrc-element-type]="elementType" qrc-class="my-code">
+    <ngx-qrcode [qrc-value]="qrData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">
     </ngx-qrcode>
     <ion-card-content>
-      <ion-button expand="full" color="tertiary" (click)="downloadQR()" *ngIf="elementType === 'canvas'">
+      <ion-button expand="full" color="tertiary" (click)="downloadQR()" *ngIf="elementType === 'img'">
         <ion-icon name="download" slot="start">
         </ion-icon>
         Download QR Code
@@ -44,10 +44,5 @@
       Result From Scan: {{ scannedCode }}
     </ion-card-content>
   </ion-card>
-  <ngx-qrcode
-  [qrc-element-type]="elementType"
-  [qrc-value] = "qrData"
-  qrc-errorCorrectionLevel = "H"
-  >
-  </ngx-qrcode>
+
 </ion-content>

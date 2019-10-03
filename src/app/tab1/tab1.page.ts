@@ -23,8 +23,8 @@ export class Tab1Page {
   }
   downloadQR(){
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
-    const imageData = canvas.toDataURL('image/png').toString();
-
+    const imageData = canvas.toDataURL('image/jpeg').toString();
+    console.log('data: ', imageData);
     let data = imageData.split(',')[1];
 
     this.base64ToGallery.base64ToGallery(data,
