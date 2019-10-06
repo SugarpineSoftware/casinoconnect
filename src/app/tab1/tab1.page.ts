@@ -8,11 +8,13 @@ import { ToastController } from '@ionic/angular';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
+
 export class Tab1Page {
   qrData = 'http://www.sugarpinesoftware.com';
   scannedCode = null;
   elementType: 'url' | 'canvas' | 'img' = 'canvas';
-  constructor(private barcodeScanner: BarcodeScanner, private base64ToGallery: Base64ToGallery, private toastCtrl: ToastController) {}
+  constructor(private barcodeScanner: BarcodeScanner, private base64ToGallery: Base64ToGallery, private toastCtrl: ToastController) {
+  }
 
   scanCode() {
     this.barcodeScanner.scan().then(
@@ -20,6 +22,10 @@ export class Tab1Page {
         this.scannedCode = barcodeData.text;
       }
     );
+  }
+
+  login() {
+    console.log('login');
   }
 
 
