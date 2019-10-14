@@ -14,20 +14,21 @@
                     </ion-card-header>
                     <ion-card-content>
                         <ion-item>
-                            <ion-label position="floating">Email</ion-label>
-                            <ion-input type="text" id="email"></ion-input>
+                          <ion-label position="floating">Email</ion-label>
+                          <ion-input type="text" placeholder="Email Address" [(ngModel)]="emailText"></ion-input>
                         </ion-item>
                         <ion-item>
-                            <ion-label position="floating">Password</ion-label>
-                            <ion-input type="text" id="password"></ion-input>
+                          <ion-label position="floating">Password</ion-label>
+                          <ion-input type="text" placeholder="Password" [(ngModel)]="passwordText"></ion-input>
                         </ion-item>
                         <div margin-vertical text-right>
-                            <ion-button fill="outline" id="forgot-password-btn">Forgot Password?</ion-button>
-                            <ion-button id="login-btn">Login</ion-button>
+                          <ion-button fill="outline" id="forgot-password-btn">Forgot Password?</ion-button>
+                          <ion-button id="login-btn" (click)="loginOnClick()">Login</ion-button>
+                          <ion-button id="sign-up-btn" (click)="signUpOnClick()">Sign Up</ion-button>
                         </div>
                     </ion-card-content>
                 </ion-card> 
             </ion-col>
         </ion-row>
     </ion-grid>
-</ion-content>
+  </ion-content>

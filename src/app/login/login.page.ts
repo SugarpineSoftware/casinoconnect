@@ -1,15 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FirebaseService } from 'src/app/firebase.service';
+import { AuthService } from 'src/app/auth.service';
+import * as firebase from 'firebase/app';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'login',
+  templateUrl: 'login.page.html',
+  styleUrls: ['login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
 
-  constructor() { }
+   emailText: string;
+   passwordText: string;
 
-  ngOnInit() {
+  constructor(public service: FirebaseService, public auth: AuthService) {}
+
+  loginOnClick() {
+     this.auth.loginUser(this.emailText, this.passwordText).then(
+       () => this.loginSuccess(),
+       () => this.loginFailure()
+     );
   }
 
+  signUpOnClick() {
+    this.auth.createUser(this.emailText, this.passwordText).then(
+      () => this.signUpSuccess(),
+      () => this.signUpFailure()
+    );
+  }
+
+
+  loginSuccess() {
+    console.log('success logging in');
+  }
+
+  loginFailure() {
+    console.log('failure logging in');
+  }
+
+  signUpSuccess() {
+    console.log('success signing up');
+  }
+
+  signUpFailure() {
+    console.log('failure signing up');
+  }
 }

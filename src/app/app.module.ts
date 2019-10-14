@@ -11,11 +11,19 @@ import { AppComponent } from './app.component';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
+import { AngularFirestore } from '../../node_modules/@angular/fire/firestore';
+import { AngularFireModule } from '../../node_modules/@angular/fire';
+import { AngularFireDatabaseModule } from '../../node_modules/@angular/fire/database';
+import { AngularFireAuthModule } from '../../node_modules/@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+  AngularFireModule.initializeApp(environment.firebase),
+  AngularFireDatabaseModule,
+  AngularFireAuthModule],
   providers: [
     StatusBar,
     SplashScreen,
@@ -26,3 +34,4 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+
