@@ -29,7 +29,8 @@ import { environment } from '../environments/environment';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     BarcodeScanner,
-    Base64ToGallery
+    Base64ToGallery,
+    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })

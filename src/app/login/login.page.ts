@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from 'src/app/firebase.service';
 import { AuthService } from 'src/app/auth.service';
-import * as firebase from 'firebase/app';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -15,7 +14,10 @@ export class LoginPage {
    emailText: string;
    passwordText: string;
 
-  constructor(public service: FirebaseService, public auth: AuthService) {}
+
+  constructor(public service: FirebaseService,
+              public auth: AuthService,
+              public fireAuth: AngularFireAuth) {}
 
   loginOnClick() {
      this.auth.loginUser(this.emailText, this.passwordText).then(
@@ -34,10 +36,12 @@ export class LoginPage {
 
   loginSuccess() {
     console.log('success logging in');
+    // this.router.navigate(['/']);
   }
 
   loginFailure() {
     console.log('failure logging in');
+    // this.router.navigate(['/login']);
   }
 
   signUpSuccess() {

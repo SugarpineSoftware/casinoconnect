@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
-// import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  // constructor(private firestore: AngularFirestore) { }
-  constructor() {}
-  /*
+  constructor(private firestore: AngularFirestore) { }
+
   createTask() {
     return new Promise<any>((resolve, reject) => {
 
@@ -22,5 +21,4 @@ export class FirebaseService {
       );
     });
   }
-  */
 }
