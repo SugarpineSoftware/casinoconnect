@@ -37,7 +37,7 @@
         </ion-icon>
         Download QR Code
       </ion-button>
-      <!--<ion-button expand="full" routerLink="/login" routerDirection="root">Login Temp Button</ion-button>-->
+      <ion-button expand="full" (click)="logoutOnClick()">Logout Temp Button</ion-button>
     </ion-card-content>
   </ion-card>
   <ion-card *ngIf="scannedCode">

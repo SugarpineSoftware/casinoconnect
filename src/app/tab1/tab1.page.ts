@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { ToastController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -13,7 +15,11 @@ export class Tab1Page {
   qrData = 'http://www.sugarpinesoftware.com';
   scannedCode = null;
   elementType: 'url' | 'canvas' | 'img' = 'canvas';
-  constructor(private barcodeScanner: BarcodeScanner, private base64ToGallery: Base64ToGallery, private toastCtrl: ToastController) {
+  constructor(private barcodeScanner: BarcodeScanner,
+              private base64ToGallery: Base64ToGallery,
+              private toastCtrl: ToastController,
+              private auth: AngularFireAuth,
+              private router: Router) {
   }
 
   scanCode() {
@@ -24,8 +30,10 @@ export class Tab1Page {
     );
   }
 
-  login() {
-    console.log('login');
+  // logging out the user //
+  logoutOnClick() {
+    this.auth.auth.signOut();
+    this.router.navigate(['/login']);
   }
 
 
