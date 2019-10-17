@@ -43,17 +43,8 @@ export class LoginPage {
 
   loginFailure() {
     console.log('failure logging in');
-    this.presentAlert();
-  }
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Error Signing in',
-      subHeader: 'There was an error signing in',
-      message: 'Please re-enter your loggin credentials and try signing in again',
-      buttons: ['OK']
-    });
-
-    await alert.present();
+    this.presentAlert('Error Signing in', 'There was an error signing in',
+    'Please re-enter your loggin credentials and try signing in again');
   }
 
 
@@ -62,6 +53,20 @@ export class LoginPage {
   }
 
   signUpFailure() {
-    console.log('failure signing up');
+    this.presentAlert('Error Creating account', 'There was an error creating an account',
+    'Please re-enter your account credentials and try creating an account again');
+  }
+
+
+  // presenting an alert //
+  async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
+    const alert = await this.alertController.create({
+      header: fHeader,
+      subHeader: subHeaderString,
+      message: messageString,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 }
