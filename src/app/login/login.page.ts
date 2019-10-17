@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from 'src/app/firebase.service';
 import { AuthService } from 'src/app/auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Router, RouterModule } from '@angular/router';
+import { Router} from '@angular/router';
 
 
 @Component({
@@ -18,7 +17,6 @@ export class LoginPage {
 
   constructor(public service: FirebaseService,
               public auth: AuthService,
-              public fireAuth: AngularFireAuth,
               public router: Router) {}
 
   loginOnClick() {
@@ -46,7 +44,7 @@ export class LoginPage {
     // this.router.navigate(['/login']);
   }
 
-  
+
   signUpSuccess() {
     console.log('success signing up');
     this.router.navigate(['/']);
