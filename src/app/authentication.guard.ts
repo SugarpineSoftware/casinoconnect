@@ -17,6 +17,8 @@ export class AuthenticationGuard implements CanActivate  {
       this.auth.auth.onAuthStateChanged((user) => {
         if (user != null) {
           this.router.navigate(['/']);
+        } else {
+          this.router.navigate(['/login']);
         }
       });
       return true;
