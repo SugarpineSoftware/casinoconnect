@@ -7,7 +7,24 @@
 </ion-header>
 
 <ion-content>
-
+    <ion-grid>
+        <ion-row>
+            <ion-col size-md="6" offset-md="3">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>To Begin, use the Scan Code Button</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-button expand="full" (click)="scanCode()" color="secondary">
+                            <ion-icon name="qr-scanner"></ion-icon>
+                              Scan Code
+                          </ion-button>
+                    </ion-card-content>
+                </ion-card> 
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+<!--
   <ion-item>
     <ion-select placeholder="Manufacturer">
       <ion-select-option value="Bally">Bally</ion-select-option>
@@ -20,12 +37,23 @@
     <ion-segment-button value = "canvas">
         <ion-label>Canvas</ion-label>
     </ion-segment-button>
+<<<<<<< HEAD
   </ion-segment>
   <ion-button expand="full" (click)="scanCode()" color="secondary">
     <ion-icon name="qr-scanner"></ion-icon>
      Scan Code
   </ion-button>
 
+=======
+    <ion-segment-button value = "img">
+        <ion-label>Image</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value = "url">
+        <ion-label>url</ion-label>
+    </ion-segment-button>
+  </ion-segment>-->
+<!--
+>>>>>>> 28ee5051a18f3863e82d955f64f7b44f20239069
   <ion-card *ngIf="qrData" text-center>
     <ngx-qrcode [qrc-value]="qrData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">
     </ngx-qrcode>
@@ -43,5 +71,5 @@
       Result From Scan: {{ scannedCode }}
     </ion-card-content>
   </ion-card>
-
+-->
 </ion-content>
