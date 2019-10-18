@@ -21,7 +21,7 @@ const DropDownList = [Bally, IGT, Aristocrat];
 export class Tab2Page {
   qrData = 'Serial Number';
   scannedCode = null;
-  elementType: 'url' | 'canvas' | 'img' = 'canvas';
+  elementType = 'canvas';
   constructor(private barcodeScanner: BarcodeScanner,
               private base64ToGallery: Base64ToGallery,
               private toastCtrl: ToastController,

@@ -27,11 +27,7 @@
         <ion-input type="text" placeholder="Serial Number" [(ngModel)]="qrData">
         </ion-input>
     </ion-item>
-    <ion-segment [(ngModel)]="elementType">
-      <ion-segment-button value = "canvas">
-          <ion-label>Canvas</ion-label>
-      </ion-segment-button>
-    </ion-segment>
+    
     <ion-card *ngIf="qrData" text-center>
       <ngx-qrcode [qrc-value]="qrData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">
       </ngx-qrcode>
