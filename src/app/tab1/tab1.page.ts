@@ -16,8 +16,6 @@ export class Tab1Page {
   scannedCode = null;
   elementType: 'url' | 'canvas' | 'img' = 'canvas';
   constructor(private barcodeScanner: BarcodeScanner,
-              private base64ToGallery: Base64ToGallery,
-              private toastCtrl: ToastController,
               private auth: AngularFireAuth) {
   }
 
