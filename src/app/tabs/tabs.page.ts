@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/auth.service';
-import { FirebaseService } from 'src/app/firebase.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-tabs',
@@ -9,7 +8,7 @@ import { FirebaseService } from 'src/app/firebase.service';
 })
 export class TabsPage {
 
-  constructor(public auth: AuthService ) { }
+  constructor(public auth: AngularFireAuth ) { }
 
   // logging out the user //
   logoutOnClick() {

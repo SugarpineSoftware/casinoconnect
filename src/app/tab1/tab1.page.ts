@@ -25,9 +25,4 @@ export class Tab1Page {
       }
     );
   }
-
-  // logging out the user //
-  logoutOnClick() {
-    this.auth.auth.signOut();
-  }
 }
