@@ -6,11 +6,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 
 
-const Bally = {manufacture: 'Bally', type: [ 'S6000', 'S9000']};
-const IGT = {manufacture: 'IGT', type: ['S2000', 'GameKing', 'Igame', 'S3000', 'Crystal Core', 'Crystal Duo']};
-const Aristocrat = {manufacture: 'Aristocrate', type: [ 'MKVI', 'Viridian', 'Helix']};
 
-const DropDownList = [Bally, IGT, Aristocrat];
+
 
 @Component({
   selector: 'app-tab2',
@@ -27,22 +24,75 @@ export class Tab2Page {
               private toastCtrl: ToastController,
               private auth: AngularFireAuth) {
   }
-  machines: any[] = [
+  public manu: any[];
+  public type: any[];
+
+  public selectedManu: any[];
+  public selectedType: any[];
+
+  public sManu: any;
+  public sType: any;
+
+
+  public fullQrData: string;
+
+  manufacturers: any[] = [
     {
-      manufacture: 'Bally',
-      type: ['S6000','S9000']
+      id:0,
+      manufacture: 'Bally'
     },
     {
-      manufacture: 'IGT',
-      type: ['S2000','Gameking']
+      id:1,
+      manufacture: 'IGT'
+    },
+    { id:2,
+      manufacture: 'Aristocrat'
+    }
+  ];
+  types: any[] = [
+    {
+      manuId:0,
+      type:'S6000'
     },
     {
-      manufacture: 'Aristocrat',
-      type: ['MKVI','Helix']
+      manuId:0,
+      type:'S9000'
+    },
+    {
+      manuId:1,
+      type:'S2000'
+    },
+    {
+      manuId:1,
+      type:'Gameking'
+    },
+    {
+      manuId:2,
+      type:'MKVI'
+    },
+    {
+      manuId:2,
+      type:'Viridian'
+    },    {
+      manuId:2,
+      type:'Helix'
     }
   ];
 
+  // Not Working Trying to get only types belonging to manufacturer
+  setTypeValue(sManu){
+    this.selectedType = this.types.filter(type => type.manuId == this.sManu.id);
+  }
+
+
   downloadQR() {
+    
+    //Not Working Combine All Info
+    this.fullQrData = this.manufacturers[this.sManu].manufacture + "/"+ this.types[this.sType].type + "/" + this.qrData;
+    console.log(this.fullQrData);
+    
+    
+    
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL('image/png').toString();
 
