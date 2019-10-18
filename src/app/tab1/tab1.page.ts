@@ -23,7 +23,7 @@ export class Tab1Page {
   scanCode() {
     this.barcodeScanner.scan().then(
       barcodeData => {
-        this.scannedCode = barcodeData.text;
+        // this.scannedCode = barcodeData.text;
       }
     );
   }
@@ -38,7 +38,6 @@ export class Tab1Page {
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL('image/png').toString();
 
-    // let data = imageData.split(',')[1];
     const data = imageData.split(',')[1];
 
     this.base64ToGallery.base64ToGallery(data,
