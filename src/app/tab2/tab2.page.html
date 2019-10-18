@@ -1,9 +1,52 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Generate QR
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content></ion-content>
+    <ion-toolbar>
+      <ion-title>
+        Generate QR
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-item>
+      <ion-select placeholder="Manufacturer">
+        <ion-select-option value="Bally">Bally</ion-select-option>
+        <ion-select-option value="IGT">IGT</ion-select-option>
+        <ion-select-option value="Aristocrat">Aristocrat</ion-select-option>
+        <ion-select-option value="Everi">Everi</ion-select-option>
+        <ion-select-option value="Konami">Konami</ion-select-option>
+        <ion-select-option value="Incredible Technologies">Incredible Technologies</ion-select-option>
+        <ion-select-option value="Interblock">Interblock</ion-select-option>
+        <ion-select-option value="Ainsworth">Ainsworth</ion-select-option>
+        <ion-select-option value="Other">Other</ion-select-option>
+      </ion-select>
+      <ion-select placeholder="Type">
+          <ion-select-option value="Bally">Bally</ion-select-option>
+          <ion-select-option value="IGT">IGT</ion-select-option>
+        </ion-select>
+        <ion-input type="text" placeholder="Serial Number" [(ngModel)]="qrData">
+        </ion-input>
+    </ion-item>
+    <ion-segment [(ngModel)]="elementType">
+      <ion-segment-button value = "canvas">
+          <ion-label>Canvas</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <ion-card *ngIf="qrData" text-center>
+      <ngx-qrcode [qrc-value]="qrData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">
+      </ngx-qrcode>
+      <ion-card-content>
+        <ion-button expand="full" color="tertiary" (click)="downloadQR()" *ngIf="elementType === 'canvas'">
+          <ion-icon name="download" slot="start">
+          </ion-icon>
+          Download QR Code
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="scannedCode">
+      <ion-card-content>
+        Result From Scan: {{ scannedCode }}
+      </ion-card-content>
+    </ion-card>
+  
+  </ion-content>

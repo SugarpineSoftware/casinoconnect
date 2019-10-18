@@ -5,6 +5,7 @@ import { ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 
+<<<<<<< HEAD
 
 const Bally = {manufacture: 'Bally', type: [ 'S6000', 'S9000']};
 const IGT = {manufacture: 'IGT', type: ['S2000', 'GameKing', 'Igame', 'S3000', 'Crystal Core', 'Crystal Duo']};
@@ -12,6 +13,8 @@ const Aristocrat = {manufacture: 'Aristocrat', type: [ 'MKVI', 'Viridian', 'Heli
 
 const DropDownList = [Bally, IGT, Aristocrat];
 
+=======
+>>>>>>> a6e8a2d6faba9547b5228e9f7378b495b789eddf
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -39,23 +42,5 @@ export class Tab1Page {
   // logging out the user //
   logoutOnClick() {
     this.auth.auth.signOut();
-  }
-
-
-  downloadQR() {
-    const canvas = document.querySelector('canvas') as HTMLCanvasElement;
-    const imageData = canvas.toDataURL('image/png').toString();
-
-    const data = imageData.split(',')[1];
-
-    this.base64ToGallery.base64ToGallery(data,
-      { prefix: '_img', mediaScanner: true})
-      .then(async res => {
-        const toast = await this.toastCtrl.create({
-          header: 'QR Code saved'
-        });
-        toast.present();
-      }, err => console.log('err: ', err)
-      );
   }
 }
