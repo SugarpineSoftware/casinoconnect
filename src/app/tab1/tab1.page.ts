@@ -8,7 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 const Bally = {manufacture: 'Bally', type: [ 'S6000', 'S9000']};
 const IGT = {manufacture: 'IGT', type: ['S2000', 'GameKing', 'Igame', 'S3000', 'Crystal Core', 'Crystal Duo']};
-const Aristocrat = {manufacture: 'Aristocrate', type: [ 'MKVI', 'Viridian', 'Helix']};
+const Aristocrat = {manufacture: 'Aristocrat', type: [ 'MKVI', 'Viridian', 'Helix']};
 
 const DropDownList = [Bally, IGT, Aristocrat];
 
