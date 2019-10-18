@@ -27,6 +27,20 @@ export class Tab2Page {
               private toastCtrl: ToastController,
               private auth: AngularFireAuth) {
   }
+  MachineArray: any[] = [
+    {
+      manufacture: 'Bally',
+      type: ['S6000','S9000']
+    },
+    {
+      manufacture: 'IGT',
+      type: ['S2000','Gameking']
+    },
+    {
+      manufacture: 'Aristocrat',
+      type: ['MKVI','Helix']
+    }
+  ];
 
   downloadQR() {
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
