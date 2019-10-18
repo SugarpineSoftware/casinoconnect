@@ -9,9 +9,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
+var Bally= {manufacture: "Bally", type:["S6000","S9000"]};
+var IGT= {manufacture:"IGT", type: ["S2000","GameKing","Igame","S3000","Crystal Core","Crystal Duo"]};
+var Aristocrat= {manufacture:"Aristocrate", type:["MKVI","Viridian","Helix"]};
 
+var DropDownList =[Bally, IGT, Aristocrat];
 export class Tab1Page {
-  qrData = 'http://www.sugarpinesoftware.com';
+  qrData = 'Serial Number';
   scannedCode = null;
   elementType: 'url' | 'canvas' | 'img' = 'canvas';
   constructor(private barcodeScanner: BarcodeScanner,

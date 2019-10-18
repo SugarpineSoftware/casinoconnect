@@ -9,18 +9,16 @@
 <ion-content>
 
   <ion-item>
-      <ion-input type="text" placeholder="QR Data" [(ngModel)]="qrData">
+    <ion-select placeholder="Manufacturer">
+      <ion-select-option value="Bally">Bally</ion-select-option>
+      <ion-select-option value="IGT">IGT</ion-select-option>
+    </ion-select>
+      <ion-input type="text" placeholder="Serial Number" [(ngModel)]="qrData">
       </ion-input>
   </ion-item>
   <ion-segment [(ngModel)]="elementType">
     <ion-segment-button value = "canvas">
         <ion-label>Canvas</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value = "img">
-        <ion-label>Image</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value = "url">
-        <ion-label>url</ion-label>
     </ion-segment-button>
   </ion-segment>
   <ion-button expand="full" (click)="scanCode()" color="secondary">
