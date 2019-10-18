@@ -4,17 +4,6 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 
-
-<<<<<<< HEAD
-
-const Bally = {manufacture: 'Bally', type: [ 'S6000', 'S9000']};
-const IGT = {manufacture: 'IGT', type: ['S2000', 'GameKing', 'Igame', 'S3000', 'Crystal Core', 'Crystal Duo']};
-const Aristocrat = {manufacture: 'Aristocrat', type: [ 'MKVI', 'Viridian', 'Helix']};
-
-const DropDownList = [Bally, IGT, Aristocrat];
-
-=======
->>>>>>> a6e8a2d6faba9547b5228e9f7378b495b789eddf
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
