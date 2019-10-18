@@ -9,23 +9,11 @@
   <ion-content>
   
     <ion-item>
-      <ion-select placeholder="Manufacturer">
-        <ion-select-option value="Bally">Bally</ion-select-option>
-        <ion-select-option value="IGT">IGT</ion-select-option>
-        <ion-select-option value="Aristocrat">Aristocrat</ion-select-option>
-        <ion-select-option value="Everi">Everi</ion-select-option>
-        <ion-select-option value="Konami">Konami</ion-select-option>
-        <ion-select-option value="Incredible Technologies">Incredible Technologies</ion-select-option>
-        <ion-select-option value="Interblock">Interblock</ion-select-option>
-        <ion-select-option value="Ainsworth">Ainsworth</ion-select-option>
-        <ion-select-option value="Other">Other</ion-select-option>
+      <ion-label>Manufacture</ion-label>
+      <ion-select>
+        <ion-select-option *ngFor="let machine of machines">{{machine.manufacture}}</ion-select-option>
+        
       </ion-select>
-      <ion-select placeholder="Type">
-          <ion-select-option value="Bally">Bally</ion-select-option>
-          <ion-select-option value="IGT">IGT</ion-select-option>
-        </ion-select>
-        <ion-input type="text" placeholder="Serial Number" [(ngModel)]="qrData">
-        </ion-input>
     </ion-item>
     
     <ion-card *ngIf="qrData" text-center>

@@ -27,7 +27,7 @@ export class Tab2Page {
               private toastCtrl: ToastController,
               private auth: AngularFireAuth) {
   }
-  MachineArray: any[] = [
+  machines: any[] = [
     {
       manufacture: 'Bally',
       type: ['S6000','S9000']
