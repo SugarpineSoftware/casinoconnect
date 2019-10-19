@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 
+
 @NgModule({
   imports: [
     IonicModule,

@@ -3,6 +3,7 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
+import * as CryptoJS from 'crypto-js';
 
 
 @Component({
@@ -29,8 +30,9 @@ export class Tab2Page {
   public sManu: any;
   public sType: any;
 
-
-  
+  private SECRET_KEY: string = "LodonGreen";
+  public encryptQrData: string;
+  public decryptQrData: string;
   public fullQrData: string;
 
   manufacturers: any[] = [
@@ -82,16 +84,18 @@ export class Tab2Page {
   }
 
   test(){
-    console.log(this.sManu.manufacture);
-    
+    this.fullQrData = this.sManu.manufacture + "/" + this.sType.type +"/"+ this.qrData;
+   this.encryptQrData = CryptoJS.AES.encrypt(this.fullQrData, this.SECRET_KEY).toString();
+    this.decryptQrData = CryptoJS.AES.decrypt(this.encryptQrData,this.SECRET_KEY).toString(CryptoJS.enc.Utf8);
+    console.log(this.encryptQrData);
+    console.log(this.decryptQrData);
   }
+
 
   downloadQR() {
     
-   this.test();
-    
-    this.fullQrData = this.sManu.manufacture + "/" + this.sType.type +"/"+ this.qrData;
-    console.log(this.fullQrData);
+  this.test();
+  
     
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL('image/png').toString();
