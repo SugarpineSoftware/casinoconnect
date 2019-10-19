@@ -5,10 +5,6 @@ import { ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 
-
-
-
-
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -34,6 +30,7 @@ export class Tab2Page {
   public sType: any;
 
 
+  
   public fullQrData: string;
 
   manufacturers: any[] = [
@@ -81,11 +78,12 @@ export class Tab2Page {
 
   // Not Working Trying to get only types belonging to manufacturer
   setTypeValue(sManu){
-    this.selectedType = this.types.filter(type => type.manuId == sManu.id);
+    this.selectedType = this.types.filter(type => type.manuId === sManu.id);
   }
 
   test(){
     console.log(this.sManu.manufacture);
+    
   }
 
   downloadQR() {
