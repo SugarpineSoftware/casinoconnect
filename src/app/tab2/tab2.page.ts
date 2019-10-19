@@ -78,9 +78,7 @@ export class Tab2Page {
 
   // Uses The Value Of The Manufacturer Dropdown To Create The Type Array
   setTypeValue(sManu){
-    console.log(sManu.id);
     this.selectedType = this.types.filter(type => type.manuId === sManu.id); 
-  
   }
 
   test(){
@@ -91,25 +89,27 @@ export class Tab2Page {
     console.log(this.decryptQrData);
   }
 
+  //just for creating qr
+  createQR(){
+    this.fullQrData = this.sManu.manufacture + "/" + this.sType.type +"/"+ this.qrData;
+   this.encryptQrData = CryptoJS.AES.encrypt(this.fullQrData, this.SECRET_KEY).toString();
 
-  downloadQR() {
-    
-  this.test();
-  
-    
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL('image/png').toString();
-
     const data = imageData.split(',')[1];
+  }
 
-    this.base64ToGallery.base64ToGallery(data,
-      { prefix: '_img', mediaScanner: true})
-      .then(async res => {
-        const toast = await this.toastCtrl.create({
-          header: 'QR Code saved'
-        });
-        toast.present();
-      }, err => console.log('err: ', err)
-      );
+  // this should appear after the qr is created
+  downloadQR() {
+    
+    const canvas = document.querySelector('canvas') as HTMLCanvasElement;
+    const imageData = canvas.toDataURL().toString();
+
+    const base64Data = imageData.split(',')[1];
+    this.base64ToGallery
+    .base64ToGallery(base64Data).then(
+    res => console.log('Saved image to gallery:', res),
+    err => console.log('Error saving image to gallery:', err)
+  );
   }
 }

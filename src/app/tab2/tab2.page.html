@@ -31,14 +31,13 @@
         <ion-button expand="full" color="tertiary" (click)="downloadQR()" *ngIf="elementType === 'canvas'">
           <ion-icon name="download" slot="start">
           </ion-icon>
-          Update QR
+          Download QR
         </ion-button>
+        <ion-button expand="full" color="tertiary" (click)="createQR()" *ngIf="elementType === 'canvas'">
+            <ion-icon name="download" slot="start">
+            </ion-icon>
+            Update QR
+          </ion-button>
       </ion-card-content>
     </ion-card>
-    <ion-card *ngIf="scannedCode">
-      <ion-card-content>
-        Result From Scan: {{ scannedCode }}
-      </ion-card-content>
-    </ion-card>
-  
   </ion-content>
