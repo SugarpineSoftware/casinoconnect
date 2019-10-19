@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as CryptoJS from 'crypto-js';
 import { AlertController } from '@ionic/angular';
@@ -15,8 +13,6 @@ import { AlertController } from '@ionic/angular';
 
 export class Tab1Page {
   qrData = 'Serial Number';
-  scannedCode = null;
-  elementType: 'url' | 'canvas' | 'img' = 'canvas';
   constructor(private barcodeScanner: BarcodeScanner,
               private auth: AngularFireAuth,
               public alertController: AlertController) {
@@ -41,7 +37,6 @@ export class Tab1Page {
   scanCode() {
     this.barcodeScanner.scan().then(
       barcodeData => {
-         this.scannedCode = barcodeData.text;
          this.encrypted = barcodeData.text;
          this.codeDecryption();
          this.presentAlert();
