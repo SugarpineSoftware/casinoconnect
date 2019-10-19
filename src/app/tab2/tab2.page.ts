@@ -81,17 +81,19 @@ export class Tab2Page {
 
   // Not Working Trying to get only types belonging to manufacturer
   setTypeValue(sManu){
-    this.selectedType = this.types.filter(type => type.manuId == this.sManu.id);
+    this.selectedType = this.types.filter(type => type.manuId == sManu.id);
   }
 
+  test(){
+    console.log(this.sManu.manufacture);
+  }
 
   downloadQR() {
     
-    //Not Working Combine All Info
-    this.fullQrData = this.manufacturers[this.sManu].manufacture + "/"+ this.types[this.sType].type + "/" + this.qrData;
+   this.test();
+    
+    this.fullQrData = this.sManu.manufacture + "/" + this.sType.type +"/"+ this.qrData;
     console.log(this.fullQrData);
-    
-    
     
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL('image/png').toString();
