@@ -18,7 +18,7 @@
     <ion-item *ngIf="selectedType">
         <ion-label>Type</ion-label>
         <ion-select [(ngModel)] ="sType">
-          <ion-select-option [value]="sType" *ngFor="let sType of types">{{sType.type}}</ion-select-option>
+          <ion-select-option [value]="sType" *ngFor="let sType of selectedType">{{sType.type}}</ion-select-option>
         </ion-select>
       </ion-item>
     <ion-item>

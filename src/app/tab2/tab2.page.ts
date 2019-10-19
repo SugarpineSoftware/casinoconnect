@@ -80,7 +80,9 @@ export class Tab2Page {
 
   // Not Working Trying to get only types belonging to manufacturer
   setTypeValue(sManu){
-    this.selectedType = this.types.filter(type => type.manuId === sManu.id);
+    console.log(sManu.id);
+    this.selectedType = this.types.filter(type => type.manuId === sManu.id); 
+  
   }
 
   test(){
