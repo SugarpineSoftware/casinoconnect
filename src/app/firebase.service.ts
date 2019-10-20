@@ -21,4 +21,9 @@ export class FirebaseService {
       );
     });
   }
+
+
+  newScan(newScanString) {
+
+  }
 }

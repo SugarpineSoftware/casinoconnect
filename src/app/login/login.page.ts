@@ -3,7 +3,6 @@ import { FirebaseService } from 'src/app/firebase.service';
 import { AuthService } from 'src/app/auth.service';
 import { Router} from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { Alert } from '../../../node_modules/@types/selenium-webdriver';
 
 
 @Component({
