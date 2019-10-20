@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { AngularFireAuth } from '@angular/fire/auth';
 import * as CryptoJS from 'crypto-js';
 import { AlertController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/firebase.service';
@@ -25,6 +24,9 @@ export class Tab1Page {
   codeDecryption() {
     this.decrypted = CryptoJS.AES.decrypt(this.encrypted, this.SECRET_KEY).toString(CryptoJS.enc.Utf8);
   }
+
+
+  /*
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'QR Data',
@@ -35,22 +37,32 @@ export class Tab1Page {
 
     await alert.present();
   }
-
+  */
   async presentAlertPrompt() {
     const alert = await this.alertController.create({
       header: 'Prompt!',
       buttons: [
-        {
+         {
+          text: 'Machine Info',
+          handler: () => {
+            console.log('Confirm Ok');
+          }
+        }, {
+          text: 'Forum',
+          handler: () => {
+            console.log('Confirm Ok');
+          }
+        }, {
+          text: 'Slot Wiki',
+          handler: () => {
+            console.log('Confirm Ok');
+          }
+        }, {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
             console.log('Confirm Cancel');
-          }
-        }, {
-          text: 'Ok',
-          handler: () => {
-            console.log('Confirm Ok');
           }
         }
       ]
@@ -63,7 +75,6 @@ export class Tab1Page {
       barcodeData => {
          this.encrypted = barcodeData.text;
          this.codeDecryption();
-         // this.presentAlert();
          this.presentAlertPrompt();
       }
     );
