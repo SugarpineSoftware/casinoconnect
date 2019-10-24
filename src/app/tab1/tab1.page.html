@@ -19,9 +19,14 @@
                             <ion-icon name="qr-scanner"></ion-icon>
                              Scan Code
                           </ion-button>
+                          <tr *ngFor="let order of payload">
+                            <td>{{ order.cabinet }}</td>
+                        </tr>
                     </ion-card-content>
                 </ion-card> 
             </ion-col>
         </ion-row>
     </ion-grid>
+      
+    
 </ion-content>

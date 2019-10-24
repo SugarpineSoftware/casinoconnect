@@ -20,13 +20,16 @@ export class Tab1Page {
 
   public encrypted: string;
   public decrypted: string;
+  public payload;
   private SECRET_KEY = 'LodonGreen';
+
   codeDecryption() {
     this.decrypted = CryptoJS.AES.decrypt(this.encrypted, this.SECRET_KEY).toString(CryptoJS.enc.Utf8);
   }
 
 
-  /*
+
+
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'QR Data',
@@ -37,45 +40,19 @@ export class Tab1Page {
 
     await alert.present();
   }
-  */
-  async presentAlertPrompt() {
-    const alert = await this.alertController.create({
-      header: 'Prompt!',
-      buttons: [
-         {
-          text: 'Machine Info',
-          handler: () => {
-            console.log('Confirm Ok');
-          }
-        }, {
-          text: 'Forum',
-          handler: () => {
-            console.log('Confirm Ok');
-          }
-        }, {
-          text: 'Slot Wiki',
-          handler: () => {
-            console.log('Confirm Ok');
-          }
-        }, {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
-        }
-      ]
-    });
 
-    await alert.present();
-  }
   scanCode() {
     this.barcodeScanner.scan().then(
       barcodeData => {
-         this.encrypted = barcodeData.text;
-         this.codeDecryption();
-         this.presentAlertPrompt();
+        this.encrypted = barcodeData.text;
+        this.codeDecryption();
+        this.firebase.newScan(this.decrypted).subscribe(res => {
+          this.payload = res.map(a => {
+            return {
+              cabinet: a.payload.doc.data().cabinet
+            };
+          });
+        });
       }
     );
   }
