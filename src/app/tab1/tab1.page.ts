@@ -50,7 +50,8 @@ export class Tab1Page {
         this.codeDecryption();
 
 
-
+        // accessing the firebase firestore and returning the information within //
+        // the snapshot taken in firebase.service.ts //
         this.firebase.newScan(this.decrypted).subscribe(res => {
           this.payload = res.map(a => {
             return {
