@@ -20,6 +20,8 @@ export class Tab1Page {
 
   public encrypted: string;
   public decrypted: string;
+
+  // holds all the return information from firebase firestore //
   public payload;
   private SECRET_KEY = 'LodonGreen';
 
@@ -46,6 +48,9 @@ export class Tab1Page {
       barcodeData => {
         this.encrypted = barcodeData.text;
         this.codeDecryption();
+
+
+
         this.firebase.newScan(this.decrypted).subscribe(res => {
           this.payload = res.map(a => {
             return {

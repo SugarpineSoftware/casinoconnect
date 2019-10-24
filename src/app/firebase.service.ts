@@ -28,8 +28,7 @@ export class FirebaseService {
       .doc(manufacture)
       .collection('Cabinet')
       .doc(model)
-      .collection('Info')
-      .snapshotChanges();
+      .collection('Info', ref => ref.where('serial', '==', serial)).snapshotChanges();
   }
 }
 
