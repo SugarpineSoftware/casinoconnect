@@ -6,4 +6,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <i-card *ngFor="let topic of topics">
+    <ion-card-title>
+      {{topic.title}}
+    </ion-card-title>
+  </i-card>
+</ion-content>

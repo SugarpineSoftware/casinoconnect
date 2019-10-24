@@ -5,10 +5,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 @Injectable({
   providedIn: 'root'
 })
+
 export class FirebaseService {
 
   constructor(private firestore: AngularFirestore) { }
 
+  
 
 
   // brings up the information about the scanned QR code //
@@ -20,6 +22,7 @@ export class FirebaseService {
     const manufacture = scanStringArray[0];
     const model = scanStringArray[1];
     const serial = scanStringArray[2];
+    
 
     // /Company/Sugarpine Slots/Manufacturer/Bally/Cabinet/S6000/Info/123456789
     return this.firestore.collection('Company')
