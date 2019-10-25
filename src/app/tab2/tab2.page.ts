@@ -22,21 +22,21 @@ export class Tab2Page {
   }
 
 
-  //this is the array that is created for the drop down lists of trypes when the manufacturer is selected 
+  // this is the array that is created for the drop down lists of trypes when the manufacturer is selected
   public selectedType: any[];
 
-  //this is the selected manufacturer for the drop down list
+  // this is the selected manufacturer for the drop down list
   public sManu: any;
-  //this is the selected type for the drop down
+  // this is the selected type for the drop down
   public sType: any;
 
-  //this is our AES encryption is based off of 
+  // this is our AES encryption is based off of
   private SECRET_KEY = 'LodonGreen';
 
-  //this string is the encrypted version of "fullQrData" string
+  // this string is the encrypted version of "fullQrData" string
   public encryptQrData: string;
 
-  //this is a string created from the manufacturer / type / serialnumber
+  // this is a string created from the manufacturer / type / serialnumber
   public fullQrData: string;
 
   // Manufacturers of Machines array used for dropdown selectors while creating QR
@@ -98,7 +98,7 @@ export class Tab2Page {
     const data = imageData.split(',')[1];
   }
 
-  //THIS NEEDS WORK!!!
+  // THIS NEEDS WORK!!!
   // this should give the user the ability to save the qr code in a designated location
   // this should appear after the qr is created
   downloadQR() {
