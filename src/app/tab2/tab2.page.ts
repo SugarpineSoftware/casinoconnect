@@ -88,6 +88,10 @@ export class Tab2Page {
     this.selectedType = this.types.filter(type => type.manuId === sManu.id);
   }
 
+  test(){
+    console.log(this.encryptQrData);
+  }
+
   // takes "fullQrData" and encrypts the data into "encryptQrData" then creates the QR code out of the encrypted data
   createQR() {
     this.fullQrData = this.sManu.manufacture + '/' + this.sType.type + '/' + this.qrData;
@@ -96,6 +100,8 @@ export class Tab2Page {
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL('image/png').toString();
     const data = imageData.split(',')[1];
+    this.test();
+    
   }
 
   // THIS NEEDS WORK!!!
