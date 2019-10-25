@@ -7,9 +7,28 @@
 </ion-header>
 
 <ion-content>
-  <i-card *ngFor="let topic of topics">
+  <ion-card>
     <ion-card-title>
-      {{topic.title}}
+      Wiki
     </ion-card-title>
-  </i-card>
+    <ion-card-content>
+      <ion-button expand="full">
+        Clear Guides
+      </ion-button>
+      <ion-button expand="full">
+        Troubleshooting Guides
+      </ion-button>
+      <ion-button expand="full">
+        Repair Guides
+      </ion-button>
+      <ion-button expand="full">
+        Parts List
+      </ion-button>
+      <ion-button expand="full">
+        Schematics
+      </ion-button>
+      
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

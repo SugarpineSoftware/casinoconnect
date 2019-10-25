@@ -11,21 +11,9 @@ export class Tab3Page {
   constructor(
     private firebase: FirebaseService
   ) {
-    
+    var unreadInt:number = 5;
   }
 
- ngOnInit(){
-  db.collection("cities").where("capital", "==", true)
-  .get()
-  .then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-      });
-  })
-  .catch(function(error) {
-      console.log("Error getting documents: ", error);
-  });
- }
+
 
 }
