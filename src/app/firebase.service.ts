@@ -11,6 +11,9 @@ export class FirebaseService {
 
 
 
+  pullWiki(){
+    return this.firestore.collection('Company').doc('Sugarpine Slots').collection("Wiki");
+  }
 
   // brings up the information about the scanned QR code //
   newScan(newScanString) {

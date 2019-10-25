@@ -13,10 +13,11 @@ export class Tab3Page {
   constructor(
     private firebase: FirebaseService
   ) {
-
+    var unreadInt:number = 5;
   }
 
 
+<<<<<<< HEAD
 
  OnInit() {
     this.firebase.bringUpListOfWikiTopics('Sugarpine Slots').subscribe(res => {
@@ -40,5 +41,7 @@ export class Tab3Page {
   */
  }
 
+=======
+>>>>>>> b90b13b3c0ce81048226d207da50b066551501c0
 
 }
