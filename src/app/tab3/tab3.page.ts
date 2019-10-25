@@ -8,6 +8,8 @@ import { FirebaseService } from 'src/app/firebase.service';
 })
 export class Tab3Page {
 
+    payload;
+
   constructor(
     private firebase: FirebaseService
   ) {
@@ -15,8 +17,15 @@ export class Tab3Page {
   }
 
 
-  /*
- ngOnInit(){
+
+ OnInit() {
+    this.firebase.bringUpListOfWikiTopics('Sugarpine Slots').subscribe(res => {
+        this.payload = res.map(a => {
+          console.log(a);
+        });
+      });
+
+    /*
   db.collection("cities").where("capital", "==", true)
   .get()
   .then(function(querySnapshot) {
@@ -28,7 +37,8 @@ export class Tab3Page {
   .catch(function(error) {
       console.log("Error getting documents: ", error);
   });
+  */
  }
- */
+
 
 }

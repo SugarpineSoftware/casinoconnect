@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';  
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
@@ -22,6 +22,10 @@ export class FirebaseService {
     const model = scanStringArray[1];
     const serial = scanStringArray[2];
 
+
+
+
+
     // /Company/Sugarpine Slots/Manufacturer/Bally/Cabinet/S6000/Info/123456789
     return this.firestore.collection('Company')
       .doc('Sugarpine Slots')
@@ -31,5 +35,20 @@ export class FirebaseService {
       .doc(model)
       .collection('Info', ref => ref.where('serial', '==', serial)).snapshotChanges();
   }
+
+
+
+
+  bringUpListOfWikiTopics(companyName) {
+    return this.firestore.collection('Company')
+    .doc(companyName)
+    .collection('Wiki').snapshotChanges();
+  }
+
+
+
+
+
+
 }
 
