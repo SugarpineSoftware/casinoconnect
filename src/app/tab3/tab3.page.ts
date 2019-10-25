@@ -11,9 +11,11 @@ export class Tab3Page {
   constructor(
     private firebase: FirebaseService
   ) {
-    
+
   }
 
+
+  /*
  ngOnInit(){
   db.collection("cities").where("capital", "==", true)
   .get()
@@ -27,5 +29,6 @@ export class Tab3Page {
       console.log("Error getting documents: ", error);
   });
  }
+ */
 
 }
