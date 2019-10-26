@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/firebase.service';
 import { AuthService } from 'src/app/auth.service';
 import { Router} from '@angular/router';
@@ -10,7 +10,7 @@ import { AlertController } from '@ionic/angular';
   templateUrl: 'login.page.html',
   styleUrls: ['login.page.scss'],
 })
-export class LoginPage {
+export class LoginPage{
 
    emailText: string;
    passwordText: string;
@@ -20,6 +20,9 @@ export class LoginPage {
               public auth: AuthService,
               public router: Router,
               public alertController: AlertController) {}
+
+
+  
 
   loginOnClick() {
      this.auth.loginUser(this.emailText, this.passwordText).then(

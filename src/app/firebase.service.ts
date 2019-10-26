@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';  
+import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
@@ -11,8 +11,8 @@ export class FirebaseService {
 
 
 
-  pullWiki(){
-    return this.firestore.collection('Company').doc('Sugarpine Slots').collection("Wiki");
+  pullWiki() {
+    return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Wiki');
   }
 
   // brings up the information about the scanned QR code //

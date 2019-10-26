@@ -88,7 +88,7 @@ export class Tab2Page {
     this.selectedType = this.types.filter(type => type.manuId === sManu.id);
   }
 
-  test(){
+  test() {
     console.log(this.encryptQrData);
   }
 
@@ -101,7 +101,6 @@ export class Tab2Page {
     const imageData = canvas.toDataURL('image/png').toString();
     const data = imageData.split(',')[1];
     this.test();
-    
   }
 
   // THIS NEEDS WORK!!!
