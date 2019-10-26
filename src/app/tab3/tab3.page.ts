@@ -15,9 +15,12 @@ export class Tab3Page implements OnInit {
   constructor(private firebase: FirebaseService) {
     }
 
+<<<<<<< HEAD
     ngOnInit() {
         console.log('in here...');
     }
+=======
+>>>>>>> 1a386bc494ef71b0688ee57fe335074f6bde54be
 
     ionViewWillEnter() {
         this.firebase.bringUpListOfWikiTopics('Sugarpine Slots').subscribe(res => {
