@@ -9,22 +9,11 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
-      <ion-button expand="full">
-        Clear Guides
-      </ion-button>
-      <ion-button expand="full">
-        Troubleshooting Guides
-      </ion-button>
-      <ion-button expand="full">
-        Repair Guides
-      </ion-button>
-      <ion-button expand="full">
-        Parts List
-      </ion-button>
-      <ion-button expand="full">
-        Schematics
-      </ion-button>
-      
+      <tr *ngFor="let order of payload">
+        <td><ion-button expand="full">
+          {{order.name}}
+        </ion-button></td>
+    </tr>
     </ion-card-content>
   </ion-card>
   

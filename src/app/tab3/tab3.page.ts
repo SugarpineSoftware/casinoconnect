@@ -10,41 +10,25 @@ import { FirebaseService } from 'src/app/firebase.service';
 
 export class Tab3Page implements OnInit {
 
-    payload;
+    public payload;
 
   constructor(private firebase: FirebaseService) {
     }
 
     ngOnInit() {
-        console.log('in here...');
+      console.log('in here...');
     }
 
+    // called when the view loads //
     ionViewWillEnter() {
-        this.firebase.bringUpListOfWikiTopics('Sugarpine Slots').subscribe(res => {
-            this.payload = res.map(a => {
-              console.log('Hey there -> ' + a);
-            });
+      console.log('in here........ Yup');
+        // brings up a list of wiki topics for the buttons //
+      this.firebase.bringUpListOfWikiTopics('Sugarpine Slots').subscribe(res => {
+        this.payload = res.map(a => {
+          return {
+            name: a.payload.doc.data().name
+          };
         });
-    }
-
-
-
-
-
-
-    /*
-  db.collection("cities").where("capital", "==", true)
-  .get()
-  .then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-      });
-  })
-  .catch(function(error) {
-      console.log("Error getting documents: ", error);
-  });
-  */
-
-
+    });
+  }
 }
