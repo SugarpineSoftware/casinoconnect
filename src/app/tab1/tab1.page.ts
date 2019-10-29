@@ -53,7 +53,12 @@ export class Tab1Page {
         this.firebase.newScan(this.decrypted).subscribe(res => {
           this.payload = res.map(a => {
             return {
-              cabinet: a.payload.doc.data().cabinet
+              cabinet: a.payload.doc.data().cabinet,
+              theme: a.payload.doc.data().theme,
+              machine_number: a.payload.doc.data().machine_number,
+              bank: a.payload.doc.data().bank,
+              asset_number: a.payload.doc.data().asset_number,
+              manufacture: a.payload.doc.data().manufacture
             };
           });
         });

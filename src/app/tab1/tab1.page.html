@@ -7,38 +7,66 @@
 </ion-header>
 
 <ion-content>
-    <!--<ion-grid>
-        <ion-row>
-            <ion-col size-md="6" offset-md="3">
-                <ion-card>
-                    <ion-card-header>
-                        <ion-card-title>To get started, click Scan Code</ion-card-title>
-                    </ion-card-header>
-                    <ion-card-content>
-                        
-
-                            
-                    </ion-card-content>
-                </ion-card> 
-                
-            </ion-col>
-        </ion-row>
-    </ion-grid>-->
-    <div>
-        <!--expand="full"-->
-        <ion-button (click)="scanCode()" color="secondary" id="scan-button">
-            <ion-icon name="qr-scanner"></ion-icon>
-            Scan
-        </ion-button>
-    </div>
-      
     
+    <!--<tr *ngFor="let info of payload">
+        <td>-->
+            <ion-grid>
+
+                <!-- start of the header card -->
+                <ion-row>
+                    <ion-col>
+                        <ion-card id="header-card">
+                            <ion-card-header>
+                                <!--
+                                <ion-card-title>{{info.theme}}</ion-card-title>
+                                <ion-card-subtitle>Bank: {{info.bank}}, Machine: {{info.machine_number}}, Asset: {{info.asset_number}}</ion-card-subtitle>
+                                <ion-card-subtitle>{{info.manufacture}}, {{info.cabinet}}</ion-card-subtitle>-->
+                            </ion-card-header>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+
+                <!-- start of the grid array of buttons card -->
+                <ion-row>
+                    <ion-col col-md-6>
+                        <ion-card>
+                            <ion-grid id="button-grid">
+                                <ion-row>
+                                    <ion-col size="lg">
+                                        <div class="grid-button-class">
+                                            <ion-button id="forum-button" >Forum</ion-button>
+                                        </div>
+                                    </ion-col>
+                                    <ion-col size="lg">
+                                        <div class="grid-button-class">
+                                            <ion-button id="more-info-button" >More Info</ion-button>
+                                        </div>
+                                    </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                    <ion-col size="lg">
+                                        <div class="grid-button-class">
+                                            <ion-button id="wiki-button" >Wiki</ion-button>
+                                        </div>
+                                    </ion-col>
+                                    <ion-col size="lg">
+                                        <div class="grid-button-class">
+                                            <ion-button id="misc-button" style="width: 100%;">Misc</ion-button>
+                                        </div>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        <!--</td>
+    </tr>-->
+    
+
+    
+    <ion-button (click)="scanCode()" color="secondary" id="scan-button">
+        <ion-icon name="qr-scanner"></ion-icon>
+        Scan
+    </ion-button>
 </ion-content>
-
-
-
-<!-- runs through the return array of 'payload' -->
-                            <!-- and gives us a read out of cabinet -->
-                            <!--<tr *ngFor="let order of payload">
-                                <td>{{ order.cabinet }}</td>
-                            </tr>-->
