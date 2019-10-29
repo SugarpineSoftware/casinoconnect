@@ -48,8 +48,6 @@ export class Tab1Page {
       barcodeData => {
         this.encrypted = barcodeData.text;
         this.codeDecryption();
-
-
         // accessing the firebase firestore and returning the information within //
         // the snapshot taken in firebase.service.ts //
         this.firebase.newScan(this.decrypted).subscribe(res => {

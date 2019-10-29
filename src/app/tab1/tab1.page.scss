@@ -2,3 +2,14 @@
   max-height: 35vh;
   overflow: hidden;
 }
+
+#scan-button{
+  position: absolute;
+  bottom: 0px;
+  right:0px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 75px;
+  height: 75px;
+  --border-radius: 50%;
+}
