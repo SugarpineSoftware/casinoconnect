@@ -31,7 +31,7 @@ export class Tab2Page {
   public sType: any;
 
   // this is our AES encryption is based off of
-  private SECRET_KEY = 'LodonGreen';
+  private SECRET_KEY = 'LondonGreen';
 
   // this string is the encrypted version of "fullQrData" string
   public encryptQrData: string;

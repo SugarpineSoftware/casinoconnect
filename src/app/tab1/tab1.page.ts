@@ -23,7 +23,7 @@ export class Tab1Page {
 
   // holds all the return information from firebase firestore //
   public payload;
-  private SECRET_KEY = 'LodonGreen';
+  private SECRET_KEY = 'LondonGreen';
 
   codeDecryption() {
     this.decrypted = CryptoJS.AES.decrypt(this.encrypted, this.SECRET_KEY).toString(CryptoJS.enc.Utf8);
