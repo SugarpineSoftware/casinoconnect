@@ -7,57 +7,24 @@
 </ion-header>
 
 <ion-content>
+    <!-- start of the header card -->
+        <div *ngFor="let info of payload">
+            <ion-card id="header-card">
+                <ion-card-header>
+                    
+                    <ion-card-title>{{info.theme}}</ion-card-title>
+                    <ion-card-subtitle>Bank: {{info.bank}}, Machine: {{info.machine_number}}, Asset: {{info.asset_number}}</ion-card-subtitle>
+                    <ion-card-subtitle>{{info.manufacture}}, {{info.cabinet}}</ion-card-subtitle>
+                </ion-card-header>
+            </ion-card>
+            <ion-card>
+                <ion-button expand="full" id="forum-button">Forum</ion-button>
+                <ion-button expand="full" id="more-info-button" >More Info</ion-button>
+                <ion-button expand="full" id="wiki-button" >Wiki</ion-button>
+                <ion-button expand="full" id="misc-button">Misc</ion-button>
+            </ion-card>
+        </div>
 
-    <ion-grid *ngFor="let info of payload">
-
-        <!-- start of the header card -->
-        <ion-row>
-            <ion-col>
-                <ion-card id="header-card">
-                    <ion-card-header>
-                        
-                        <ion-card-title>{{info.theme}}</ion-card-title>
-                        <ion-card-subtitle>Bank: {{info.bank}}, Machine: {{info.machine_number}}, Asset: {{info.asset_number}}</ion-card-subtitle>
-                        <ion-card-subtitle>{{info.manufacture}}, {{info.cabinet}}</ion-card-subtitle>
-                    </ion-card-header>
-                </ion-card>
-            </ion-col>
-        </ion-row>
-
-        <!-- start of the grid array of buttons card -->
-
-        <ion-card>
-            <ion-grid id="button-grid">
-                <ion-row>
-                    <ion-col size="lg">
-                        <div class="grid-button-class">
-                            <ion-button id="forum-button" >Forum</ion-button>
-                        </div>
-                    </ion-col>
-                    <ion-col size="lg">
-                        <div class="grid-button-class">
-                            <ion-button id="more-info-button" >More Info</ion-button>
-                        </div>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col size="lg">
-                        <div class="grid-button-class">
-                            <ion-button id="wiki-button" >Wiki</ion-button>
-                        </div>
-                    </ion-col>
-                    <ion-col size="lg">
-                        <div class="grid-button-class">
-                            <ion-button id="misc-button" style="width: 100%;">Misc</ion-button>
-                        </div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </ion-card>
-    </ion-grid>
-    
-
-    
     <ion-button (click)="scanCode()" color="secondary" id="scan-button">
         <ion-icon name="qr-scanner"></ion-icon>
         Scan
