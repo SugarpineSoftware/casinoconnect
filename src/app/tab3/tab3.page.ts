@@ -16,13 +16,11 @@ export class Tab3Page implements OnInit {
     }
 
     ngOnInit() {
-      console.log('in here...');
     }
 
     // called when the view loads //
     ionViewWillEnter() {
-      console.log('in here........ Yup');
-        // brings up a list of wiki topics for the buttons //
+      // brings up a list of wiki topics for the buttons //
       this.firebase.bringUpListOfWikiTopics('Sugarpine Slots').subscribe(res => {
         this.payload = res.map(a => {
           return {

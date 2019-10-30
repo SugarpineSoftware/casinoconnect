@@ -10,7 +10,7 @@ import { AlertController } from '@ionic/angular';
   templateUrl: 'login.page.html',
   styleUrls: ['login.page.scss'],
 })
-export class LoginPage{
+export class LoginPage {
 
    emailText: string;
    passwordText: string;
@@ -22,7 +22,7 @@ export class LoginPage{
               public alertController: AlertController) {}
 
 
-  
+
 
   loginOnClick() {
      this.auth.loginUser(this.emailText, this.passwordText).then(
@@ -46,7 +46,7 @@ export class LoginPage{
   loginFailure() {
     console.log('failure logging in');
     this.presentAlert('Error Signing in', 'There was an error signing in',
-    'Please re-enter your loggin credentials and try signing in again');
+    'Please re-enter your login credentials and try signing in again');
   }
 
 
