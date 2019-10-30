@@ -12,7 +12,7 @@ import * as CryptoJS from 'crypto-js';
 })
 
 export class Tab2Page {
-  qrData = 'Serial Number';
+  qrData: string;
   scannedCode = null;
   elementType = 'canvas';
   constructor(
@@ -82,6 +82,32 @@ export class Tab2Page {
     { manuId: 11, type: 'Blade'}
 
   ];
+
+  area: number;
+  asset_number: number;
+  bank: number;
+  bill_validator: string;
+  bill_validator_firmware: string;
+  cabinet: string;
+  encrypted: string;
+  in_service: boolean;
+  keychip: string;
+  keychip_2: string;
+  machine: number;
+  machine_denom: string;
+  manufacturer: string;
+  max_bet: number;
+  on_floor:boolean;
+  paytable_id:string;
+  player_denom: string[];
+  printer: string;
+  printer_firmware: string;
+  serial: string;
+  theme: string;
+
+
+
+
 
   // Uses The Value Of The Manufacturer Dropdown To Create The Type Array
   setTypeValue(sManu) {

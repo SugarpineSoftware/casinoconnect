@@ -22,8 +22,50 @@
         </ion-select>
       </ion-item>
     <ion-item>
-      <ion-input type="text" [(ngModel)]="qrData"></ion-input>
+      <ion-input type="text" placeholder="Serial #" [(ngModel)]="qrData"></ion-input>
     </ion-item>
+    <ion-item>
+        <ion-input type="text" placeholder="Area #" [(ngModel)]="area"></ion-input>
+      </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Bank #" [(ngModel)]="bank"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input type="text" placeholder="Machine #" [(ngModel)]="machine"></ion-input>
+            </ion-item>
+          <ion-item>
+              <ion-input type="text" placeholder="Asset #" [(ngModel)]="asset_number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="text" placeholder="Bill Validator Type" [(ngModel)]="bill_validator"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-input type="text" placeholder="Bill Validator Firmware" [(ngModel)]="bill_validator_firmware"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>In Service</ion-label>
+                    <ion-radio [(ngModel)]="in_service"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                      <ion-input type="text" placeholder="Keychip 1" [(ngModel)]="keychip"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Keychip 2" [(ngModel)]="keychip_2"></ion-input>
+                      </ion-item>
+                      <ion-item>
+                          <ion-input type="text" placeholder="Machine Denom" [(ngModel)]="machine_denom"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>On Floor</ion-label>
+                            <ion-radio  [(ngModel)]="on_floor"></ion-radio>
+                          </ion-item>
+                          <ion-item>
+                              <ion-input type="text" placeholder="Paytable Id" [(ngModel)]="paytable_id"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" placeholder="Theme" [(ngModel)]="theme"></ion-input>
+                              </ion-item>
+      
     <ion-card *ngIf="qrData" text-center>
       <ngx-qrcode [qrc-value]="encryptQrData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">
       </ngx-qrcode>
