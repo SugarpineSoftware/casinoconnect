@@ -21,14 +21,6 @@ export class Tab1Page {
   public encrypted: string;
   public decrypted: string;
 
-  optionSelection: any[] = [
-    { id:0, title:"Forum", selection:[{id:0, title:"Down Machine"},{id:1, title:"Pass Down"}]},
-    { id:1, title:"More Info", selection:[{id:0, title:"Setup Sheet"},{id:1, title:"other things"}]},
-    { id:2, title:"Wiki", selection: [{id:0, title:"Troubleshooting Guide"},{id:1, title:"Setup Sheet"}]},
-    { id:3, title:"Misc", selection:[{id:0, title:"things"},{id:0, title:"stuff"}]}
-
-  ];
-
   // holds all the return information from firebase firestore //
   public payload;
   private SECRET_KEY = 'LodonGreen';
