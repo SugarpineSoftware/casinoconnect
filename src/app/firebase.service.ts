@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { resolve } from 'path';
+import { reject } from '../../node_modules/@types/q';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +53,69 @@ export class FirebaseService {
 
 
 
+  saveQRToDataBase(companyName, encryptedQrCode, manufacture, cabinet, area, bank, machineNumber, asset, serialNumber,
+    billValidator, billValidatorFirmware, inService, keyChip1, keyChip2, machineDenom, maxBet, onFloor, payTableId,
+    printer, printerFirmware, theme) {
+
+        const machineInfo = new MachineInfo();
+        machineInfo.cabinet = cabinet;
+        machineInfo.asset = asset;
+        machineInfo.area = area;
+        machineInfo.bank = bank;
+        machineInfo.machineDenom = machineDenom;
+        machineInfo.billValidator = billValidator;
+        machineInfo.billValidatorFirmware = billValidatorFirmware;
+        machineInfo.encryptedQR = encryptedQrCode;
+        machineInfo.inService = inService;
+        machineInfo.keychip1 = keyChip1;
+        machineInfo.keychip2 = keyChip2;
+        machineInfo.machineDenom = machineDenom;
+        machineInfo.machineNumber = machineNumber;
+        machineInfo.manufacture = manufacture;
+        machineInfo.maxbet = maxBet;
+        machineInfo.onFloor = onFloor;
+        machineInfo.paytableId = payTableId;
+        machineInfo.printer = printer;
+        machineInfo.printerFirmware = printerFirmware;
+        machineInfo.theme = theme;
+        machineInfo.serialNumber = serialNumber;
+
+        this.firestore.collection('Company').doc(companyName)
+        .collection('Manufacture')
+        .doc(manufacture)
+        .collection('Cabinet')
+        .doc(cabinet)
+        .collection('Info')
+        .doc(serialNumber)
+        .update(machineInfo);
+    }
+  }
 
 
+
+
+
+
+class MachineInfo {
+  cabinet: string;
+  asset: string;
+  encryptedQR: string;
+  manufacture: string;
+  area: string;
+  bank: string;
+  machineNumber: string;
+  serialNumber: string;
+  billValidator: string;
+  billValidatorFirmware: string;
+  inService: boolean;
+  keychip1: string;
+  keychip2: string;
+  machineDenom: string;
+  maxbet: string;
+  onFloor: string;
+  paytableId: string;
+  printer: string;
+  printerFirmware: string;
+  theme: string;
 }
 

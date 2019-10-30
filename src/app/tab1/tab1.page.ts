@@ -49,9 +49,13 @@ export class Tab1Page {
       barcodeData => {
         this.encrypted = barcodeData.text;
         this.codeDecryption();
+
         // accessing the firebase firestore and returning the information within //
         // the snapshot taken in firebase.service.ts //
         this.firebase.newScan(this.decrypted).subscribe(res => {
+
+          // when the length of res is 0, that means that there was no entry in the //
+          // database.  Present an alert to the user //
           if (res.length === 0) {
             this.presentAlert('No Entry Found', '',
             'There was no entry found in the database.  Please try again');

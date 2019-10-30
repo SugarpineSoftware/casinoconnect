@@ -8,23 +8,6 @@
 
 <ion-content>
     <!-- start of the header card -->
-<<<<<<< HEAD
-    <div *ngFor="let info of payload">
-        <ion-card id="header-card">
-            <ion-card-header>
-                <ion-card-title>{{info.theme}}</ion-card-title>
-                <ion-card-subtitle>Bank: {{info.bank}}, Machine: {{info.machine_number}}, Asset: {{info.asset_number}}</ion-card-subtitle>
-                <ion-card-subtitle>{{info.manufacture}}, {{info.cabinet}}</ion-card-subtitle>
-            </ion-card-header>
-        </ion-card>
-        <ion-card>
-            <ion-button expand="full" id="forum-button">Forum</ion-button>
-            <ion-button expand="full" id="more-info-button" >More Info</ion-button>
-            <ion-button expand="full" id="wiki-button" >Wiki</ion-button>
-            <ion-button expand="full" id="misc-button">Misc</ion-button>
-        </ion-card>
-    </div>
-=======
         <div *ngFor="let info of payload">
             <ion-card id="header-card">
                 <ion-card-header>
@@ -42,7 +25,6 @@
                 <ion-button expand="full" id="misc-button">Misc</ion-button>
             </ion-card>
         </div>
->>>>>>> 93aa12294f843ebeb7a75bdfeeda638248704e18
 
     <ion-button (click)="scanCode()" color="secondary" id="scan-button">
         <ion-icon name="qr-scanner"></ion-icon>
