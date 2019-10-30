@@ -10,8 +10,8 @@
   <ion-card>
     
       <!-- dynamic creation of the wiki topics -->
-      <ion-card-content *ngFor="let order of payload">
-        <ion-button expand="full">
+      <ion-card-content >
+        <ion-button *ngFor="let order of payload" expand="full">
           {{order.name}}
         </ion-button>
     
