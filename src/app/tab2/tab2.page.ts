@@ -109,6 +109,7 @@ export class Tab2Page {
 
 
 
+
   // Uses The Value Of The Manufacturer Dropdown To Create The Type Array
   setTypeValue(sManu) {
     this.selectedType = this.types.filter(type => type.manuId === sManu.id);
