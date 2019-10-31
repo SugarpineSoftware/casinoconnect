@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { resolve } from 'path';
+//import { resolve } from 'path';
 import { reject } from '../../node_modules/@types/q';
 
 @Injectable({
