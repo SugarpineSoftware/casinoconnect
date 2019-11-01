@@ -140,8 +140,8 @@ export class Tab2Page {
     const base64Data = imageData.split(',')[1];
     this.base64ToGallery
     .base64ToGallery(base64Data).then(
-    res => console.log('Saved image to gallery:', res),
-    err => console.log('Error saving image to gallery:', err)
+      res => console.log('Saved image to gallery:', res),
+      err => console.log('Error saving image to gallery:', err)
   );
   }
 }
