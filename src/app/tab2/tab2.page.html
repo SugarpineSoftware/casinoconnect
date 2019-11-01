@@ -25,49 +25,49 @@
       <ion-input type="text" placeholder="Serial #" [(ngModel)]="qrData"></ion-input>
     </ion-item>
     <ion-item>
-        <ion-input type="text" placeholder="Area #" [(ngModel)]="area"></ion-input>
-      </ion-item>
-        <ion-item>
-            <ion-input type="text" placeholder="Bank #" [(ngModel)]="bank"></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-input type="text" placeholder="Machine #" [(ngModel)]="machine"></ion-input>
-            </ion-item>
-          <ion-item>
-              <ion-input type="text" placeholder="Asset #" [(ngModel)]="asset_number"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-input type="text" placeholder="Bill Validator Type" [(ngModel)]="bill_validator"></ion-input>
-              </ion-item>
-              <ion-item>
-                  <ion-input type="text" placeholder="Bill Validator Firmware" [(ngModel)]="bill_validator_firmware"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label>In Service</ion-label>
-                    <ion-toggle [(ngModel)]="in_service"></ion-toggle>
-                  </ion-item>
-                  <ion-item>
-                      <ion-input type="text" placeholder="Keychip 1" [(ngModel)]="keychip"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-input type="text" placeholder="Keychip 2" [(ngModel)]="keychip_2"></ion-input>
-                      </ion-item>
-                      <ion-item>
-                          <ion-input type="text" placeholder="Machine Denom" [(ngModel)]="machine_denom"></ion-input>
-                        </ion-item>
-                        <ion-item>
-                          <ion-label>On Floor</ion-label>
-                            <ion-toggle [(ngModel)]="on_floor"></ion-toggle>
-                          </ion-item>
-                          <ion-item>
-                              <ion-input type="text" placeholder="Paytable Id" [(ngModel)]="paytable_id"></ion-input>
-                            </ion-item>
-                            <ion-item>
-                                <ion-input type="text" placeholder="player_denom" [(ngModel)]="player_denom"></ion-input>
-                              </ion-item>
-                            <ion-item>
-                                <ion-input type="text" placeholder="Theme" [(ngModel)]="theme"></ion-input>
-                              </ion-item>
+      <ion-input type="text" placeholder="Area #" [(ngModel)]="area"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Bank #" [(ngModel)]="bank"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Machine #" [(ngModel)]="machine"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Asset #" [(ngModel)]="assetNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Bill Validator Type" [(ngModel)]="billValidator"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Bill Validator Firmware" [(ngModel)]="billValidatorFirmware"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>In Service</ion-label>
+      <ion-toggle [(ngModel)]="inService"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Keychip 1" [(ngModel)]="keychip"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Keychip 2" [(ngModel)]="keychip2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Machine Denom" [(ngModel)]="machineDenom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>On Floor</ion-label>
+      <ion-toggle [(ngModel)]="onFloor"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Paytable Id" [(ngModel)]="paytableId"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="player_denom" [(ngModel)]="playerDenom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Theme" [(ngModel)]="theme"></ion-input>
+    </ion-item>
       
     <ion-card text-center>
       <ngx-qrcode [qrc-value]="encryptQrData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">

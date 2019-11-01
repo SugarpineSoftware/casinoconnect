@@ -84,24 +84,24 @@ export class Tab2Page {
   ];
 
   area: number;
-  asset_number: number;
+  assetNumber: number;
   bank: number;
-  bill_validator: string;
-  bill_validator_firmware: string;
+  billValidator: string;
+  billValidatorFirmware: string;
   cabinet: string;
   encrypted: string;
-  in_service: boolean;
+  inService: boolean;
   keychip: string;
-  keychip_2: string;
+  keychip2: string;
   machine: number;
-  machine_denom: string;
+  machineDenom: string;
   manufacturer: string;
-  max_bet: number;
-  on_floor:boolean;
-  paytable_id:string;
-  player_denom: string[];
+  maxBet: number;
+  onFloor: boolean;
+  paytableId: string;
+  playerDenom: string[];
   printer: string;
-  printer_firmware: string;
+  printerFirmware: string;
   serial: string;
   theme: string;
 
