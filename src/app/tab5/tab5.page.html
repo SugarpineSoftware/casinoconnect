@@ -10,18 +10,21 @@
   <ion-grid>
     <ion-row>
       <ion-col size="8">
-          <ion-searchbar animated placeholder="">
+          <ion-searchbar animated [placeholder]="sPlaceholder" [(ngModel)]="sValue">
             </ion-searchbar>
-      </ion-col>
-      <ion-col size="4">
-        <ion-select>
-          <ion-select-option *ngFor="let option of searchOptions">
-            {{option.field}}
+          </ion-col>
+          <ion-col size="4">
+         
+        <ion-select (ionChange)= "setSearchValue(sSearch)" [(ngModel)] ="sSearch">
+          <ion-select-option [value]="sSearch" *ngFor="let sSearch of searchOptions">
+            {{sSearch.field}}
           </ion-select-option>
         </ion-select>
-      </ion-col>
+          </ion-col>
+          <ion-button (click)="searchData()" expand="full">Search</ion-button>
     </ion-row>
   </ion-grid>
+  <ion-item *ngFor="let m of payload">{{m.Asset}}</ion-item>
    
   
   
