@@ -3,7 +3,7 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as CryptoJS from 'crypto-js';
-
+import { FirebaseService } from 'src/app/firebase.service';
 
 @Component({
   selector: 'app-tab2',
@@ -18,7 +18,8 @@ export class Tab2Page {
   constructor(
               private base64ToGallery: Base64ToGallery,
               private toastCtrl: ToastController,
-              private auth: AngularFireAuth) {
+              private auth: AngularFireAuth,
+              private firebaseService: FirebaseService) {
   }
 
 
@@ -134,7 +135,9 @@ export class Tab2Page {
   // this should give the user the ability to save the qr code in a designated location
   // this should appear after the qr is created
   downloadQR() {
-    const canvas = document.querySelector('canvas') as HTMLCanvasElement;
+
+    this.firebaseService.saveQRToDataBase("Sugarpine Slots",this.encryptQrData,this.manufacturer,this.cabinet,this.area,this.bank,this.machine,this.asset_number,this.serial,this.bill_validator,this.bill_validator_firmware,this.in_service,this.keychip,this.keychip_2,this.machine_denom,this.max_bet,this.on_floor,this.paytable_id,this.printer,this.printer_firmware,this.theme);
+   /* const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL().toString();
 
     const base64Data = imageData.split(',')[1];
@@ -142,6 +145,6 @@ export class Tab2Page {
     .base64ToGallery(base64Data).then(
     res => console.log('Saved image to gallery:', res),
     err => console.log('Error saving image to gallery:', err)
-  );
+  );*/
   }
 }

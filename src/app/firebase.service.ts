@@ -51,7 +51,7 @@ export class FirebaseService {
   }
 
 
-  /*
+  
   saveQRToDataBase(companyName, encryptedQrCode, manufacture, cabinet, area, bank, machineNumber, asset, serialNumber,
     billValidator, billValidatorFirmware, inService, keyChip1, keyChip2, machineDenom, maxBet, onFloor, payTableId,
     printer, printerFirmware, theme) {
@@ -90,7 +90,7 @@ export class FirebaseService {
           console.log('success!');
         });
     }
-    */
+    
   }
 
 
