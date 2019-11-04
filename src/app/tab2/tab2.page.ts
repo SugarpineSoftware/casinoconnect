@@ -136,7 +136,27 @@ export class Tab2Page {
   // this should appear after the qr is created
   downloadQR() {
 
-    this.firebaseService.saveQRToDataBase("Sugarpine Slots",this.encryptQrData,this.manufacturer,this.cabinet,this.area,this.bank,this.machine,this.assetNumber,this.serial,this.billValidator,this.billValidatorFirmware,this.inService,this.keychip,this.keychip2,this.machineDenom,this.maxBet,this.onFloor,this.paytableId,this.printer,this.printerFirmware,this.theme);
+    this.firebaseService.saveQRToDataBase('Sugarpine Slots',
+    this.encryptQrData,
+    this.manufacturer,
+    this.cabinet,
+    this.area,
+    this.bank,
+    this.machine,
+    this.assetNumber,
+    this.serial,
+    this.billValidator,
+    this.billValidatorFirmware,
+    this.inService,
+    this.keychip,
+    this.keychip2,
+    this.machineDenom,
+    this.maxBet,
+    this.onFloor,
+    this.paytableId,
+    this.printer,
+    this.printerFirmware,
+    this.theme);
    /* const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL().toString();
 
