@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseService} from 'src/app/firebase.service'
 import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-tab5',
   templateUrl: 'tab5.page.html',
@@ -10,7 +11,8 @@ export class Tab5Page {
 
   constructor( 
     private FirebaseService : FirebaseService,
-    private AlertController: AlertController
+    private AlertController: AlertController,
+    
     ) {}
 
   public payload;
@@ -45,12 +47,16 @@ export class Tab5Page {
         subHeader: subHeaderString,
         message: messageString,
         buttons: ['OK']
-      })
+      });
+      await alert.present();
     }
     
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> f165363d68aace2dcd058be5cf051ababaf85aa4
     searchData(){
       console.log(this.sValue);
       console.log(this.sField);
@@ -64,15 +70,21 @@ export class Tab5Page {
             area: a.payload.doc.data().Area,
             asset: a.payload.doc.data().Asset,
             bank: a.payload.doc.data().Bank,
+            machine: a.payload.doc.data().Machine,
             cabinet: a.payload.doc.data().Cabinet,
             inService: a.payload.doc.data().In_Service,
             manufacturer: a.payload.doc.data().Manufacturer,
             serial: a.payload.doc.data().Serial,
             theme: a.payload.doc.data().Theme,
-            onFloor: a.payload.doc.data().On_Floor
+            onFloor: a.payload.doc.data().On_Floor,
+            encrypted: a.payload.doc.data().Encrypted
           }
         })
       });
       console.log(this.payload);
     }
+
+    viewMachine(params){
+      
+    };
 }

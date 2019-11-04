@@ -24,7 +24,10 @@
           <ion-button (click)="searchData()" expand="full">Search</ion-button>
     </ion-row>
   </ion-grid>
-  <ion-item *ngFor="let m of payload">{{m.Asset}}</ion-item>
+  <ion-item *ngFor="let m of payload"> 
+    Serial={{m.serial}} Asset={{m.asset}} Location={{m.area}}{{m.bank}}{{m.machine}} Manufacturer={{m.manufacturer}} Cabinet={{m.cabinet}} 
+  <ion-button slot="end" name="star" (click)="viewMachine()"> View </ion-button>
+  </ion-item>
    
   
   
