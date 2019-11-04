@@ -4,6 +4,7 @@ import { ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as CryptoJS from 'crypto-js';
 import { FirebaseService } from 'src/app/firebase.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -19,7 +20,8 @@ export class Tab2Page {
               private base64ToGallery: Base64ToGallery,
               private toastCtrl: ToastController,
               private auth: AngularFireAuth,
-              private firebaseService: FirebaseService) {
+              private firebaseService: FirebaseService,
+              public alertController: AlertController) {
   }
 
 
@@ -122,6 +124,7 @@ export class Tab2Page {
 
   // takes "fullQrData" and encrypts the data into "encryptQrData" then creates the QR code out of the encrypted data
   createQR() {
+    /*
     this.fullQrData = this.sManu.manufacture + '/' + this.sType.type + '/' + this.qrData;
     this.encryptQrData = CryptoJS.AES.encrypt(this.fullQrData, this.SECRET_KEY).toString();
 
@@ -129,22 +132,36 @@ export class Tab2Page {
     const imageData = canvas.toDataURL('image/png').toString();
     const data = imageData.split(',')[1];
     this.test();
+    */
+   this.presentAlert('New QR', '', 'What do you want to do with the newly generated QR code?');
+  }
+
+  // presenting an alert //
+  async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
+    const alert = await this.alertController.create({
+      header: fHeader,
+      subHeader: subHeaderString,
+      message: messageString,
+      buttons: ['Cancel', 'Edit', 'Save']
+    });
+
+    await alert.present();
   }
 
   // THIS NEEDS WORK!!!
   // this should give the user the ability to save the qr code in a designated location
   // this should appear after the qr is created
   downloadQR() {
-
+    /*  This code works, just needst to be in a different spot 
     this.firebaseService.saveQRToDataBase('Sugarpine Slots',
     this.encryptQrData,
-    this.manufacturer,
+    this.sManu.manufacture,
     this.cabinet,
     this.area,
     this.bank,
     this.machine,
     this.assetNumber,
-    this.serial,
+    this.qrData,
     this.billValidator,
     this.billValidatorFirmware,
     this.inService,
@@ -157,15 +174,6 @@ export class Tab2Page {
     this.printer,
     this.printerFirmware,
     this.theme);
-   /* const canvas = document.querySelector('canvas') as HTMLCanvasElement;
-    const imageData = canvas.toDataURL().toString();
-
-    const base64Data = imageData.split(',')[1];
-    this.base64ToGallery
-    .base64ToGallery(base64Data).then(
-      res => console.log('Saved image to gallery:', res),
-      err => console.log('Error saving image to gallery:', err)
-      
-  );*/
+    */
   }
 }

@@ -24,6 +24,7 @@ export class Tab1Page {
 
   // holds all the return information from firebase firestore //
   public payload;
+
   private SECRET_KEY = 'LondonGreen';
 
   codeDecryption() {
@@ -50,6 +51,10 @@ export class Tab1Page {
         this.encrypted = barcodeData.text;
         this.codeDecryption();
 
+
+
+
+
         // accessing the firebase firestore and returning the information within //
         // the snapshot taken in firebase.service.ts //
         this.firebase.newScan(this.decrypted).subscribe(res => {
@@ -60,6 +65,7 @@ export class Tab1Page {
             this.presentAlert('No Entry Found', '',
             'There was no entry found in the database.  Please try again');
           }
+
           this.payload = res.map(a => {
             return {
               cabinet: a.payload.doc.data().Cabinet,

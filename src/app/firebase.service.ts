@@ -30,8 +30,6 @@ export class FirebaseService {
     return this.firestore.collection('Company')
     .doc('Sugarpine Slots')
     .collection('Machine', ref => ref.where('Serial', '==', serial)).snapshotChanges();
-
-
   }
 
 
@@ -48,6 +46,9 @@ export class FirebaseService {
     billValidator, billValidatorFirmware, inService, keyChip1, keyChip2, machineDenom, maxBet, onFloor, payTableId,
     printer, printerFirmware, theme) {
 
+
+
+        /*
         const machineInfo = new MachineInfo();
         machineInfo.cabinet = cabinet;
         machineInfo.asset = asset;
@@ -81,6 +82,38 @@ export class FirebaseService {
         .update(machineInfo).then(res => {
           console.log('success!');
         });
+        */
+
+
+       console.log(companyName);
+       console.log(serialNumber);
+       console.log(manufacture);
+
+       this.firestore.collection('Company')
+       .doc(companyName)
+       .collection('Machine')
+       .doc(serialNumber)
+       .set({Manufacturer: manufacture,
+        Serial: serialNumber,
+        Area: area,
+        EncryptedCode: encryptedQrCode,
+        Cabinet: cabinet,
+        Bank: bank,
+        Machine_Number: machineNumber,
+        Asset: asset,
+        Bill_Validator: billValidator,
+        Bill_Validator_Firmware: billValidatorFirmware,
+        In_Service: inService,
+        KeyChip1: keyChip1,
+        KeyChip_2: keyChip2,
+        Machine_Denom: machineDenom,
+        Max_Bet: maxBet,
+        On_Floor: onFloor,
+        PayTable_Id: payTableId,
+        Printer: printer,
+        Printer_Firmware: printerFirmware,
+        Theme: theme
+      }, {merge: false});
     }
   }
 

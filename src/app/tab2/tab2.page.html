@@ -73,11 +73,11 @@
       <ngx-qrcode [qrc-value]="encryptQrData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">
       </ngx-qrcode>
       <ion-card-content>
-        <ion-button expand="full" color="tertiary" (click)="downloadQR()" *ngIf="elementType === 'canvas'">
+        <!--<ion-button expand="full" color="tertiary" (click)="downloadQR()" *ngIf="elementType === 'canvas'">
           <ion-icon name="download" slot="start">
           </ion-icon>
           Download QR
-        </ion-button>
+        </ion-button>-->
         <ion-button expand="full" color="tertiary" (click)="createQR()" *ngIf="elementType === 'canvas'">
             <ion-icon name="download" slot="start">
             </ion-icon>
