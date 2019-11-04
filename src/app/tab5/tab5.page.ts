@@ -52,11 +52,6 @@ export class Tab5Page {
     }
     
 
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> f165363d68aace2dcd058be5cf051ababaf85aa4
     searchData(){
       console.log(this.sValue);
       console.log(this.sField);
