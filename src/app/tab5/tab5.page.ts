@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseService} from 'src/app/firebase.service'
 import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-tab5',
   templateUrl: 'tab5.page.html',
@@ -10,7 +11,8 @@ export class Tab5Page {
 
   constructor( 
     private FirebaseService : FirebaseService,
-    private AlertController: AlertController
+    private AlertController: AlertController,
+    
     ) {}
 
   public payload;
@@ -77,7 +79,7 @@ export class Tab5Page {
       console.log(this.payload);
     }
 
-    viewMachine(){
-
+    viewMachine(params){
+      
     };
 }

@@ -8,7 +8,8 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule',
-    canActivate: [AuthenticationGuard] }
+    canActivate: [AuthenticationGuard] },
+  { path: 'view-machine', loadChildren: './view-machine/view-machine.module#ViewMachinePageModule' }
 ];
 @NgModule({
   imports: [
