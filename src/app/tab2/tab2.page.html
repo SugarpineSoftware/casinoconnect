@@ -43,6 +43,12 @@
       <ion-input type="text" placeholder="Bill Validator Firmware" [(ngModel)]="billValidatorFirmware"></ion-input>
     </ion-item>
     <ion-item>
+      <ion-input type="text" placeholder="Printer" [(ngModel)]="printer"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Printer Firmware" [(ngModel)]="printerFirmware"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label>In Service</ion-label>
       <ion-toggle [(ngModel)]="inService"></ion-toggle>
     </ion-item>
@@ -57,13 +63,16 @@
     </ion-item>
     <ion-item>
       <ion-label>On Floor</ion-label>
-      <ion-toggle [(ngModel)]="onFloor"></ion-toggle>
+      <ion-toggle [(ngModel)]="onFloor" [value]="onFloor"> </ion-toggle>
     </ion-item>
     <ion-item>
       <ion-input type="text" placeholder="Paytable Id" [(ngModel)]="paytableId"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input type="text" placeholder="player Denom" [(ngModel)]="playerDenom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Max Bet" [(ngModel)]="maxBet"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input type="text" placeholder="Theme" [(ngModel)]="theme"></ion-input>

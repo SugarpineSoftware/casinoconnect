@@ -49,12 +49,13 @@ export class Tab5Page {
     }
     
 
+    
 
     searchData(){
       console.log(this.sValue);
       console.log(this.sField);
       this.FirebaseService.newSearch(this.sValue,this.sField).subscribe
-      (res =>{
+      (res =>{  
         if(res.length === 0){
           this.presentAlert('No Data Found',"Search Failed","Please Try Again")
         }

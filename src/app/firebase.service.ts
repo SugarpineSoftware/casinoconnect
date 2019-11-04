@@ -11,8 +11,6 @@ export class FirebaseService {
 
   constructor(private firestore: AngularFirestore) { }
 
-
-
   pullWiki() {
     return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Wiki');
   }
@@ -32,10 +30,14 @@ export class FirebaseService {
     .collection('Machine', ref => ref.where('Serial', '==', serial)).snapshotChanges();
   }
 
-  newSearch(value,field){
+  newSearch(value, field){
     console.log(value);
     console.log(field);
-    return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Machine', ref => ref.where(field, '==', value)).snapshotChanges();
+
+    return this.firestore
+    .collection('Company')
+    .doc('Sugarpine Slots')
+    .collection('Machine', ref => ref.where('Asset', '==', value)).snapshotChanges();
     }
 
 
@@ -51,50 +53,29 @@ export class FirebaseService {
     billValidator, billValidatorFirmware, inService, keyChip1, keyChip2, machineDenom, maxBet, onFloor, payTableId,
     printer, printerFirmware, theme) {
 
+      companyName = this.checkForNullOrUndefined(companyName);
+      manufacture = this.checkForNullOrUndefined(manufacture);
+      serialNumber = this.checkForNullOrUndefined(serialNumber);
+      area = this.checkForNullOrUndefined(area);
+      bank = this.checkForNullOrUndefined(bank);
+      asset = this.checkForNullOrUndefined(asset);
+      cabinet = this.checkForNullOrUndefined(cabinet);
+      machineNumber = this.checkForNullOrUndefined(machineNumber);
+      machineDenom = this.checkForNullOrUndefined(machineDenom);
+      billValidator = this.checkForNullOrUndefined(billValidator);
+      billValidatorFirmware = this.checkForNullOrUndefined(billValidatorFirmware);
+      keyChip1 = this.checkForNullOrUndefined(keyChip1);
+      keyChip2 = this.checkForNullOrUndefined(keyChip2);
+      maxBet = this.checkForNullOrUndefined(maxBet);
+      payTableId = this.checkForNullOrUndefined(payTableId);
+      printer = this.checkForNullOrUndefined(printer);
+      printerFirmware = this.checkForNullOrUndefined(printerFirmware);
+      theme = this.checkForNullOrUndefined(theme);
+      encryptedQrCode = this.checkForNullOrUndefined(encryptedQrCode);
+      onFloor = this.checkForToggleUndefined(onFloor);
+      inService = this.checkForToggleUndefined(inService);
 
-
-        /*
-        const machineInfo = new MachineInfo();
-        machineInfo.cabinet = cabinet;
-        machineInfo.asset = asset;
-        machineInfo.area = area;
-        machineInfo.bank = bank;
-        machineInfo.machineDenom = machineDenom;
-        machineInfo.billValidator = billValidator;
-        machineInfo.billValidatorFirmware = billValidatorFirmware;
-        machineInfo.encryptedQR = encryptedQrCode;
-        machineInfo.inService = inService;
-        machineInfo.keychip1 = keyChip1;
-        machineInfo.keychip2 = keyChip2;
-        machineInfo.machineDenom = machineDenom;
-        machineInfo.machineNumber = machineNumber;
-        machineInfo.manufacture = manufacture;
-        machineInfo.maxbet = maxBet;
-        machineInfo.onFloor = onFloor;
-        machineInfo.paytableId = payTableId;
-        machineInfo.printer = printer;
-        machineInfo.printerFirmware = printerFirmware;
-        machineInfo.theme = theme;
-        machineInfo.serialNumber = serialNumber;
-
-        this.firestore.collection('Company').doc(companyName)
-        .collection('Manufacture')
-        .doc(manufacture)
-        .collection('Cabinet')
-        .doc(cabinet)
-        .collection('Info')
-        .doc(serialNumber)
-        .update(machineInfo).then(res => {
-          console.log('success!');
-        });
-        */
-
-
-       console.log(companyName);
-       console.log(serialNumber);
-       console.log(manufacture);
-
-       this.firestore.collection('Company')
+      this.firestore.collection('Company')
        .doc(companyName)
        .collection('Machine')
        .doc(serialNumber)
@@ -118,35 +99,27 @@ export class FirebaseService {
         Printer: printer,
         Printer_Firmware: printerFirmware,
         Theme: theme
-      }, {merge: false});
+      }, {merge: true});
     }
+
+    // checking the values for null or undefined //
+    checkForNullOrUndefined(value) {
+      if (value === null || value === undefined) {
+        return '';
+      } else {
+        return value;
+      }
+    }
+
+    // checking for undefined toggle values //
+    checkForToggleUndefined(value) {
+      if (value === undefined) {
+        return false;
+      } else {
+        return value;
+      }
+    }
+
   }
 
-
-
-
-
-
-class MachineInfo {
-  cabinet: string;
-  asset: string;
-  encryptedQR: string;
-  manufacture: string;
-  area: string;
-  bank: string;
-  machineNumber: string;
-  serialNumber: string;
-  billValidator: string;
-  billValidatorFirmware: string;
-  inService: boolean;
-  keychip1: string;
-  keychip2: string;
-  machineDenom: string;
-  maxbet: string;
-  onFloor: string;
-  paytableId: string;
-  printer: string;
-  printerFirmware: string;
-  theme: string;
-}
 

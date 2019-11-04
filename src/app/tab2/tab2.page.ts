@@ -99,7 +99,7 @@ export class Tab2Page {
   machine: number;
   machineDenom: string;
   manufacturer: string;
-  maxBet: number;
+  maxBet: string;
   onFloor: boolean;
   paytableId: string;
   playerDenom: string[];
@@ -117,23 +117,18 @@ export class Tab2Page {
   setTypeValue(sManu) {
     this.selectedType = this.types.filter(type => type.manuId === sManu.id);
   }
-
-  test() {
-    console.log(this.encryptQrData);
-  }
-
+  
   // takes "fullQrData" and encrypts the data into "encryptQrData" then creates the QR code out of the encrypted data
   createQR() {
-    /*
-    this.fullQrData = this.sManu.manufacture + '/' + this.sType.type + '/' + this.qrData;
-    this.encryptQrData = CryptoJS.AES.encrypt(this.fullQrData, this.SECRET_KEY).toString();
+    // this.fullQrData = this.sManu.manufacture + '/' + this.sType.type + '/' + this.qrData;
+    this.encryptQrData = CryptoJS.AES.encrypt(this.qrData, this.SECRET_KEY).toString();
+
+    this.downloadQR();
 
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL('image/png').toString();
     const data = imageData.split(',')[1];
-    this.test();
-    */
-   this.presentAlert('New QR', '', 'What do you want to do with the newly generated QR code?');
+   // this.presentAlert('New QR', '', 'What do you want to do with the newly generated QR code?');
   }
 
   // presenting an alert //
@@ -152,11 +147,12 @@ export class Tab2Page {
   // this should give the user the ability to save the qr code in a designated location
   // this should appear after the qr is created
   downloadQR() {
-    /*  This code works, just needst to be in a different spot 
+    //  This code works, just needst to be in a different spot 
+
     this.firebaseService.saveQRToDataBase('Sugarpine Slots',
     this.encryptQrData,
     this.sManu.manufacture,
-    this.cabinet,
+    this.sType.type,
     this.area,
     this.bank,
     this.machine,
@@ -174,6 +170,7 @@ export class Tab2Page {
     this.printer,
     this.printerFirmware,
     this.theme);
-    */
+
+
   }
 }
