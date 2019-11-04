@@ -27,18 +27,11 @@ export class FirebaseService {
     const model = scanStringArray[1];
     const serial = scanStringArray[2];
 
-
-
-
-
-    // /Company/Sugarpine Slots/Manufacturer/Bally/Cabinet/S6000/Info/123456789
     return this.firestore.collection('Company')
-      .doc('Sugarpine Slots')
-      .collection('Manufacturer')
-      .doc(manufacture)
-      .collection('Cabinet')
-      .doc(model)
-      .collection('Info', ref => ref.where('serial', '==', serial)).snapshotChanges();
+    .doc('Sugarpine Slots')
+    .collection('Machine', ref => ref.where('Serial', '==', serial)).snapshotChanges();
+
+
   }
 
 

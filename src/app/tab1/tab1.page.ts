@@ -62,12 +62,12 @@ export class Tab1Page {
           }
           this.payload = res.map(a => {
             return {
-              cabinet: a.payload.doc.data().cabinet,
-              theme: a.payload.doc.data().theme,
-              machine_number: a.payload.doc.data().machine_number,
-              bank: a.payload.doc.data().bank,
-              asset_number: a.payload.doc.data().asset_number,
-              manufacture: a.payload.doc.data().manufacture
+              cabinet: a.payload.doc.data().Cabinet,
+              theme: a.payload.doc.data().Theme,
+              machine_number: a.payload.doc.data().Machine_Number,
+              bank: a.payload.doc.data().Bank,
+              asset_number: a.payload.doc.data().Asset,
+              manufacture: a.payload.doc.data().Manufacture
             };
           });
         });
