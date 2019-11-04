@@ -32,6 +32,11 @@ export class FirebaseService {
     .collection('Machine', ref => ref.where('Serial', '==', serial)).snapshotChanges();
   }
 
+  newSearch(value,field){
+    console.log(value);
+    console.log(field);
+    return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Machine', ref => ref.where(field, '==', value)).snapshotChanges();
+    }
 
 
 
