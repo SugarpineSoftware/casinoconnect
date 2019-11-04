@@ -117,7 +117,7 @@ export class Tab2Page {
   setTypeValue(sManu) {
     this.selectedType = this.types.filter(type => type.manuId === sManu.id);
   }
-  
+
   // takes "fullQrData" and encrypts the data into "encryptQrData" then creates the QR code out of the encrypted data
   createQR() {
     // this.fullQrData = this.sManu.manufacture + '/' + this.sType.type + '/' + this.qrData;
