@@ -45,10 +45,10 @@ export class Tab5Page {
         subHeader: subHeaderString,
         message: messageString,
         buttons: ['OK']
-      })
+      });
+      await alert.present();
     }
     
-
 
     searchData(){
       console.log(this.sValue);
@@ -63,15 +63,21 @@ export class Tab5Page {
             area: a.payload.doc.data().Area,
             asset: a.payload.doc.data().Asset,
             bank: a.payload.doc.data().Bank,
+            machine: a.payload.doc.data().Machine,
             cabinet: a.payload.doc.data().Cabinet,
             inService: a.payload.doc.data().In_Service,
             manufacturer: a.payload.doc.data().Manufacturer,
             serial: a.payload.doc.data().Serial,
             theme: a.payload.doc.data().Theme,
-            onFloor: a.payload.doc.data().On_Floor
+            onFloor: a.payload.doc.data().On_Floor,
+            encrypted: a.payload.doc.data().Encrypted
           }
         })
       });
       console.log(this.payload);
     }
+
+    viewMachine(){
+
+    };
 }

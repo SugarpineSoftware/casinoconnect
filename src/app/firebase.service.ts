@@ -35,9 +35,8 @@ export class FirebaseService {
   }
 
   newSearch(value,field){
-    console.log(value);
-    console.log(field);
-    return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Machine', ref => ref.where(field, '==', value)).snapshotChanges();
+    return this.firestore.collection(
+      'Company').doc('Sugarpine Slots').collection('Machine', ref => ref.where(field, "==", value)).snapshotChanges();
     }
 
 
