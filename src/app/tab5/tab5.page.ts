@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseService} from 'src/app/firebase.service'
 import { AlertController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab5',
@@ -12,7 +13,7 @@ export class Tab5Page {
   constructor( 
     private FirebaseService : FirebaseService,
     private AlertController: AlertController,
-    
+    private NavController: NavController
     ) {}
 
   public payload;
@@ -22,7 +23,8 @@ export class Tab5Page {
   public sPlaceholder: string;
   public sField: string;
 
-  
+  public pushPage: string = "view-machine";
+  public params: string = "stuff;"
 
   searchOptions: any[]=[
     {id:0, field:"Area", placeholder:"Area Number"},
