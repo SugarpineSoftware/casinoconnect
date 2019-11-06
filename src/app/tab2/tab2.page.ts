@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as CryptoJS from 'crypto-js';
 import { FirebaseService } from 'src/app/firebase.service';
 import { AlertController } from '@ionic/angular';
+import { QrPopupPageModule } from 'src/app/qr-popup/qr-popup.module';
 
 @Component({
   selector: 'app-tab2',
@@ -21,7 +23,8 @@ export class Tab2Page {
               private toastCtrl: ToastController,
               private auth: AngularFireAuth,
               private firebaseService: FirebaseService,
-              public alertController: AlertController) {
+              public alertController: AlertController,
+              public modalController: ModalController) {
   }
 
 
@@ -108,7 +111,7 @@ export class Tab2Page {
   serial: string;
   theme: string;
 
-
+  dataReturned: any;
 
 
 
@@ -120,7 +123,9 @@ export class Tab2Page {
 
   // takes "fullQrData" and encrypts the data into "encryptQrData" then creates the QR code out of the encrypted data
   createQR() {
-    // this.fullQrData = this.sManu.manufacture + '/' + this.sType.type + '/' + this.qrData;
+    this.presentQR();
+    // this.presentAlert('New QR Code.', '', 'What would you like to do with this newly generated QR code?');
+    /*
     this.encryptQrData = CryptoJS.AES.encrypt(this.qrData, this.SECRET_KEY).toString();
 
     this.downloadQR();
@@ -128,10 +133,27 @@ export class Tab2Page {
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL('image/png').toString();
     const data = imageData.split(',')[1];
+    */
    // this.presentAlert('New QR', '', 'What do you want to do with the newly generated QR code?');
+
+
   }
 
+  async presentQR() {
+    const modal = await this.modalController.create({
+      component: QrPopupPageModule,
+      componentProps: {
+        title: 'Hey there'
+      }
+    });
+    return await modal.present();
+  }
+
+
+
+
   // presenting an alert //
+  /*
   async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
     const alert = await this.alertController.create({
       header: fHeader,
@@ -143,12 +165,42 @@ export class Tab2Page {
     await alert.present();
   }
 
+  */
+ /*
+  async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
+    const alert = await this.alertController.create({
+      message: messageString,
+      buttons: [
+        {
+          text: 'Edit',
+          handler: () => {
+            console.log('Edit clicked');
+          }
+        } , {
+          text: 'Submit',
+          handler: () => {
+            console.log('Save clicked');
+          }
+        } , {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+  */
+
+
+
   // THIS NEEDS WORK!!!
   // this should give the user the ability to save the qr code in a designated location
   // this should appear after the qr is created
   downloadQR() {
-    //  This code works, just needst to be in a different spot 
-
+    //  This code works, just needs to be in a different spot
     this.firebaseService.saveQRToDataBase('Sugarpine Slots',
     this.encryptQrData,
     this.sManu.manufacture,

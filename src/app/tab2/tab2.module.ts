@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { QrPopupPageModule } from 'src/app/qr-popup/qr-popup.module';
 
 
 @NgModule({

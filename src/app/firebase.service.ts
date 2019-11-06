@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-// import { resolve } from 'path';
-import { reject } from '../../node_modules/@types/q';
 
 @Injectable({
   providedIn: 'root'
@@ -30,9 +28,9 @@ export class FirebaseService {
     .collection('Machine', ref => ref.where('Serial', '==', serial)).snapshotChanges();
   }
 
-  newSearch(value,field){
+  newSearch(value, field) {
     return this.firestore.collection(
-      'Company').doc('Sugarpine Slots').collection('Machine', ref => ref.where(field, "==", value)).snapshotChanges();
+      'Company').doc('Sugarpine Slots').collection('Machine', ref => ref.where(field, '==', value)).snapshotChanges();
     }
 
 

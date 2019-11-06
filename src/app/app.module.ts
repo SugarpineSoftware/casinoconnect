@@ -16,6 +16,7 @@ import { AngularFireModule } from '../../node_modules/@angular/fire';
 import { AngularFireDatabaseModule } from '../../node_modules/@angular/fire/database';
 import { AngularFireAuthModule } from '../../node_modules/@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { QrPopupPageModule } from '../app/qr-popup/qr-popup.module';
 
 
 
@@ -25,7 +26,7 @@ import { environment } from '../environments/environment';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
   AngularFireModule.initializeApp(environment.firebase),
   AngularFireDatabaseModule,
-  AngularFireAuthModule],
+  AngularFireAuthModule, QrPopupPageModule],
   providers: [
     StatusBar,
     SplashScreen,

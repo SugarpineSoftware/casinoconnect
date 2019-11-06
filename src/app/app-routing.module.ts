@@ -9,7 +9,8 @@ const routes: Routes = [
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule',
     canActivate: [AuthenticationGuard] },
-  { path: 'view-machine', loadChildren: './view-machine/view-machine.module#ViewMachinePageModule' }
+  { path: 'view-machine', loadChildren: './view-machine/view-machine.module#ViewMachinePageModule' },
+  { path: 'qr-popup', loadChildren: './qr-popup/qr-popup.module#QrPopupPageModule' }
 ];
 @NgModule({
   imports: [
