@@ -82,6 +82,6 @@ export class Tab5Page {
     }
 
     viewMachine(params){
-      
+      this.NavController.navigateForward
     };
 }
