@@ -134,7 +134,7 @@ export class Tab2Page {
       component: QRModalPage,
       componentProps: {
         encryptedData: qrData,
-        title: 'Yo yo yooooo'
+        title: 'New QR Code'
       }
     });
     return await modal.present();
@@ -143,6 +143,7 @@ export class Tab2Page {
 
 
 
+  
   // THIS NEEDS WORK!!!
   // this should give the user the ability to save the qr code in a designated location
   // this should appear after the qr is created
