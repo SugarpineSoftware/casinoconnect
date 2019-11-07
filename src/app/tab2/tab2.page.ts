@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import * as CryptoJS from 'crypto-js';
 import { FirebaseService } from 'src/app/firebase.service';
 import { AlertController } from '@ionic/angular';
-import { QrPopupPageModule } from 'src/app/qr-popup/qr-popup.module';
+import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
 
 @Component({
   selector: 'app-tab2',
@@ -123,76 +123,23 @@ export class Tab2Page {
 
   // takes "fullQrData" and encrypts the data into "encryptQrData" then creates the QR code out of the encrypted data
   createQR() {
-    this.presentQR();
-    // this.presentAlert('New QR Code.', '', 'What would you like to do with this newly generated QR code?');
-    /*
     this.encryptQrData = CryptoJS.AES.encrypt(this.qrData, this.SECRET_KEY).toString();
-
-    this.downloadQR();
-
-    const canvas = document.querySelector('canvas') as HTMLCanvasElement;
-    const imageData = canvas.toDataURL('image/png').toString();
-    const data = imageData.split(',')[1];
-    */
-   // this.presentAlert('New QR', '', 'What do you want to do with the newly generated QR code?');
-
-
+    this.presentQR(this.encryptQrData);
   }
 
-  async presentQR() {
+  // presenting a modal popup where the user decides what to do with this //
+  // newly generated qr code //
+  async presentQR(qrData) {
     const modal = await this.modalController.create({
-      component: QrPopupPageModule,
+      component: QRModalPage,
       componentProps: {
-        title: 'Hey there'
+        encryptedData: qrData,
+        title: 'Yo yo yooooo'
       }
     });
     return await modal.present();
   }
 
-
-
-
-  // presenting an alert //
-  /*
-  async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
-    const alert = await this.alertController.create({
-      header: fHeader,
-      subHeader: subHeaderString,
-      message: messageString,
-      buttons: ['Cancel', 'Edit', 'Save']
-    });
-
-    await alert.present();
-  }
-
-  */
- /*
-  async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
-    const alert = await this.alertController.create({
-      message: messageString,
-      buttons: [
-        {
-          text: 'Edit',
-          handler: () => {
-            console.log('Edit clicked');
-          }
-        } , {
-          text: 'Submit',
-          handler: () => {
-            console.log('Save clicked');
-          }
-        } , {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    await alert.present();
-  }
-  */
 
 
 

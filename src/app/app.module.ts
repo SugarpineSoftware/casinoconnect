@@ -16,17 +16,25 @@ import { AngularFireModule } from '../../node_modules/@angular/fire';
 import { AngularFireDatabaseModule } from '../../node_modules/@angular/fire/database';
 import { AngularFireAuthModule } from '../../node_modules/@angular/fire/auth';
 import { environment } from '../environments/environment';
-import { QrPopupPageModule } from '../app/qr-popup/qr-popup.module';
-
+import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
 
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-  AngularFireModule.initializeApp(environment.firebase),
-  AngularFireDatabaseModule,
-  AngularFireAuthModule, QrPopupPageModule],
+  declarations: [
+    AppComponent,
+    QRModalPage
+  ],
+  entryComponents: [
+    QRModalPage
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -35,7 +43,10 @@ import { QrPopupPageModule } from '../app/qr-popup/qr-popup.module';
     Base64ToGallery,
     AngularFirestore
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
+
 })
 export class AppModule {}
 

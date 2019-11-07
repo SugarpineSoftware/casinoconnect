@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
-import { QrPopupPageModule } from 'src/app/qr-popup/qr-popup.module';
 
 
 @NgModule({
@@ -16,6 +15,8 @@ import { QrPopupPageModule } from 'src/app/qr-popup/qr-popup.module';
     RouterModule.forChild([{ path: '', component: Tab2Page }]),
     NgxQRCodeModule
   ],
-  declarations: [Tab2Page]
+  declarations: [
+    Tab2Page
+  ]
 })
 export class Tab2PageModule {}
