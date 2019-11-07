@@ -17,6 +17,7 @@ import { AngularFireDatabaseModule } from '../../node_modules/@angular/fire/data
 import { AngularFireAuthModule } from '../../node_modules/@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgxQRCodeModule
   ],
   providers: [
     StatusBar,

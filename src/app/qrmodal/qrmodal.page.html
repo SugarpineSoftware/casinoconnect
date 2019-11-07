@@ -5,12 +5,14 @@
 </ion-header>
 
 <ion-content>
+    <ngx-qrcode [qrc-value]="encryptedQRData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">
+    </ngx-qrcode>
   <!--
   <ion-card text-center>
-    <ngx-qrcode [qrc-value]="encryptedData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">
-    </ngx-qrcode>
+    
     <ion-card-content>
       
     </ion-card-content>
   </ion-card>-->
 </ion-content>
+

@@ -8,18 +8,21 @@ import { NavController, NavParams } from '@ionic/angular';
 })
 export class QRModalPage implements OnInit {
 
-  encryptedData = '';
+  encryptedQRData = null;
   title = '';
 
   constructor(public navController: NavController,
               public navParams: NavParams) {
-                // this.encryptedData = navParams.get('encryptedData');
+                this.encryptedQRData = navParams.get('encryptedData');
                }
 
   ngOnInit() {
+    
+    /*
     const canvas = document.querySelector('canvas') as HTMLCanvasElement;
     const imageData = canvas.toDataURL('image/png').toString();
     const data = imageData.split(',')[1];
+    */
   }
 
 }
