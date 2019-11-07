@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FirebaseService} from 'src/app/firebase.service'
 import { AlertController } from '@ionic/angular';
-import { NavController } from '@ionic/angular';
-import { ViewMachinePage } from '../view-machine/view-machine.page';
 
 @Component({
   selector: 'app-tab5',
@@ -13,9 +11,7 @@ export class Tab5Page {
 
   constructor( 
     private FirebaseService : FirebaseService,
-    private AlertController: AlertController,
-    public NavController: NavController,
-    private viewMachine: ViewMachinePage
+    private AlertController: AlertController
     ) {}
 
   public payload;
