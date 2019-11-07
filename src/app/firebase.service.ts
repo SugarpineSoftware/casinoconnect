@@ -68,7 +68,7 @@ export class FirebaseService {
       onFloor = this.checkForToggleUndefined(onFloor);
       inService = this.checkForToggleUndefined(inService);
 
-      this.firestore.collection('Company')
+      return this.firestore.collection('Company')
        .doc(companyName)
        .collection('Machine')
        .doc(serialNumber)
@@ -92,7 +92,10 @@ export class FirebaseService {
         Printer: printer,
         Printer_Firmware: printerFirmware,
         Theme: theme
-      }, {merge: true});
+      }, {merge: true})
+      .then(() => {
+        return true;
+      });
     }
 
     // checking the values for null or undefined //

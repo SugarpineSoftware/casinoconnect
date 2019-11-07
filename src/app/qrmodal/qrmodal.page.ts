@@ -27,15 +27,18 @@ export class QRModalPage implements OnInit {
   }
 
   saveToDataBase() {
-    this.modalController.dismiss();
+    const returnValue = 0;
+    this.modalController.dismiss(returnValue);
   }
 
   cancel() {
-    this.modalController.dismiss();
+    const returnValue = 1;
+    this.modalController.dismiss(returnValue);
   }
 
   edit() {
-    this.modalController.dismiss();
+    const returnValue = 2;
+    this.modalController.dismiss(returnValue);
   }
 
 }

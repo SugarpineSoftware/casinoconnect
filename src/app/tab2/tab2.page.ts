@@ -137,19 +137,34 @@ export class Tab2Page {
         title: 'New QR Code'
       }
     });
+
+    // for when the modal view disappears //
+    modal.onDidDismiss().then((returnedData) => {
+      if (returnedData !== null) {
+
+        if (returnedData.data === 0) {
+
+          // this is the return for when they want to save the data to the database //
+          this.uploadQR();
+
+        } else if (returnedData.data === 1) {
+
+          // this is the return for when they want to cancel the data and erase all fields //
+
+        } else if (returnedData.data === 2) {
+
+          // this is the return for when they want to edit the data and nothing really happens //
+
+        }
+      }
+    });
+
     return await modal.present();
   }
 
-
-
-
-  
-  // THIS NEEDS WORK!!!
-  // this should give the user the ability to save the qr code in a designated location
-  // this should appear after the qr is created
-  downloadQR() {
-    //  This code works, just needs to be in a different spot
-    this.firebaseService.saveQRToDataBase('Sugarpine Slots',
+  // uploading the QR code to the database
+  uploadQR() {
+    const returnValue = this.firebaseService.saveQRToDataBase('Sugarpine Slots',
     this.encryptQrData,
     this.sManu.manufacture,
     this.sType.type,
@@ -171,6 +186,6 @@ export class Tab2Page {
     this.printerFirmware,
     this.theme);
 
-
+    console.log('success!? -> ' + returnValue);
   }
 }
