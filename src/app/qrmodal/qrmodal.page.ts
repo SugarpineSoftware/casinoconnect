@@ -19,11 +19,7 @@ export class QRModalPage implements OnInit {
                }
 
   ngOnInit() {
-    /*
-    const canvas = document.querySelector('canvas') as HTMLCanvasElement;
-    const imageData = canvas.toDataURL('image/png').toString();
-    const data = imageData.split(',')[1];
-    */
+
   }
 
   saveToDataBase() {

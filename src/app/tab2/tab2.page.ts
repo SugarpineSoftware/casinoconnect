@@ -150,6 +150,7 @@ export class Tab2Page {
         } else if (returnedData.data === 1) {
 
           // this is the return for when they want to cancel the data and erase all fields //
+          this.zeroOutValuesInForm();
 
         } else if (returnedData.data === 2) {
 
@@ -162,30 +163,54 @@ export class Tab2Page {
     return await modal.present();
   }
 
+  zeroOutValuesInForm() {
+  this.area = null;
+  this.assetNumber = null;
+  this.bank = null;
+  this.billValidator = null;
+  this.billValidatorFirmware = null;
+  this.cabinet = null;
+  this.encrypted = null;
+  this.inService = false;
+  this.keychip = null;
+  this.keychip2 = null;
+  this.machine = null;
+  this.machineDenom = null;
+  this.manufacturer = null;
+  this.maxBet = null;
+  this.onFloor = false;
+  this.paytableId = null;
+  this.playerDenom = null;
+  this.printer = null;
+  this.printerFirmware = null;
+  this.serial = null;
+  this.theme = null;
+  }
+
   // uploading the QR code to the database
   uploadQR() {
+    console.log('starte');
     const returnValue = this.firebaseService.saveQRToDataBase('Sugarpine Slots',
-    this.encryptQrData,
-    this.sManu.manufacture,
-    this.sType.type,
-    this.area,
-    this.bank,
-    this.machine,
-    this.assetNumber,
-    this.qrData,
-    this.billValidator,
-    this.billValidatorFirmware,
-    this.inService,
-    this.keychip,
-    this.keychip2,
-    this.machineDenom,
-    this.maxBet,
-    this.onFloor,
-    this.paytableId,
-    this.printer,
-    this.printerFirmware,
-    this.theme);
-
-    console.log('success!? -> ' + returnValue);
+      this.encryptQrData,
+      this.sManu.manufacture,
+      this.sType.type,
+      this.area,
+      this.bank,
+      this.machine,
+      this.assetNumber,
+      this.qrData,
+      this.billValidator,
+      this.billValidatorFirmware,
+      this.inService,
+      this.keychip,
+      this.keychip2,
+      this.machineDenom,
+      this.maxBet,
+      this.onFloor,
+      this.paytableId,
+      this.printer,
+      this.printerFirmware,
+      this.theme)
+      .then(() => console.log('done!'));
   }
 }
