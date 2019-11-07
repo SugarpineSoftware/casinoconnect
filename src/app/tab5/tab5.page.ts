@@ -41,6 +41,7 @@ export class Tab5Page {
       this.sPlaceholder = this.searchOptions[sSearch.id].placeholder;
       this.sField = this.searchOptions[sSearch.id].field;
     }
+
     async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
       const alert = await this.AlertController.create({
         header: fHeader,
@@ -52,11 +53,9 @@ export class Tab5Page {
     }
 
 
-    searchData(){
-      console.log(this.sValue);
-      console.log(this.sField);
-      this.FirebaseService.newSearch(this.sValue,this.sField).subscribe
-      (res =>{  
+    searchData() {
+      this.FirebaseService.newSearch(this.sValue,this.sField).subscribe(
+        res => {
         if(res.length === 0){
           this.presentAlert('No Data Found',"Search Failed","Please Try Again")
         }
@@ -79,5 +78,9 @@ export class Tab5Page {
       console.log(this.payload);
     }
 
-  
+
+    test(passedIndata) {
+      console.log(passedIndata);
+    }
+
 }

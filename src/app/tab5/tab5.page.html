@@ -26,7 +26,10 @@
   </ion-grid>
   <ion-item *ngFor="let m of payload"> 
     Serial={{m.serial}} Asset={{m.asset}} Location={{m.area}}{{m.bank}}{{m.machine}} Manufacturer={{m.manufacturer}} Cabinet={{m.cabinet}} 
-  <ion-button slot="end" name="star" routerLink="/view-machine" routerDirection="forward"> View </ion-button>
+    <ion-button slot="end" name="star" routerLink="/view-machine" routerDirection="forward"> View </ion-button>
+  
+
+    <ion-button (click)="test(m)"></ion-button>
   </ion-item>
    
   
