@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FirebaseService} from 'src/app/firebase.service'
 import { AlertController } from '@ionic/angular';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab5',
@@ -12,8 +11,7 @@ export class Tab5Page {
 
   constructor( 
     private FirebaseService : FirebaseService,
-    private AlertController: AlertController,
-    private NavController: NavController
+    private AlertController: AlertController
     ) {}
 
   public payload;
@@ -52,7 +50,7 @@ export class Tab5Page {
       });
       await alert.present();
     }
-    
+
 
     searchData(){
       console.log(this.sValue);
@@ -81,7 +79,5 @@ export class Tab5Page {
       console.log(this.payload);
     }
 
-    viewMachine(params){
-      this.NavController.navigateForward
-    };
+  
 }
