@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FirebaseService} from 'src/app/firebase.service'
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ViewMachinePage } from '../view-machine/view-machine.page';
+
 
 @Component({
   selector: 'app-tab5',
@@ -11,7 +14,9 @@ export class Tab5Page {
 
   constructor( 
     private FirebaseService : FirebaseService,
-    private AlertController: AlertController
+    private AlertController: AlertController,
+    private router: Router,
+    private viewMachine: ViewMachinePage
     ) {}
 
   public payload;
@@ -81,6 +86,7 @@ export class Tab5Page {
 
     test(passedIndata) {
       console.log(passedIndata);
+      this.router.navigateByUrl('/viewMachine', { state: { machine: passedIndata} });
     }
 
 }
