@@ -216,6 +216,22 @@ export class Tab2Page {
       this.printer,
       this.printerFirmware,
       this.theme)
-      .then(() => this.zeroOutValuesInForm());
+      .then(() => this.savedToDatabase());
+  }
+
+
+  savedToDatabase() {
+    this.zeroOutValuesInForm();
+    this.presentAlert('Success!', '', 'Success in uploading to the database.');
+  }
+
+  async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
+    const alert = await this.alertController.create({
+      header: fHeader,
+      subHeader: subHeaderString,
+      message: messageString,
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 }

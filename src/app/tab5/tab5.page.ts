@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FirebaseService} from 'src/app/firebase.service'
+import { FirebaseService} from 'src/app/firebase.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ViewMachinePage } from '../view-machine/view-machine.page';
