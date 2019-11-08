@@ -195,7 +195,6 @@ export class Tab2Page {
 
   // uploading the QR code to the database
   uploadQR() {
-    console.log('starte');
     const returnValue = this.firebaseService.saveQRToDataBase('Sugarpine Slots',
       this.encryptQrData,
       this.sManu.manufacture,
@@ -217,6 +216,6 @@ export class Tab2Page {
       this.printer,
       this.printerFirmware,
       this.theme)
-      .then(() => console.log('done!'));
+      .then(() => this.zeroOutValuesInForm());
   }
 }
