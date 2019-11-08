@@ -14,7 +14,7 @@
         <ion-select-option [value]="sManu" *ngFor="let sManu of manufacturers">{{sManu.manufacture}}</ion-select-option>
       </ion-select>
     </ion-item>
-
+    
     <ion-item *ngIf="selectedType">
         <ion-label>Type</ion-label>
         <ion-select [(ngModel)] ="sType">
@@ -77,7 +77,7 @@
     <ion-item>
       <ion-input type="text" placeholder="Theme" [(ngModel)]="theme"></ion-input>
     </ion-item>
-    
+  
     <ion-card text-center>
       <!--
       <ngx-qrcode [qrc-value]="encryptQrData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">

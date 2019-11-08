@@ -164,6 +164,8 @@ export class Tab2Page {
   }
 
   zeroOutValuesInForm() {
+
+  // zeroing input fields //
   this.area = null;
   this.assetNumber = null;
   this.bank = null;
@@ -185,6 +187,10 @@ export class Tab2Page {
   this.printerFirmware = null;
   this.serial = null;
   this.theme = null;
+  this.qrData = null;
+
+  this.sManu = null;
+  this.sType = null;
   }
 
   // uploading the QR code to the database
