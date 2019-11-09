@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ViewMachinePage } from '../view-machine/view-machine.page';
 
 
+
 @Component({
   selector: 'app-tab5',
   templateUrl: 'tab5.page.html',
@@ -15,8 +16,9 @@ export class Tab5Page {
   constructor( 
     private FirebaseService : FirebaseService,
     private AlertController: AlertController,
-    private router: Router,
-    private viewMachine: ViewMachinePage
+    private Router: Router,
+    private viewMachinePage: ViewMachinePage
+
     ) {}
 
   public payload;
@@ -45,6 +47,10 @@ export class Tab5Page {
     setSearchValue(sSearch) {
       this.sPlaceholder = this.searchOptions[sSearch.id].placeholder;
       this.sField = this.searchOptions[sSearch.id].field;
+    }
+
+    viewMachine(){
+      this.Router.navigateByUrl("/tabs/tab4");
     }
 
     async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
@@ -82,11 +88,5 @@ export class Tab5Page {
       });
       console.log(this.payload);
     }
-
-
-    test(passedIndata) {
-      console.log(passedIndata);
-      this.router.navigateByUrl('/viewMachine', { state: { machine: passedIndata} });
-    }
-
+   
 }
