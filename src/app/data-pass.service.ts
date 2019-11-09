@@ -9,14 +9,14 @@ export class DataPassService {
 
   constructor() { }
 
-  private sAsset: string;
 
-  setData(x){
-    this.sAsset = x;
+  private m;
+
+  setDataObject(x){
+    this.m = x;
   }
-
-  getData(){
-    return this.sAsset;
+  getDataObject(){
+    return this.m;
   }
 
 }

@@ -26,6 +26,6 @@
   </ion-grid>
   <ion-item *ngFor="let m of payload"> 
     Serial={{m.serial}} Asset={{m.asset}} Location={{m.area}}{{m.bank}}{{m.machine}} Manufacturer={{m.manufacturer}} Cabinet={{m.cabinet}} 
-    <ion-button (click)="viewMachine()"> View </ion-button>
+    <ion-button (click)="viewMachine(m)"> View </ion-button>
   </ion-item>
    </ion-content>

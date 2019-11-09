@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FirebaseService} from 'src/app/firebase.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { DataPassService } from '../data-pass.service';
 
 
 
@@ -17,6 +18,7 @@ export class Tab5Page {
     private FirebaseService : FirebaseService,
     private AlertController: AlertController,
     private Router: Router,
+    private DataPass: DataPassService
   
 
     ) {}
@@ -49,7 +51,8 @@ export class Tab5Page {
       this.sField = this.searchOptions[sSearch.id].field;
     }
 
-    viewMachine(){
+    viewMachine(m){
+      this.DataPass.setDataObject(m);
       this.Router.navigateByUrl("view-machine");
     }
 
@@ -75,14 +78,24 @@ export class Tab5Page {
             area: a.payload.doc.data().Area,
             asset: a.payload.doc.data().Asset,
             bank: a.payload.doc.data().Bank,
-            machine: a.payload.doc.data().Machine,
+            machine: a.payload.doc.data().Machine_Number,
             cabinet: a.payload.doc.data().Cabinet,
             inService: a.payload.doc.data().In_Service,
             manufacturer: a.payload.doc.data().Manufacturer,
             serial: a.payload.doc.data().Serial,
             theme: a.payload.doc.data().Theme,
             onFloor: a.payload.doc.data().On_Floor,
-            encrypted: a.payload.doc.data().Encrypted
+            encrypted: a.payload.doc.data().EncryptedCode,
+            billValidator: a.payload.doc.data().Bill_Validator,
+            billValidatorFirmware: a.payload.doc.data().Bill_Validator_Firmware,
+            keychip: a.payload.doc.data().KeyChip1,
+            keychip2: a.payload.doc.data().KeyChip_2,
+            machineDenom: a.payload.doc.data().Machine_Denom,
+            maxBet: a.payload.doc.data().Max_Bet,
+            paytableId: a.payload.doc.data().Paytable_Id,
+            printer: a.payload.doc.data().Printer,
+            printerFirmware: a.payload.doc.data().Printer_Firmware
+
           }
         })
       });

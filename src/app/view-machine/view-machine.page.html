@@ -1,10 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>viewMachine</ion-title>
+      <ion-button routerLink="/tabs/tab5" routerDirection="backwards">Back</ion-button>
+    <ion-title>Machine Information</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-button routerLink="/tabs/tab5" routerDirection="backwards">Back</ion-button>
+<ion-card>
+  <ion-card-content>
+    <ion-item>Serial Number = {{m.serial}}</ion-item>
+    <ion-item>Area = {{m.area}}</ion-item>
+    <ion-item>Bank = {{m.bank}}</ion-item>
+    <ion-item>Machine = {{m.machine}}</ion-item>
+    <ion-item>Asset = {{m.asset}}</ion-item>
+    <ion-item>Manufacturer = {{m.manufacturer}}</ion-item>
+    <ion-item>Cabinet Style = {{m.cabinet}}</ion-item>
+    <ion-item>Theme = {{m.theme}}</ion-item>
+    <ion-item>In Service = {{m.inService}}</ion-item>
+    <ion-item>On Floor = {{m.onFloor}}</ion-item>
+    <ion-item>Paytable Id = {{m.paytableId}}</ion-item>
+    <ion-item>Max Bet = {{m.maxBet}}</ion-item>
+    <ion-item>Machine Denomination = {{m.machineDenom}}</ion-item>
+    <ion-item>Bill Validator = {{m.billValidator}}</ion-item>
+    <ion-item>Bill Validator Firmware = {{m.billValidatorFirmware}}</ion-item>
+    <ion-item>Printer = {{m.printer}}</ion-item>
+    <ion-item>Printer Firmware{{m.printerFirmware}}</ion-item>
+    <ion-item>Keychip = {{m.keychip}}</ion-item>
+    <ion-item>Keychip 2 = {{m.keychip2}}</ion-item>
+  </ion-card-content>
+</ion-card>
 
 </ion-content>
