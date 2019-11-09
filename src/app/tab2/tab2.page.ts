@@ -164,6 +164,8 @@ export class Tab2Page {
   }
 
   zeroOutValuesInForm() {
+
+  // zeroing input fields //
   this.area = null;
   this.assetNumber = null;
   this.bank = null;
@@ -185,11 +187,14 @@ export class Tab2Page {
   this.printerFirmware = null;
   this.serial = null;
   this.theme = null;
+  this.qrData = null;
+
+  this.sManu = null;
+  this.sType = null;
   }
 
   // uploading the QR code to the database
   uploadQR() {
-    console.log('starte');
     const returnValue = this.firebaseService.saveQRToDataBase('Sugarpine Slots',
       this.encryptQrData,
       this.sManu.manufacture,
@@ -211,6 +216,22 @@ export class Tab2Page {
       this.printer,
       this.printerFirmware,
       this.theme)
-      .then(() => console.log('done!'));
+      .then(() => this.savedToDatabase());
+  }
+
+
+  savedToDatabase() {
+    this.zeroOutValuesInForm();
+    this.presentAlert('Success!', '', 'Success in uploading to the database.');
+  }
+
+  async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
+    const alert = await this.alertController.create({
+      header: fHeader,
+      subHeader: subHeaderString,
+      message: messageString,
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 }
