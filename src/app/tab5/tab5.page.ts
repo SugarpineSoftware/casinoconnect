@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FirebaseService} from 'src/app/firebase.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { ViewMachinePage } from '../view-machine/view-machine.page';
+
 
 
 
@@ -17,7 +17,7 @@ export class Tab5Page {
     private FirebaseService : FirebaseService,
     private AlertController: AlertController,
     private Router: Router,
-    private viewMachinePage: ViewMachinePage
+  
 
     ) {}
 
@@ -50,7 +50,7 @@ export class Tab5Page {
     }
 
     viewMachine(){
-      this.Router.navigateByUrl("/tabs/tab4");
+      this.Router.navigateByUrl("view-machine");
     }
 
     async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
