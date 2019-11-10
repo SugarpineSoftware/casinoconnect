@@ -14,7 +14,7 @@ export class ScanModalPage implements OnInit {
               public navParams: NavParams,
               public modalController: ModalController
   ) { }
-
+ public title:string = 'hello'; 
   ngOnInit() {
   }
 

@@ -3,6 +3,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import * as CryptoJS from 'crypto-js';
 import { AlertController, ModalController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/firebase.service';
+import { ScanModalPage } from '../scan-modal/scan-modal.page';
 
 
 
@@ -17,7 +18,9 @@ export class Tab1Page {
   qrData = 'Serial Number';
   constructor(private barcodeScanner: BarcodeScanner,
               private firebase: FirebaseService,
-              public alertController: AlertController
+              public alertController: AlertController,
+              public modalController: ModalController
+             
               ) {
   }
 
@@ -46,6 +49,18 @@ export class Tab1Page {
     await alert.present();
   }
 
+    // presenting a modal popup where the user decides what to do with this //
+  // newly generated qr code //
+  async presentQR(qrData) {
+    const modal = await this.modalController.create({
+      component: ScanModalPage,
+      componentProps: {
+        title: 'New QR Code'
+      }
+    });
+
+    return await modal.present();
+  }
 
   scanCode() {
     this.barcodeScanner.scan().then(
