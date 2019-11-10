@@ -23,9 +23,10 @@ export class FirebaseService {
     const model = scanStringArray[1];
     const serial = scanStringArray[2];
 
+
     return this.firestore.collection('Company')
     .doc('Sugarpine Slots')
-    .collection('Machine', ref => ref.where('Serial', '==', serial)).snapshotChanges();
+    .collection('Machine', ref => ref.where('Serial', '==', newScanString)).snapshotChanges();
   }
 
   newSearch(value, field) {
