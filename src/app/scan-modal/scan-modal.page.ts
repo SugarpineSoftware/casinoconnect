@@ -9,13 +9,15 @@ import { ModalController } from '@ionic/angular';
 })
 export class ScanModalPage implements OnInit {
 
+  title = '';
+  encryptedData = null;
+
   constructor(
     public navController: NavController,
-              public navParams: NavParams,
-              public modalController: ModalController
-  ) { }
- public title:string = 'hello'; 
-  ngOnInit() {
-  }
+    public navParams: NavParams,
+    public modalController: ModalController
+  ) {}
+
+  ngOnInit() {}
 
 }

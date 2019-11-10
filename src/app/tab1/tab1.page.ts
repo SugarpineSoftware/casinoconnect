@@ -20,7 +20,7 @@ export class Tab1Page {
               private firebase: FirebaseService,
               public alertController: AlertController,
               public modalController: ModalController
-             
+
               ) {
   }
 
@@ -55,7 +55,8 @@ export class Tab1Page {
     const modal = await this.modalController.create({
       component: ScanModalPage,
       componentProps: {
-        title: 'New QR Code'
+        title: 'New QR Code',
+        encryptedData: qrData
       }
     });
 
@@ -68,10 +69,6 @@ export class Tab1Page {
         this.encrypted = barcodeData.text;
         this.codeDecryption();
 
-
-
-
-
         // accessing the firebase firestore and returning the information within //
         // the snapshot taken in firebase.service.ts //
         this.firebase.newScan(this.decrypted).subscribe(res => {
@@ -82,7 +79,6 @@ export class Tab1Page {
             this.presentAlert('No Entry Found', '',
             'There was no entry found in the database.  Please try again');
           }
-         
 
           this.payload = res.map(a => {
             return {
@@ -94,9 +90,9 @@ export class Tab1Page {
               manufacture: a.payload.doc.data().Manufacture
             };
           });
-
+          // presenting the information //
+          this.presentQR(this.payload);
         });
-        
       }
     );
   }
