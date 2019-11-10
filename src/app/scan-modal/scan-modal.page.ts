@@ -20,4 +20,23 @@ export class ScanModalPage implements OnInit {
 
   ngOnInit() {}
 
+  forumOnClick() {
+
+  }
+
+  moreInfoOnClick() {
+
+  }
+
+  wikiOnClick() {
+
+  }
+
+  miscOnClick() {
+
+  }
+
+  cancelOnClick() {
+    this.modalController.dismiss();
+  }
 }

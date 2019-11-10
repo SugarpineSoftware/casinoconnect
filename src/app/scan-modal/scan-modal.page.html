@@ -16,13 +16,13 @@
       </ion-card>
       <ion-card>   
 
-          <ion-button expand="full" id="forum-button">Forum</ion-button>
-          <ion-button expand="full" id="more-info-button" >More Info</ion-button>
-          <ion-button expand="full" id="wiki-button" >Wiki</ion-button>
-          <ion-button expand="full" id="misc-button">Misc</ion-button>
+          <ion-button expand="full" id="forum-button" (click)="forumOnClick()">Forum</ion-button>
+          <ion-button expand="full" id="more-info-button" (click)="moreInfoOnClick()">More Info</ion-button>
+          <ion-button expand="full" id="wiki-button" (click)="wikiOnClick()">Wiki</ion-button>
+          <ion-button expand="full" id="misc-button" (click)="miscOnClick()">Misc</ion-button>
+          <ion-button expand="full" id="cancel-button" (click)="cancelOnClick()">Cancel</ion-button>
       </ion-card>
-  </div>
-      
+    </div>
   </ion-content>
   
   
