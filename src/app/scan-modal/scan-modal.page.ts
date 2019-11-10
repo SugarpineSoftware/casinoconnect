@@ -21,22 +21,27 @@ export class ScanModalPage implements OnInit {
   ngOnInit() {}
 
   forumOnClick() {
-
+    const returnValue = 0;
+    this.modalController.dismiss(returnValue);
   }
 
   moreInfoOnClick() {
-
+    const returnValue = 1;
+    this.modalController.dismiss(returnValue);
   }
 
   wikiOnClick() {
-
+    const returnValue = 2;
+    this.modalController.dismiss(returnValue);
   }
 
   miscOnClick() {
-
+    const returnValue = 3;
+    this.modalController.dismiss(returnValue);
   }
 
   cancelOnClick() {
-    this.modalController.dismiss();
+    const returnValue = 4;
+    this.modalController.dismiss(returnValue);
   }
 }

@@ -60,6 +60,19 @@ export class Tab1Page {
       }
     });
 
+    modal.onDidDismiss().then((returnedData) => {
+      if (returnedData !== null) {
+        // this is the returned functions for the modal//
+        // popup for the machine that is scanned //
+        if (returnedData.data === 0) {
+
+        } else if (returnedData.data === 1) {
+
+        } else if (returnedData.data === 2) {
+
+        }
+      }
+    });
     return await modal.present();
   }
 
