@@ -76,6 +76,7 @@ export class Tab1Page {
     return await modal.present();
   }
 
+  
   scanCode() {
     this.barcodeScanner.scan().then(
       barcodeData => {
