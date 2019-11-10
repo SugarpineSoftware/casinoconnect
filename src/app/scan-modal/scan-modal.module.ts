@@ -2,16 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
-
-import { ViewMachinePage } from './view-machine.page';
-import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { ScanModalPage } from './scan-modal.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ViewMachinePage
+    component: ScanModalPage
   }
 ];
 
@@ -20,9 +17,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    NgxQRCodeModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [ViewMachinePage]
+  declarations: [ScanModalPage]
 })
-export class ViewMachinePageModule {}
+export class ScanModalPageModule {}

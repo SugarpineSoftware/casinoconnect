@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import * as CryptoJS from 'crypto-js';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/firebase.service';
-import { present } from '../../../node_modules/@ionic/core/dist/types/utils/overlays';
+
+
 
 @Component({
   selector: 'app-tab1',
@@ -16,7 +17,8 @@ export class Tab1Page {
   qrData = 'Serial Number';
   constructor(private barcodeScanner: BarcodeScanner,
               private firebase: FirebaseService,
-              public alertController: AlertController) {
+              public alertController: AlertController
+              ) {
   }
 
   public encrypted: string;
@@ -65,6 +67,7 @@ export class Tab1Page {
             this.presentAlert('No Entry Found', '',
             'There was no entry found in the database.  Please try again');
           }
+         
 
           this.payload = res.map(a => {
             return {
@@ -76,7 +79,9 @@ export class Tab1Page {
               manufacture: a.payload.doc.data().Manufacture
             };
           });
+
         });
+        
       }
     );
   }

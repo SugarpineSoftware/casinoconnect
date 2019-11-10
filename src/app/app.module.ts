@@ -17,16 +17,19 @@ import { AngularFireDatabaseModule } from '../../node_modules/@angular/fire/data
 import { AngularFireAuthModule } from '../../node_modules/@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
+import { ScanModalPage } from 'src/app/scan-modal/scan-modal.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    QRModalPage
+    QRModalPage,
+    ScanModalPage
   ],
   entryComponents: [
-    QRModalPage
+    QRModalPage,
+    ScanModalPage
   ],
   imports: [
     BrowserModule,

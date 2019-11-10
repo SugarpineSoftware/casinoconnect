@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule',
     canActivate: [AuthenticationGuard] },
   { path: 'view-machine', loadChildren: './view-machine/view-machine.module#ViewMachinePageModule' },
-  { path: 'qrmodal', loadChildren: './qrmodal/qrmodal.module#QRModalPageModule' }
+  { path: 'qrmodal', loadChildren: './qrmodal/qrmodal.module#QRModalPageModule' },
+  { path: 'scan-modal', loadChildren: './scan-modal/scan-modal.module#ScanModalPageModule' }
 ];
 @NgModule({
   imports: [
