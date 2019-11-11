@@ -12,17 +12,18 @@ export class DataPassService {
   private m;
   private i;
 
-  setDataObject(x){
+  setDataObject(x) {
     this.m = x;
   }
-  getDataObject(){
+
+  getDataObject() {
     return this.m;
   }
 
-  setForumIndex(x){
+  setForumIndex(x) {
     this.i = x;
   }
-  getForumIndex(){
+  getForumIndex() {
     return this.i;
   }
 

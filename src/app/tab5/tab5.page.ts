@@ -70,31 +70,30 @@ export class Tab5Page {
       this.FirebaseService.newSearch(this.sValue,this.sField).subscribe(
         res => {
         if(res.length === 0){
-          this.presentAlert('No Data Found',"Search Failed","Please Try Again")
+          this.presentAlert('No Data Found', "Search Failed", "Please Try Again")
         }
         this.payload = res.map(a =>{
           return{
-            area: a.payload.doc.data().Area,
-            asset: a.payload.doc.data().Asset,
-            bank: a.payload.doc.data().Bank,
-            machine: a.payload.doc.data().Machine_Number,
             cabinet: a.payload.doc.data().Cabinet,
-            inService: a.payload.doc.data().In_Service,
-            manufacturer: a.payload.doc.data().Manufacturer,
-            serial: a.payload.doc.data().Serial,
-            theme: a.payload.doc.data().Theme,
-            onFloor: a.payload.doc.data().On_Floor,
-            encrypted: a.payload.doc.data().EncryptedCode,
-            billValidator: a.payload.doc.data().Bill_Validator,
-            billValidatorFirmware: a.payload.doc.data().Bill_Validator_Firmware,
-            keychip: a.payload.doc.data().KeyChip1,
-            keychip2: a.payload.doc.data().KeyChip_2,
-            machineDenom: a.payload.doc.data().Machine_Denom,
-            maxBet: a.payload.doc.data().Max_Bet,
-            paytableId: a.payload.doc.data().Paytable_Id,
-            printer: a.payload.doc.data().Printer,
-            printerFirmware: a.payload.doc.data().Printer_Firmware
-
+              theme: a.payload.doc.data().Theme,
+              machineNumber: a.payload.doc.data().Machine_Number,
+              bank: a.payload.doc.data().Bank,
+              assetNumber: a.payload.doc.data().Asset,
+              manufacturer: a.payload.doc.data().Manufacturer,
+              area: a.payload.doc.data().Area,
+              billValidator: a.payload.doc.data().Bill_Validator,
+              billValidatorFirmware: a.payload.doc.data().Bill_Validator_Firmware,
+              encrypted: a.payload.doc.data().EncryptedCode,
+              inService: a.payload.doc.data().In_Service,
+              keychip1: a.payload.doc.data().KeyChip1,
+              keychip2: a.payload.doc.data().KeyChip2,
+              machineDenom: a.payload.doc.data().Machine_Denom,
+              maxBet: a.payload.doc.data().Max_Bet,
+              onFloor: a.payload.doc.data().On_Floor,
+              payTableId: a.payload.doc.data().PayTable_Id,
+              printer: a.payload.doc.data().Printer,
+              printerFirmware: a.payload.doc.data().Printer_Firmware,
+              serial: a.payload.doc.data().Serial
           }
         })
       });

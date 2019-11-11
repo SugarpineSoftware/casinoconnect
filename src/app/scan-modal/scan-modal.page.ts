@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './scan-modal.page.html',
   styleUrls: ['./scan-modal.page.scss'],
 })
-export class ScanModalPage implements OnInit {
+export class ScanModalPage implements OnInit{
 
   title = '';
   encryptedData = null;
@@ -19,10 +19,14 @@ export class ScanModalPage implements OnInit {
     public navParams: NavParams,
     public modalController: ModalController,
     public DataPass: DataPassService,
-    public Router: Router
-  ) {}
+    public router: Router
+  ) {
 
-  ngOnInit() {}
+  }
+
+  ngOnInit() {
+  }
+
 
   forumOnClick() {
     const returnValue = 0;
@@ -31,8 +35,8 @@ export class ScanModalPage implements OnInit {
 
   moreInfoOnClick() {
     const returnValue = 1;
-    // this.DataPass.setDataObject();
-    this.Router.navigateByUrl('view-machine');
+    this.DataPass.setDataObject(this.encryptedData[0]);
+    this.router.navigateByUrl('view-machine');
     this.modalController.dismiss(returnValue);
   }
 
