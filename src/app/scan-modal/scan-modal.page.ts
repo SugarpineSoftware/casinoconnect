@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
+import { DataPassService } from 'src/app/data-pass.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scan-modal',
@@ -15,7 +17,9 @@ export class ScanModalPage implements OnInit {
   constructor(
     public navController: NavController,
     public navParams: NavParams,
-    public modalController: ModalController
+    public modalController: ModalController,
+    public DataPass: DataPassService,
+    public Router: Router
   ) {}
 
   ngOnInit() {}
@@ -27,7 +31,10 @@ export class ScanModalPage implements OnInit {
 
   moreInfoOnClick() {
     const returnValue = 1;
+    this.DataPass.setDataObject(this.navParams.data);
+    this.Router.navigateByUrl('view-machine');
     this.modalController.dismiss(returnValue);
+
   }
 
   wikiOnClick() {
