@@ -44,6 +44,11 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../tab4/tab4.module').then(m => m.Tab4PageModule)
+          },
+          {
+            path: 'Posts',
+            loadChildren: () =>
+              import('src/app/forum-posts/forum-posts.module').then(m => m.ForumPostsPageModule)
           }
         ]
       },

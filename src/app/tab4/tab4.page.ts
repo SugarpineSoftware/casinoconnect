@@ -26,8 +26,9 @@ export class Tab4Page implements OnInit {
 
   viewPosts(i){
     this.DataPass.setForumIndex(i);
-    this.Router.navigateByUrl("forum-posts");
+    this.Router.navigateByUrl("tabs/tab4/Posts");
   }
+  
   
   ionViewWillEnter(){
     this.firebase.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res =>{

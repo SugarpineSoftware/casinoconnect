@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataPassService } from '../data-pass.service';
 import { FirebaseService } from '../firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forum-posts',
@@ -11,7 +12,8 @@ export class ForumPostsPage implements OnInit {
 
   constructor(
     private DataPass: DataPassService,
-    private FirebaseService: FirebaseService
+    private FirebaseService: FirebaseService,
+    private Router: Router
   ) { }
 
   public i;
@@ -34,5 +36,7 @@ export class ForumPostsPage implements OnInit {
       }
     )
   }
-
+  back(){
+    this.Router.navigateByUrl('tabs/tab4')
+  }
 }

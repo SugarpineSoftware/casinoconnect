@@ -4,6 +4,7 @@ import * as CryptoJS from 'crypto-js';
 import { AlertController, ModalController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/firebase.service';
 import { ScanModalPage } from '../scan-modal/scan-modal.page';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 
@@ -19,8 +20,8 @@ export class Tab1Page {
   constructor(private barcodeScanner: BarcodeScanner,
               private firebase: FirebaseService,
               public alertController: AlertController,
-              public modalController: ModalController
-
+              public modalController: ModalController,
+              public auth: AngularFireAuth
               ) {
   }
 
@@ -123,5 +124,9 @@ export class Tab1Page {
         });
       }
     );
+  }
+
+  logoutOnClick() {
+    this.auth.auth.signOut();
   }
 }
