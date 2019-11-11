@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class DataPassService {
 
-  private data = [];
 
   constructor() { }
 
 
   private m;
+  private i;
 
   setDataObject(x){
     this.m = x;
@@ -18,5 +18,13 @@ export class DataPassService {
   getDataObject(){
     return this.m;
   }
+
+  setForumIndex(x){
+    this.i = x;
+  }
+  getForumIndex(){
+    return this.i;
+  }
+
 
 }

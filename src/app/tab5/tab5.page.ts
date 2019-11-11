@@ -30,8 +30,7 @@ export class Tab5Page {
   public sPlaceholder: string;
   public sField: string;
 
-  public pushPage: string = "view-machine";
-  public params: string = "stuff;"
+
 
   searchOptions: any[]=[
     {id:0, field:"Area", placeholder:"Area Number"},

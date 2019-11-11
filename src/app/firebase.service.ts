@@ -41,6 +41,17 @@ export class FirebaseService {
     .doc(companyName)
     .collection('Wiki').snapshotChanges();
   }
+  bringUpListOfForumTopics(companyName) {
+    return this.firestore.collection('Company')
+    .doc(companyName)
+    .collection('Forum').snapshotChanges();
+  }
+  getForumPosts(topicId){
+    var docTitle = ['DownMachines','Memos','PassDown','PurchaseRequests','QuestionsSuggestions'];
+    return this.firestore.collection('Company')
+    .doc('Sugarpine Slots')
+    .collection('Forum').doc(docTitle[topicId]).collection('Posts').snapshotChanges();
+  }
 
 
   saveQRToDataBase(companyName, encryptedQrCode, manufacture, cabinet, area, bank, machineNumber, asset, serialNumber,

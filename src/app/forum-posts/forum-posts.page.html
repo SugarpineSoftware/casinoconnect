@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>forumPosts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let order of payload">Title= {{order.title}} Date= {{order.date}} User= {{order.user}}
+    <ion-button slot="end" >view</ion-button>
+  </ion-item>
+</ion-content>
