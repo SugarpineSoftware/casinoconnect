@@ -31,7 +31,7 @@ export class ScanModalPage implements OnInit {
 
   moreInfoOnClick() {
     const returnValue = 1;
-    this.DataPass.setDataObject();
+    // this.DataPass.setDataObject();
     this.Router.navigateByUrl('view-machine');
     this.modalController.dismiss(returnValue);
   }
