@@ -76,7 +76,7 @@ export class Tab1Page {
     return await modal.present();
   }
 
-  
+
   scanCode() {
     this.barcodeScanner.scan().then(
       barcodeData => {
@@ -101,7 +101,21 @@ export class Tab1Page {
               machine_number: a.payload.doc.data().Machine_Number,
               bank: a.payload.doc.data().Bank,
               asset_number: a.payload.doc.data().Asset,
-              manufacture: a.payload.doc.data().Manufacture
+              manufacture: a.payload.doc.data().Manufacturer,
+              area: a.payload.doc.data().Area,
+              billValidator: a.payload.doc.data().Bill_Validator,
+              billValidatorFirmWare: a.payload.doc.data().Bill_Validator_Firmware,
+              encryptedCode: a.payload.doc.data().EncryptedCode,
+              inService: a.payload.doc.data().In_Service,
+              keyChip1: a.payload.doc.data().KeyChip1,
+              keyChip2: a.payload.doc.data().KeyChip2,
+              machineDenom: a.payload.doc.data().Machine_Denom,
+              maxBet: a.payload.doc.data().Max_Bet,
+              onFloor: a.payload.doc.data().On_Floor,
+              payTableId: a.payload.doc.data().PayTable_Id,
+              printer: a.payload.doc.data().Printer,
+              printerFirmware: a.payload.doc.data().Printer_Firmware,
+              serial: a.payload.doc.data().Serial
             };
           });
           // presenting the information //
