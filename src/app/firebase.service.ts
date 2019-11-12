@@ -28,7 +28,6 @@ export class FirebaseService {
 
 
 
-
   newSearch(value, field) {
     return this.firestore.collection(
       'Company').doc('Sugarpine Slots').collection('Machine', ref => ref.where(field, '==', value)).snapshotChanges();
@@ -63,6 +62,22 @@ export class FirebaseService {
   getFormPostsBasedOnAssetNumber(assetNumber) {
     return this.firestore.collection(
       'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
+  }
+
+  saveNewPost(asset,content,date,title,topicId,user){
+    var newPost = this.firestore.collection('Company').doc('Sugarpine Slots').collection('Forums').doc();
+
+    var data = {
+      Asset: asset,
+      Content: content,
+      Date: date,
+      Title: title,
+      Topic_Id: topicId,
+      User: user
+    }
+    return
+     newPost.set(data);
+    
   }
 
 

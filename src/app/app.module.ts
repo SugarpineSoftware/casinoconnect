@@ -18,19 +18,24 @@ import { AngularFireAuthModule } from '../../node_modules/@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
 import { ScanModalPage } from 'src/app/scan-modal/scan-modal.page';
+import { PostModalPage } from 'src/app/post-modal/post-modal.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import {MatExpansionModule} from '@angular/material/expansion';
+
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     QRModalPage,
-    ScanModalPage
+    ScanModalPage,
+    PostModalPage
   ],
   entryComponents: [
     QRModalPage,
-    ScanModalPage
+    ScanModalPage,
+    PostModalPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgxQRCodeModule,
+<<<<<<< HEAD
     MatExpansionModule
+=======
+    FormsModule
+>>>>>>> 558eac3a2510466622760781767c6c0c012100e2
   ],
   providers: [
     StatusBar,

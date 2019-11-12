@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>PostModal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-input [(ngModel)]= "title">Subject</ion-input>
+ <ion-select  [(ngModel)] ="topicId">
+   <ion-select-option (ionChange)="setTopicId(p.id)" *ngFor="let p of payload"> {{p.topic}}</ion-select-option>
+ </ion-select>
+ <ion-input [(ngModel)]="asset">
+   Asset
+ </ion-input>
+ <ion-input [(ngModel)]="user">
+   User
+ </ion-input>
+ <ion-input [(ngModel)]="content">
+   Content
+ </ion-input>
+ <ion-button (click)="savePost()">Save Post</ion-button>
+</ion-content>

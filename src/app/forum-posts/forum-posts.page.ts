@@ -3,6 +3,9 @@ import { DataPassService } from '../data-pass.service';
 import { FirebaseService } from '../firebase.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { PostModalPage } from 'src/app/post-modal/post-modal.page';
+import { ModalController } from '@ionic/angular';
+
 @Component({
   selector: 'app-forum-posts',
   templateUrl: './forum-posts.page.html',
@@ -14,7 +17,8 @@ export class ForumPostsPage implements OnInit {
     private DataPass: DataPassService,
     private FirebaseService: FirebaseService,
     private Router: Router,
-    private location:Location 
+    private location:Location,
+    public modalController: ModalController
   ) { }
 
   public i;
@@ -80,6 +84,20 @@ export class ForumPostsPage implements OnInit {
   goToPost(){
     this.Router.navigateByUrl('forum-post');
   }
+  newPost(){
+    this.presentPost();
+  }
+
+  async presentPost(){
+    const modal = await this.modalController.create({
+      component: PostModalPage,
+      componentProps:{
+          ForumId: this.i
+      }
+    });
+    return await modal.present();
+  }
+
 }
 
 
