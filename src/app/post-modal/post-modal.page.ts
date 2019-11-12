@@ -57,7 +57,6 @@ export class PostModalPage implements OnInit {
       this.title,
       this.topicId,
       this.user
-
     )
   }
 }

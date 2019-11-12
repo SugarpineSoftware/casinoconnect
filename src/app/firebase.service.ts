@@ -9,6 +9,7 @@ export class FirebaseService {
 
   constructor(private firestore: AngularFirestore) { }
 
+  // pulls the topics from the wiki //
   pullWiki() {
     return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Wiki');
   }
@@ -27,43 +28,52 @@ export class FirebaseService {
 
 
 
-
+  // new search - the field is the drop down menu item for which to search by //
+  // and the value is the actual value to search //
   newSearch(value, field) {
     return this.firestore.collection(
       'Company').doc('Sugarpine Slots').collection('Machine', ref => ref.where(field, '==', value)).snapshotChanges();
     }
 
 
-
+  // brings up a list of wiki topics //
   bringUpListOfWikiTopics(companyName) {
     return this.firestore.collection('Company')
     .doc(companyName)
     .collection('Wiki').snapshotChanges();
   }
 
+
+  // brings up a list of forum topics //
   bringUpListOfForumTopics(companyName) {
     return this.firestore.collection('Company')
     .doc(companyName)
     .collection('Settings').doc('4dPG1ij10lXO2dalG7Lt').collection('Forum_Topics').snapshotChanges();
   }
 
+
+  // gets a forum post by topic id //
   getForumPosts(topicId) {
     return this.firestore.collection(
       'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Topic_Id', '==', topicId)).snapshotChanges();
       
   }
+
+
+  // gets the forum comments by document ID //
   getForumCommentsByDocumentId(docId){
     return this.firestore.collection(
       'Company').doc('Sugarpine Slots').collection('Forum').doc(docId).collection('Comments').snapshotChanges();
   }
 
 
-
+  // gets forum post based on asset number 
   getFormPostsBasedOnAssetNumber(assetNumber) {
     return this.firestore.collection(
       'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
   }
 
+  // saves a new post (main topic post)
   saveNewPost(asset,content,date,title,topicId,user){
     var newPost = this.firestore.collection('Company').doc('Sugarpine Slots').collection('Forums').doc();
 
@@ -80,7 +90,8 @@ export class FirebaseService {
     
   }
 
-
+  // saves a new QR code to the database // 
+  // takes in a ton of parameters //
   saveQRToDataBase(companyName, encryptedQrCode, manufacture, cabinet, area, bank, machineNumber, asset, serialNumber,
     billValidator, billValidatorFirmware, inService, keyChip1, keyChip2, machineDenom, maxBet, onFloor, payTableId,
     printer, printerFirmware, theme) {
@@ -137,6 +148,8 @@ export class FirebaseService {
       });
     }
 
+
+    // **** support methods for creating a qr code **** //
     // checking the values for null or undefined //
     checkForNullOrUndefined(value) {
       if (value === null || value === undefined) {
