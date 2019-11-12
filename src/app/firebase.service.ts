@@ -45,7 +45,7 @@ export class FirebaseService {
   bringUpListOfForumTopics(companyName) {
     return this.firestore.collection('Company')
     .doc(companyName)
-    .collection('Settings').snapshotChanges();
+    .collection('Settings').doc('4dPG1ij10lXO2dalG7Lt').collection('Forum_Topics').snapshotChanges();
   }
 
   getForumPosts(topicId) {

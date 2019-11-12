@@ -9,8 +9,8 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
-      <ion-button (click)="ViewPosts(order)"  *ngFor="let order of topicList" expand="full">
-        {{order}}
+      <ion-button (click)="ViewPosts(order.id)"  *ngFor="let order of payload" expand="full">
+        {{order.topic}}
      </ion-button>
       
     </ion-card-content>
