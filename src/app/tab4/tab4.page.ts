@@ -33,8 +33,9 @@ export class Tab4Page implements OnInit {
     this.firebase.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res =>{
       this.payload = res.map(a => {
         return{
-          name: a.payload.doc.data().Title,
-          id: a.payload.doc.data().Id
+          user: a.payload.doc.data().User,
+          topic: a.payload.doc.data().Topic,
+          topicId: a.payload.doc.data().Topic_Id
         }
       })
     })
