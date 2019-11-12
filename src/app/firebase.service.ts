@@ -44,14 +44,12 @@ export class FirebaseService {
   bringUpListOfForumTopics(companyName) {
     return this.firestore.collection('Company')
     .doc(companyName)
-    .collection('Forum').snapshotChanges();
+    .collection('Settings').snapshotChanges();
   }
 
   getForumPosts(topicId) {
-    const docTitle = ['DownMachines', 'Memos', 'PassDown', 'PurchaseRequests', 'QuestionsSuggestions'];
-
     return this.firestore.collection(
-      'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Topic', '==', docTitle[topicId])).snapshotChanges();
+      'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Topic', '==', topicId)).snapshotChanges();
   }
 
   getFormPostsBasedOnAssetNumber(assetNumber) {

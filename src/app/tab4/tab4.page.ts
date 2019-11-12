@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class Tab4Page implements OnInit {
 
   public payload; 
+  public topicList: string[];
 
   constructor(
     private firebase:FirebaseService,
@@ -33,11 +34,10 @@ export class Tab4Page implements OnInit {
     this.firebase.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res =>{
       this.payload = res.map(a => {
         return{
-          user: a.payload.doc.data().User,
-          topic: a.payload.doc.data().Topic,
-          topicId: a.payload.doc.data().Topic_Id
+          topics: a.payload.doc.data().Forum_Topics
         }
       })
+      this.topicList = this.payload[0].topics;
     })
   }
 
