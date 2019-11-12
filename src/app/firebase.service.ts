@@ -53,11 +53,13 @@ export class FirebaseService {
       'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Topic_Id', '==', topicId)).snapshotChanges();
       
   }
+  getForumCommentsByDocumentId(docId){
+    return this.firestore.collection(
+      'Company').doc('Sugarpine Slots').collection('Forum').doc(docId).collection('Comments').snapshotChanges();
+  }
 
 
 
-
-  
   getFormPostsBasedOnAssetNumber(assetNumber) {
     return this.firestore.collection(
       'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
