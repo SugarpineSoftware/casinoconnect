@@ -46,11 +46,17 @@ export class FirebaseService {
     .doc(companyName)
     .collection('Forum').snapshotChanges();
   }
-  getForumPosts(topicId){
-    var docTitle = ['DownMachines','Memos','PassDown','PurchaseRequests','QuestionsSuggestions'];
-    return this.firestore.collection('Company')
-    .doc('Sugarpine Slots')
-    .collection('Forum').doc(docTitle[topicId]).collection('Posts').snapshotChanges();
+
+  getForumPosts(topicId) {
+    const docTitle = ['DownMachines', 'Memos', 'PassDown', 'PurchaseRequests', 'QuestionsSuggestions'];
+
+    return this.firestore.collection(
+      'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Topic', '==', docTitle[topicId])).snapshotChanges();
+  }
+
+  getFormPostsBasedOnAssetNumber(assetNumber) {
+    return this.firestore.collection(
+      'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
   }
 
 
