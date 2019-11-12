@@ -76,9 +76,7 @@ export class ForumPostsPage implements OnInit {
   back(){
     this.location.back();
   }
-  goToPost(y,x){
-    this.DataPass.setObjectPost(y);
-    this.DataPass.setDocumentIdForum(x);
+  goToPost(){
     this.Router.navigateByUrl('forum-post');
   }
 }
