@@ -40,7 +40,8 @@ export class ForumPostsPage implements OnInit {
               title: a.payload.doc.data().Title,
               content: a.payload.doc.data().Content,
               user: a.payload.doc.data().User,
-              date: a.payload.doc.data().Date.toDate()
+              date: a.payload.doc.data().Date.toDate(),
+              docId: a.payload.doc.id
             }
           })
           this.payload.forEach(element => {
@@ -60,9 +61,14 @@ export class ForumPostsPage implements OnInit {
               title: a.payload.doc.data().Title,
               content: a.payload.doc.data().Content,
               user: a.payload.doc.data().User,
-              date: a.payload.doc.data().Date.toDate()
+              date: a.payload.doc.data().Date.toDate(),
+              docId: a.payload.doc.id
             }
           })
+
+          this.payload.forEach(element => {
+            console.log(element.docId);
+          });
         }
       )
     }
