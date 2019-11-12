@@ -26,7 +26,7 @@ export class ForumPostsPage implements OnInit {
     this.j = this.DataPass.getForumMode();
     console.log(this.j);
     this.i = this.DataPass.getForumIndex();
-
+   
     // passing in true will mean that it DID come from a scan //
     if (this.j === true) {
       this.passedInAssetNumber = this.DataPass.getForumAssetNumber();
