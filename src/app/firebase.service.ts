@@ -55,9 +55,6 @@ export class FirebaseService {
   }
 
 
-
-
-  
   getFormPostsBasedOnAssetNumber(assetNumber) {
     return this.firestore.collection(
       'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
