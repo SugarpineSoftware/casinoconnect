@@ -51,6 +51,7 @@ export class FirebaseService {
   getForumPosts(topicId) {
     return this.firestore.collection(
       'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Topic_Id', '==', topicId)).snapshotChanges();
+      
   }
 
 
