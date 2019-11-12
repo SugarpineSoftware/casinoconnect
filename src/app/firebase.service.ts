@@ -15,15 +15,6 @@ export class FirebaseService {
 
   // brings up the information about the scanned QR code //
   newScan(newScanString) {
-
-    // I need to tear appart the incoming string to get the manufacture, machine model, and serial Number //
-    // this will output something like Bally/S6000/Serial Number //
-    const scanStringArray = newScanString.split('/');
-    const manufacture = scanStringArray[0];
-    const model = scanStringArray[1];
-    const serial = scanStringArray[2];
-
-
     return this.firestore.collection('Company')
     .doc('Sugarpine Slots')
     .collection('Machine', ref => ref.where('Serial', '==', newScanString)).snapshotChanges();

@@ -17,25 +17,34 @@ export class ForumPostsPage implements OnInit {
   ) { }
 
   public i;
+  public j = false;
   public payload;
 
   ngOnInit() {
+    this.j = this.DataPass.getForumMode();
     this.i = this.DataPass.getForumIndex();
-    this.FirebaseService.getForumPosts(this.i).subscribe(
-      res => { 
-        if(res.length === 0){
-          console.log('nothing to display');
-        }
-        this.payload = res.map(a =>{
-          return{
-            title: a.payload.doc.data().Title,
-            content: a.payload.doc.data().Content,
-            user: a.payload.doc.data().User,
-            date: a.payload.doc.data().Date.toDate()
+
+    // passing in true will mean that it DID come from a scan //
+    if (this.j === true) {
+
+    } else {
+
+      this.FirebaseService.getForumPosts(this.i).subscribe(
+        res => { 
+          if(res.length === 0){
+            console.log('nothing to display');
           }
-        })
-      }
-    )
+          this.payload = res.map(a =>{
+            return{
+              title: a.payload.doc.data().Title,
+              content: a.payload.doc.data().Content,
+              user: a.payload.doc.data().User,
+              date: a.payload.doc.data().Date.toDate()
+            }
+          })
+        }
+      )
+    }
   }
   back(){
     this.Router.navigateByUrl('tabs/tab4')

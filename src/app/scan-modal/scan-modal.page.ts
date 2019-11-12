@@ -30,7 +30,8 @@ export class ScanModalPage implements OnInit{
 
   forumOnClick() {
     const returnValue = 0;
-    this.router.navigateByUrl('forum-post');
+    this.DataPass.setDataObject(this.encryptedData[0].assetNumber);
+    this.router.navigateByUrl('forum-posts');
     this.modalController.dismiss(returnValue);
   }
 
