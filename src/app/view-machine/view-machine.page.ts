@@ -1,16 +1,19 @@
 import { Component, OnInit, AfterContentInit} from '@angular/core';
 import { Data } from '@angular/router';
 import { DataPassService } from '../data-pass.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-view-machine',
   templateUrl: './view-machine.page.html',
   styleUrls: ['./view-machine.page.scss'],
 })
-export class ViewMachinePage implements OnInit, AfterContentInit {
+export class ViewMachinePage implements OnInit {
 
   constructor(
-    private DataPass: DataPassService
+    private DataPass: DataPassService,
+    private location: Location
+
   ) { }
 
     public m;
@@ -26,4 +29,7 @@ export class ViewMachinePage implements OnInit, AfterContentInit {
   }
 
 
+  goBack(){
+    this.location.back();
+  }
 }
