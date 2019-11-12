@@ -26,7 +26,6 @@ export class Tab4Page implements OnInit {
   }
 
   viewPosts(i){
-    console.log(i);
     this.DataPass.setForumIndex(i);
     this.Router.navigateByUrl("tabs/tab4/Posts");
   }
