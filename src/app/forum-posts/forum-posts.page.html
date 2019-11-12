@@ -5,7 +5,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-item *ngFor="let order of payload">Title= {{order.title}} Date= {{order.date}} User= {{order.user}}
-    <ion-button slot="end" (click)="goToPost()" >view</ion-button>
-  </ion-item>
+  <ion-item *ngFor="let order of payload">
+    <ion-card>
+      <ion-card-header>
+          <ion-card-title>{{order.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+          <ion-item>
+        
+          </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ion-item> 
 </ion-content>
+
+
+
+<!-- <ion-item *ngFor="let order of payload">Title= {{order.title}} Date= {{order.date}} User= {{order.user}}
+    <ion-button slot="end" (click)="goToPost()" >view</ion-button>
+  </ion-item>-->

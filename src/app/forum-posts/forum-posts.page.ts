@@ -24,9 +24,7 @@ export class ForumPostsPage implements OnInit {
 
   ngOnInit() {
     this.j = this.DataPass.getForumMode();
-    console.log(this.j);
     this.i = this.DataPass.getForumIndex();
-   
     // passing in true will mean that it DID come from a scan //
     if (this.j === true) {
       this.passedInAssetNumber = this.DataPass.getForumAssetNumber();
@@ -41,6 +39,7 @@ export class ForumPostsPage implements OnInit {
               content: a.payload.doc.data().Content,
               user: a.payload.doc.data().User,
               date: a.payload.doc.data().Date.toDate(),
+              topic: a.payload.doc.data().Topic,
               docId: a.payload.doc.id
             }
           })
@@ -62,6 +61,7 @@ export class ForumPostsPage implements OnInit {
               content: a.payload.doc.data().Content,
               user: a.payload.doc.data().User,
               date: a.payload.doc.data().Date.toDate(),
+              topic: a.payload.doc.data().Topic,
               docId: a.payload.doc.id
             }
           })
