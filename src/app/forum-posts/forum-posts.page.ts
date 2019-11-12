@@ -24,6 +24,7 @@ export class ForumPostsPage implements OnInit {
     this.FirebaseService.getForumPosts(this.i).subscribe(
       res => { if(res.length === 0){
           console.log('nothing to display');
+          
         }
         this.payload = res.map(a =>{
           return{
