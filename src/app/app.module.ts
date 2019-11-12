@@ -18,18 +18,23 @@ import { AngularFireAuthModule } from '../../node_modules/@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
 import { ScanModalPage } from 'src/app/scan-modal/scan-modal.page';
+import { PostModalPage } from 'src/app/post-modal/post-modal.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     QRModalPage,
-    ScanModalPage
+    ScanModalPage,
+    PostModalPage
   ],
   entryComponents: [
     QRModalPage,
-    ScanModalPage
+    ScanModalPage,
+    PostModalPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    FormsModule
   ],
   providers: [
     StatusBar,
