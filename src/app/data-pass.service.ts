@@ -12,6 +12,7 @@ export class DataPassService {
   private m;
   private i;
   private l;
+  private k;
 
   setDataObject(x) {
     this.m = x;
@@ -35,6 +36,14 @@ export class DataPassService {
 
   getForumMode() {
     return this.l;
+  }
+
+  setForumAssetNumber(x) {
+    this.k = x;
+  }
+
+  getForumAssetNumber() {
+    return this.k;
   }
 
 
