@@ -40,4 +40,7 @@ export class ForumPostsPage implements OnInit {
   back(){
     this.Router.navigateByUrl('tabs/tab4')
   }
+  goToPost(){
+    this.Router.navigateByUrl('forum-post');
+  }
 }
