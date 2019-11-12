@@ -73,7 +73,8 @@ export class FirebaseService {
       'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
   }
 
-  // saves a new post (main topic post)
+  // saves a new post (main topic post) //
+  // ---- this needs work ---- //
   saveNewPost(asset,content,date,title,topicId,user){
     var newPost = this.firestore.collection('Company').doc('Sugarpine Slots').collection('Forums').doc();
 

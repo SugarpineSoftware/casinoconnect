@@ -20,7 +20,8 @@ import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
 import { ScanModalPage } from 'src/app/scan-modal/scan-modal.page';
 import { PostModalPage } from 'src/app/post-modal/post-modal.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule, MatButtonModule } from '@angular/material';
 
 import { FormsModule } from '@angular/forms';
 
@@ -45,11 +46,10 @@ import { FormsModule } from '@angular/forms';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgxQRCodeModule,
-<<<<<<< HEAD
-    MatExpansionModule
-=======
-    FormsModule
->>>>>>> 558eac3a2510466622760781767c6c0c012100e2
+    FormsModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatButtonModule
   ],
   providers: [
     StatusBar,
