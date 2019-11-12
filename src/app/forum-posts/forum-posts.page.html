@@ -6,6 +6,6 @@
 
 <ion-content>
   <ion-item *ngFor="let order of payload">Title= {{order.title}} Date= {{order.date}} User= {{order.user}}
-    <ion-button slot="end" (click)="goToPost()" >view</ion-button>
+    <ion-button slot="end" (click)="goToPost(order,order.docId)" >view</ion-button>
   </ion-item>
 </ion-content>

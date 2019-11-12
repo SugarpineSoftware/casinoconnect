@@ -8,6 +8,7 @@ export class DataPassService {
 
   constructor() { }
 
+  private a;
   private f;
   private m;
   private i;
@@ -52,6 +53,14 @@ export class DataPassService {
   }
   getDocumentIdForum(){
     return this.f;
+  }
+
+  //Collect Object Post
+  setObjectPost(x){
+    this.a = x;
+  }
+  getObjectPost(){
+    return this.a;
   }
 
 }
