@@ -25,7 +25,7 @@
     </ion-row>
   </ion-grid>
   <ion-item *ngFor="let m of payload"> 
-    Location={{m.area}}-{{m.bank}}-{{m.machine}} {{m.asset}}
+    Location={{m.area}}-{{m.bank}}-{{m.machineNumber}} {{m.assetNumber}}
     <ion-button slot="end" (click)="viewMachine(m)"> View </ion-button>
   </ion-item>
    </ion-content>
