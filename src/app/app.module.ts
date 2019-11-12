@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
 import { ScanModalPage } from 'src/app/scan-modal/scan-modal.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    MatExpansionModule
   ],
   providers: [
     StatusBar,

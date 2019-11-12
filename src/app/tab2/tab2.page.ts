@@ -8,6 +8,7 @@ import { FirebaseService } from 'src/app/firebase.service';
 import { AlertController } from '@ionic/angular';
 import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
 
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',

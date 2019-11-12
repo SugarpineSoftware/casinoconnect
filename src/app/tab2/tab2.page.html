@@ -79,16 +79,7 @@
     </ion-item>
   
     <ion-card text-center>
-      <!--
-      <ngx-qrcode [qrc-value]="encryptQrData" [qrc-element-type]="elementType" qrc-errorCorrectionLevel = "H">
-      </ngx-qrcode>-->
       <ion-card-content>
-        <!--
-        <ion-button expand="full" color="tertiary" (click)="downloadQR()" *ngIf="elementType === 'canvas'">
-          <ion-icon name="download" slot="start">
-          </ion-icon>
-          Download QR
-        </ion-button>-->
         <ion-button expand="full" color="tertiary" (click)="createQR()" *ngIf="elementType === 'canvas'">
             <ion-icon name="download" slot="start">
             </ion-icon>
@@ -96,4 +87,20 @@
           </ion-button>
       </ion-card-content>
     </ion-card>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          This is the expansion title
+        </mat-panel-title>
+        <mat-panel-description>
+          This is a summary of the content
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+    
+      <p>This is the primary content of the panel.</p>
+    
+    </mat-expansion-panel>
+
+    
   </ion-content>

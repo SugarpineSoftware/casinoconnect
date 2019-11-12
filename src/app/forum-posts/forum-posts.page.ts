@@ -73,6 +73,7 @@ export class ForumPostsPage implements OnInit {
       )
     }
   }
+  
   back(){
     this.location.back();
   }
