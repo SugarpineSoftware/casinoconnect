@@ -1,11 +1,15 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button (click)="goBack()">Back</ion-button>
+        </ion-buttons>
     <ion-title>forumPost</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
+
     <ion-card-title>{{post.content}}</ion-card-title>
   </ion-card>
   <ion-card *ngFor="let p of payload">
