@@ -74,7 +74,7 @@ export class FirebaseService {
 
   // saves a new post (main topic post) //
   // ---- this needs work ---- //
-  saveNewPost(asset,content,date,title,topicId,user,uniqueId){
+  saveNewPost(asset, content, date, title, topicId, user, uniqueId) {
     return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Forums').doc(uniqueId).set({
       Asset: asset,
       Content: content,
@@ -84,8 +84,22 @@ export class FirebaseService {
       User: user
     }
     );
+  }
 
-    
+
+
+  newSaveNewPost(asset, content, date, title, topicId, user) {
+    const uID = this.firestore.createId();
+    return this.firestore.collection('Company')
+    .doc('Sugarpine Slots').collection('Forum')
+    .doc(uID).set({
+      Asset: asset,
+      Content: content,
+      Date: date,
+      Title: title,
+      Topic_Id: topicId,
+      User: user
+    });
   }
 
   // saves a new QR code to the database // 

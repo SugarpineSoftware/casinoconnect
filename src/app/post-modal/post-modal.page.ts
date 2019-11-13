@@ -49,6 +49,7 @@ export class PostModalPage implements OnInit {
   setTopicId(x) {
     this.topicId = x;
   }
+
   encryptData(){
     this.date = new Date;
     this.fullData = this.date.toString() + this.user + this.asset;
@@ -57,15 +58,22 @@ export class PostModalPage implements OnInit {
   }
 
   savePost() {
-    this.encryptData();
+    //this.encryptData();
     console.log(this.asset);
     console.log(this.content);
     console.log(new Date());
     console.log(this.title);
     console.log(this.topicId);
     console.log(this.user);
-    console.log(this.uniqueId);
+    // console.log(this.uniqueId);
 
+    this.firebaseService.newSaveNewPost(this.asset,
+      this.content,
+      new Date(),
+      this.title,
+      this.topicId,
+      this.user);
+    /*
     this.firebaseService.saveNewPost(
       this.asset,
       this.content,
@@ -75,5 +83,6 @@ export class PostModalPage implements OnInit {
       this.user,
       this.uniqueId
     )
+    */
   }
 }
