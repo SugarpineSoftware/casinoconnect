@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataPassService } from '../data-pass.service';
 import { FirebaseService } from '../firebase.service';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { Location} from '@angular/common';
 import { PostModalPage } from 'src/app/post-modal/post-modal.page';
 import { ModalController } from '@ionic/angular';
 
@@ -17,7 +17,7 @@ export class ForumPostsPage implements OnInit {
     private DataPass: DataPassService,
     private FirebaseService: FirebaseService,
     private Router: Router,
-    private location:Location,
+    private location: Location,
     public modalController: ModalController
   ) { }
 
@@ -114,7 +114,7 @@ export class ForumPostsPage implements OnInit {
   async presentPost(){
     const modal = await this.modalController.create({
       component: PostModalPage,
-      componentProps:{
+      componentProps: {
           ForumId: this.i
       }
     });

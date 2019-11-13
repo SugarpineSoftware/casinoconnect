@@ -18,7 +18,7 @@ export class PostModalPage implements OnInit {
     public navController: NavController,
     public navParams: NavParams
 
-  ) { 
+  ) {
     this.topicId = navParams.get('ForumId');
   }
 
@@ -31,9 +31,7 @@ export class PostModalPage implements OnInit {
   public payload;
 
   ngOnInit() {
-
-    console.log(this.topicId);
-    this.firebaseService.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res =>{
+    this.firebaseService.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res => {
       this.payload = res.map(a => {
         return{
           topic: a.payload.doc.data().Title,
@@ -45,11 +43,19 @@ export class PostModalPage implements OnInit {
   }
 
 
-  setTopicId(x){
+  setTopicId(x) {
     this.topicId = x;
   }
 
-  savePost(){
+  savePost() {
+
+    console.log(this.asset);
+    console.log(this.content);
+    console.log(new Date());
+    console.log(this.title);
+    console.log(this.topicId);
+    console.log(this.user);
+
     this.firebaseService.saveNewPost(
       this.asset,
       this.content,
