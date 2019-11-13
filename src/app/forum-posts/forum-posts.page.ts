@@ -4,7 +4,8 @@ import { FirebaseService } from '../firebase.service';
 import { Router } from '@angular/router';
 import { Location} from '@angular/common';
 import { PostModalPage } from 'src/app/post-modal/post-modal.page';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-forum-posts',
@@ -16,9 +17,10 @@ export class ForumPostsPage implements OnInit {
   constructor(
     private DataPass: DataPassService,
     private FirebaseService: FirebaseService,
-    private Router: Router,
+    private router: Router,
     private location: Location,
-    public modalController: ModalController
+    public modalController: ModalController,
+    public navController: NavController
   ) { }
 
   public i;
@@ -100,18 +102,20 @@ export class ForumPostsPage implements OnInit {
       });
     })
   }
-  
-  back(){
+
+  back() {
     this.location.back();
   }
-  goToPost(){
-    this.Router.navigateByUrl('forum-post');
+  goToPost(order) {
+    this.DataPass.setDocumentIdForum(order.docId);
+    this.DataPass.setDocumentTitleForum(order.title);
+    this.router.navigateByUrl('forum-post');
   }
-  newPost(){
+  newPost() {
     this.presentPost();
   }
 
-  async presentPost(){
+  async presentPost() {
     const modal = await this.modalController.create({
       component: PostModalPage,
       componentProps: {

@@ -1,19 +1,29 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-button (click)="goBack()">Back</ion-button>
-        </ion-buttons>
-    <ion-title>forumPost</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  
+    <ion-title>{{title}}</ion-title>
+  
+    <ion-buttons slot="primary">
+      <ion-button (click)="newPost()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>
+  </ion-header>
 
 <ion-content>
   <ion-card>
 
-    <ion-card-title>{{post.content}}</ion-card-title>
+    <!--<ion-card-title>{{post.content}}</ion-card-title>-->
   </ion-card>
+  
   <ion-card *ngFor="let p of payload">
     <ion-card-title>{{p.user}}</ion-card-title>
     <ion-card-content>{{p.comment}}</ion-card-content>
-  </ion-card>
+  </ion-card> 
 </ion-content>

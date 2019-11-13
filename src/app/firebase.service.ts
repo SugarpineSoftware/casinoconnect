@@ -72,9 +72,7 @@ export class FirebaseService {
       'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
   }
 
-  // saves a new post (main topic post) //
-  // ---- this needs work ---- //
-
+  // saves a new post (main topic post) // 
   saveNewPost(asset, content, date, title, topicId, user) {
     const uID = this.firestore.createId();
     return  this.firestore.collection('Company')
@@ -88,11 +86,15 @@ export class FirebaseService {
       User: user
     });
   }
-  autoCreatedComment(DocId){
+
+  // creates a comment to the current post //
+  autoCreatedComment(DocId) {
     const uID = this.firestore.createId();
     return this.firestore.collection('Company')
     .doc('Sugarpine Slots').collection('Forum')
-    .doc(DocId).collection('Comments').doc(uID).set({})
+    .doc(DocId).collection('Comments').doc(uID).set({
+      
+    })
 
   }
 

@@ -16,26 +16,30 @@ export class ForumPostPage implements OnInit {
     private FirebaseService: FirebaseService,
     private Router: Router,
     private location:Location
-  ) { }
+  ) {
+  }
     private id: string;
+    public title: string;
     private post;
-    private payload;
+    public payload;
 
   ngOnInit() {
     this.id = this.DataPass.getDocumentIdForum();
-    this.post = this.DataPass.getObjectPost();
-    this.FirebaseService.getForumCommentsByDocumentId(this.id).subscribe(res =>{
-      this.payload = res.map(a =>{
+    this.title = this.DataPass.getDocumentTitleForum();
+
+    this.FirebaseService.getForumCommentsByDocumentId(this.id).subscribe(res => {
+      this.payload = res.map(a => {
         return{
           comment: a.payload.doc.data().Comment,
           user: a.payload.doc.data().User
-        }
-      })
-    })
+        };
+      });
+    });
+    
   }
 
 
-  goBack(){
+  goBack() {
     this.location.back();
   }
 }
