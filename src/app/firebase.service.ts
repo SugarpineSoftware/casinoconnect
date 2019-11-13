@@ -74,10 +74,8 @@ export class FirebaseService {
 
   // saves a new post (main topic post) //
   // ---- this needs work ---- //
-  saveNewPost(asset,content,date,title,topicId,user){
-    var newPost = this.firestore.collection('Company').doc('Sugarpine Slots').collection('Forums');
-
-    var data = {
+  saveNewPost(asset,content,date,title,topicId,user,uniqueId){
+    return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Forums').doc(uniqueId).set({
       Asset: asset,
       Content: content,
       Date: date,
@@ -85,8 +83,8 @@ export class FirebaseService {
       Topic_Id: topicId,
       User: user
     }
-    return
-     newPost.add(data);
+    );
+
     
   }
 
