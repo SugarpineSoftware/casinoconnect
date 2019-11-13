@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>MaelBook</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngFor="let order of payload">
+        <ion-card-title>{{order.date}}</ion-card-title>
+        <ion-card-content>
+          Posted by {{order.user}} {{order.content}}
+      </ion-card-content>
+        
+      </ion-card>
+</ion-content>
