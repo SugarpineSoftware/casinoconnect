@@ -25,6 +25,10 @@ export class ForumPostsPage implements OnInit {
   public j = false;
   public passedInAssetNumber;
   public payload;
+  public listOfTopics;
+
+  public title = 'Forum';
+
 
   ngOnInit() {
     this.j = this.DataPass.getForumMode();
@@ -33,6 +37,7 @@ export class ForumPostsPage implements OnInit {
     if (this.j === true) {
       this.passedInAssetNumber = this.DataPass.getForumAssetNumber();
       if (this.passedInAssetNumber !== null) {
+        this.title = 'Forum Posts';
         this.FirebaseService.getFormPostsBasedOnAssetNumber(this.passedInAssetNumber).subscribe(res => {
           if (res.length === 0) {
             console.log('nothing to display');
@@ -47,13 +52,11 @@ export class ForumPostsPage implements OnInit {
               docId: a.payload.doc.id
             }
           })
-          this.payload.forEach(element => {
-            console.log(element);
-          });
         })
       }
     } else {
       console.log('forum mode');
+      this.getListOfForumTopics();
       this.FirebaseService.getForumPosts(this.i).subscribe(
         res => { 
           if(res.length === 0){
@@ -69,13 +72,33 @@ export class ForumPostsPage implements OnInit {
               docId: a.payload.doc.id
             }
           })
-
-          this.payload.forEach(element => {
-            console.log(element.docId);
-          });
         }
       )
     }
+  }
+
+
+
+  // getting the title of each forum topic //
+  // having to do it this way so that we can keep //
+  // the list of topic names dynamic //
+  getListOfForumTopics() {
+    this.FirebaseService.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res => {
+      this.listOfTopics = res.map(a => {
+        return{
+          topic: a.payload.doc.data().Title,
+          id: a.payload.doc.data().Id
+        }
+      })
+
+      // going through the array to see which ones match up with //
+      // the this.i //
+      this.listOfTopics.forEach(element => {
+        if (element.id === this.i) {
+          this.title = '' + element.topic;
+        }
+      });
+    })
   }
   
   back(){
