@@ -46,7 +46,10 @@ export class PostModalPage implements OnInit {
   setTopicId(x) {
     this.topicId = x;
   }
-
+  // dismisses the modal view //
+  cancel() {
+    this.modalController.dismiss();
+  }
   
 
   savePost() {

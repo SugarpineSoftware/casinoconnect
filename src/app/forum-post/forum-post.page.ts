@@ -35,7 +35,6 @@ export class ForumPostPage implements OnInit {
         };
       });
     });
-    
   }
 
 

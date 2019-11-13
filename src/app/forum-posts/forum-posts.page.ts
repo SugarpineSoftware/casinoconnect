@@ -52,19 +52,19 @@ export class ForumPostsPage implements OnInit {
               date: a.payload.doc.data().Date.toDate(),
               topic: a.payload.doc.data().Topic,
               docId: a.payload.doc.id
-            }
-          })
-        })
+            };
+          });
+        });
       }
     } else {
       console.log('forum mode');
       this.getListOfForumTopics();
       this.FirebaseService.getForumPosts(this.i).subscribe(
-        res => { 
-          if(res.length === 0){
+        res => {
+          if (res.length === 0) {
             console.log('nothing to display');
           }
-          this.payload = res.map(a =>{
+          this.payload = res.map(a => {
             return{
               title: a.payload.doc.data().Title,
               content: a.payload.doc.data().Content,
@@ -72,10 +72,10 @@ export class ForumPostsPage implements OnInit {
               date: a.payload.doc.data().Date.toDate(),
               topic: a.payload.doc.data().Topic,
               docId: a.payload.doc.id
-            }
-          })
+            };
+          });
         }
-      )
+      );
     }
   }
 
@@ -90,8 +90,8 @@ export class ForumPostsPage implements OnInit {
         return{
           topic: a.payload.doc.data().Title,
           id: a.payload.doc.data().Id
-        }
-      })
+        };
+      });
 
       // going through the array to see which ones match up with //
       // the this.i //
@@ -100,7 +100,7 @@ export class ForumPostsPage implements OnInit {
           this.title = '' + element.topic;
         }
       });
-    })
+    });
   }
 
   back() {
