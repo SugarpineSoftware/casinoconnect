@@ -36,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     ScanModalPage,
     PostModalPage
   ],
+
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

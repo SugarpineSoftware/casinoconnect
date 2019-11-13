@@ -6,7 +6,7 @@
 
 <ion-content>
  <ion-input [(ngModel)]= "title">Subject</ion-input>
- <ion-select  [(ngModel)] ="topicId">
+ <ion-select  [(ngModel)]="topicId">
    <ion-select-option (ionChange)="setTopicId(p.id)" *ngFor="let p of payload"> {{p.topic}}</ion-select-option>
  </ion-select>
  <ion-input [(ngModel)]="asset">

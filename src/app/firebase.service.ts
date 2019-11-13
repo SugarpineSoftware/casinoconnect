@@ -74,20 +74,20 @@ export class FirebaseService {
 
   // saves a new post (main topic post) //
   // ---- this needs work ---- //
-  saveNewPost(asset,content,date,title,topicId,user){
-    var newPost = this.firestore.collection('Company').doc('Sugarpine Slots').collection('Forums').doc();
-
-    var data = {
+  saveNewPost(asset, content, date, title, topicId, user) {
+    const newPost = this.firestore.collection('Company').doc('Sugarpine Slots').collection('Forums').doc();
+    console.log(newPost);
+    /*
+    const data = {
       Asset: asset,
       Content: content,
       Date: date,
       Title: title,
       Topic_Id: topicId,
       User: user
-    }
-    return
-     newPost.set(data);
-    
+    };
+    return newPost.set(data);
+    */
   }
 
   // saves a new QR code to the database // 
