@@ -52,7 +52,6 @@ export class PostModalPage implements OnInit {
       this.topicId,
       this.user);
     this.modalController.dismiss();
-
-    
   }
 }
+

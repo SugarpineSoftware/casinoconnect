@@ -19,12 +19,11 @@
 
 <ion-content>
     <!--<ion-button (click)="newPost()" expand="full">New Post</ion-button>-->
-    <ion-card *ngFor="let order of payload">
+    <ion-card *ngFor="let order of payload" (click)="goToPost(order)">
         <ion-card-title>{{order.title}}</ion-card-title>
         <ion-card-content>
           Posted by {{order.user}} on {{order.date}}
-          <ion-button slot="end" class="viewButtons" (click)="goToPost(order)">view</ion-button>
       </ion-card-content>
         
-      </ion-card>
+    </ion-card>
 </ion-content>
