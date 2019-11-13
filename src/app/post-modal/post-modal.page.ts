@@ -3,6 +3,7 @@ import { ModalController, NavController, NavParams } from '@ionic/angular';
 import { FirebaseService } from '../firebase.service';
 import { DataPassService } from '../data-pass.service';
 import * as CryptoJS from 'crypto-js';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-post-modal',
@@ -27,7 +28,8 @@ export class PostModalPage implements OnInit {
   private title;
   private topicId;
   private user;
-  public uniqueId;
+  public uniqueId :string;
+  public uniqueClean: string;
   private SECRET_KEY = 'LondonGreen';
   private fullData;
   public payload;
@@ -54,6 +56,7 @@ export class PostModalPage implements OnInit {
     this.fullData = this.date.toString() + this.user + this.asset;
     console.log(this.fullData);
     this.uniqueId = CryptoJS.AES.encrypt(this.fullData, this.SECRET_KEY).toString();
+    this.uniqueId = this.uniqueId.replace("/","").toString();
   }
 
   savePost() {
@@ -64,7 +67,7 @@ export class PostModalPage implements OnInit {
     console.log(this.title);
     console.log(this.topicId);
     console.log(this.user);
-    console.log(this.uniqueId);
+    console.log(this.uniqueClean);
 
     this.firebaseService.saveNewPost(
       this.asset,
@@ -73,7 +76,7 @@ export class PostModalPage implements OnInit {
       this.title,
       this.topicId,
       this.user,
-      this.uniqueId
+      this.uniqueClean
     )
   }
 }
