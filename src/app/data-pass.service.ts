@@ -9,6 +9,7 @@ export class DataPassService {
   constructor() { }
 
   private a;
+  private b;
   private f;
   private m;
   private i;
@@ -21,6 +22,13 @@ export class DataPassService {
   }
   getDataObject() {
     return this.m;
+  }
+  //Passing Asset 
+  setAsset(x){
+    this.b = x;
+  }
+  getAsset(){
+    return this.b;
   }
 
   //Get correct topic for forum posts

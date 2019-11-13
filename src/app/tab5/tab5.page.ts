@@ -55,6 +55,11 @@ export class Tab5Page {
       this.Router.navigateByUrl("view-machine");
     }
 
+    viewMaelBook(x){
+      this.DataPass.setAsset(x);
+      this.Router.navigateByUrl("mael-book");
+    }
+
     async presentAlert(fHeader: string, subHeaderString: string, messageString: string) {
       const alert = await this.AlertController.create({
         header: fHeader,

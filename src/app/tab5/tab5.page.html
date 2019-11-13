@@ -26,6 +26,9 @@
   </ion-grid>
   <ion-item *ngFor="let m of payload"> 
     Location={{m.area}}-{{m.bank}}-{{m.machineNumber}} {{m.assetNumber}}
-    <ion-button slot="end" (click)="viewMachine(m)"> View </ion-button>
+    <ion-buttons slot="end">
+      <ion-button (click)=viewMaelBook(m.assetNumber)>Mael Book</ion-button>
+      <ion-button (click)="viewMachine(m)"> View </ion-button>
+    </ion-buttons>
   </ion-item>
    </ion-content>
