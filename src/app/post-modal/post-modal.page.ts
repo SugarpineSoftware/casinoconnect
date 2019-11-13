@@ -26,8 +26,6 @@ export class PostModalPage implements OnInit {
   private title;
   private topicId;
   private user;
-  public uniqueId :string;
-  public uniqueClean: string;
   public payload;
 
   ngOnInit() {
@@ -36,21 +34,15 @@ export class PostModalPage implements OnInit {
         return{
           topic: a.payload.doc.data().Title,
           id: a.payload.doc.data().Id
-        }
-      })
-    })
-  
+        };
+      });
+    });
   }
 
-
-  setTopicId(x) {
-    this.topicId = x;
-  }
   // dismisses the modal view //
   cancel() {
     this.modalController.dismiss();
   }
-  
 
   savePost() {
     this.firebaseService.saveNewPost(this.asset,
@@ -60,5 +52,7 @@ export class PostModalPage implements OnInit {
       this.topicId,
       this.user);
     this.modalController.dismiss();
+
+    
   }
 }
