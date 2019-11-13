@@ -70,22 +70,11 @@ export class PostModalPage implements OnInit {
     console.log(this.user);
     // console.log(this.uniqueId);
 
-    this.firebaseService.newSaveNewPost(this.asset,
+    this.firebaseService.saveNewPost(this.asset,
       this.content,
       new Date(),
       this.title,
       this.topicId,
       this.user);
-    /*
-    this.firebaseService.saveNewPost(
-      this.asset,
-      this.content,
-      new Date(),
-      this.title,
-      this.topicId,
-      this.user,
-      this.uniqueClean
-    )
-    */
   }
 }
