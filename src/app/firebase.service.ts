@@ -14,8 +14,11 @@ export class FirebaseService {
     return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Wiki');
   }
 
-  pullMael(asset){
-    return this.firestore.collection('Company').doc('Sugarpine Slots').collection('MealBook').doc('kGfqWsEFBj8I7yxiEL5r').collection(asset).snapshotChanges();
+  pullMael(x){
+    console.log(x);
+    return this.firestore.collection('Company')
+    .doc('Sugarpine Slots').collection('MealBook')
+    .doc('kGfqWsEFBj8I7yxiEL5r').collection(x).snapshotChanges();
   }
 
 
