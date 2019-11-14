@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="primary">
+        <ion-button (click)="cancel()">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-title>New Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>User Login</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="text" placeholder="Email Address" [(ngModel)]="emailText"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" placeholder="Password" [(ngModel)]="passwordText"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="text" placeholder="First Name" [(ngModel)]="firstName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="text" placeholder="Last Name" [(ngModel)]="lastName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="text" placeholder="User Name" [(ngModel)]="userName"></ion-input>
+            </ion-item>
+            <div margin-vertical text-right>
+              <ion-button id="signup-btn" (click)="signUpOnClick()">Sign up</ion-button>
+            </div>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

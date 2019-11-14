@@ -97,10 +97,18 @@ export class FirebaseService {
   }
 
   // get Profile Information
-  getProfileInfo(x:string){
+  getProfileInfo(x: string) {
     console.log(x);
     return this.firestore.collection('Company').doc('Sugarpine Slots')
     .collection('Profiles', ref => ref.where('email', '==', x)).snapshotChanges();
+  }
+
+
+  // once the user has been created via auth //
+  // we also create a seperate entry for the //
+  // user under profile in the database //
+  saveUserProfileToDatabase(email, password, firstName, lastName, userName) {
+
   }
 
   // creates a comment to the current post //

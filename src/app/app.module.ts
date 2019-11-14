@@ -21,6 +21,7 @@ import { ScanModalPage } from 'src/app/scan-modal/scan-modal.page';
 import { PostModalPage } from 'src/app/post-modal/post-modal.page';
 import { NewCommentPage } from 'src/app/new-comment/new-comment.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { SignUpPage } from 'src/app/sign-up/sign-up.page';
 
 import { FormsModule } from '@angular/forms';
 
@@ -31,13 +32,16 @@ import { FormsModule } from '@angular/forms';
     QRModalPage,
     ScanModalPage,
     PostModalPage,
-    NewCommentPage
+    NewCommentPage,
+    SignUpPage
+
   ],
   entryComponents: [
     QRModalPage,
     ScanModalPage,
     PostModalPage,
-    NewCommentPage
+    NewCommentPage,
+    SignUpPage
   ],
 
   imports: [

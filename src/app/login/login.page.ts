@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FirebaseService } from 'src/app/firebase.service';
 import { AuthService } from 'src/app/auth.service';
 import { Router} from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController} from '@ionic/angular';
+import { SignUpPage } from 'src/app/sign-up/sign-up.page';
+
 
 
 @Component({
@@ -19,7 +21,8 @@ export class LoginPage {
   constructor(public service: FirebaseService,
               public auth: AuthService,
               public router: Router,
-              public alertController: AlertController) {}
+              public alertController: AlertController,
+              public modalController: ModalController) {}
 
 
 
@@ -32,11 +35,34 @@ export class LoginPage {
   }
 
   signUpOnClick() {
+
+    // this needs to present a popup instead of signing up //
+    // the user right away //
+
+    /*
     this.auth.createUser(this.emailText, this.passwordText).then(
       () => this.signUpSuccess(),
       () => this.signUpFailure()
     );
+    */
+
+    this.presentSignUp();
   }
+
+
+  async presentSignUp() {
+    const modal = await this.modalController.create({
+      component: SignUpPage,
+    });
+
+    modal.onDidDismiss().then((returnedData) => {
+      if (returnedData !== null) {
+        // this is the returned functions for the modal//
+        // popup for the machine that is scanned //
+      }
+    });
+    return await modal.present();
+  } 
 
 
   loginSuccess() {
@@ -52,6 +78,10 @@ export class LoginPage {
 
   signUpSuccess() {
     console.log('success signing up');
+
+    // from here, we need to create the user profile under 'Profile' //
+    // in the database //
+    this.service.saveUserProfileToDatabase();
   }
 
   signUpFailure() {
