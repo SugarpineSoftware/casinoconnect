@@ -20,9 +20,9 @@
         <ion-input [(ngModel)]="user">
           User:
         </ion-input>
-        <ion-input [(ngModel)]="content">
+        <ion-textarea auto-grow="true" [(ngModel)]="content">
           Content:
-        </ion-input>
+        </ion-textarea>
         <ion-button (click)="savePost()">Save Post</ion-button>
       </ion-card-content>
     </ion-card>

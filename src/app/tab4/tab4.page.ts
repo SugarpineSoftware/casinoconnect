@@ -31,6 +31,7 @@ export class Tab4Page implements OnInit {
   }
 
   ionViewWillEnter(){
+    this.DataPass.setForumMode(false);
     this.firebase.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res =>{
       this.payload = res.map(a => {
         return{
