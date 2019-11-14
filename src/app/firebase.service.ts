@@ -17,7 +17,7 @@ export class FirebaseService {
   pullMael(x: string){
     console.log(x);
     return this.firestore.collection('Company')
-    .doc('Sugarpine Slots').collection('MealBook', ref => ref.where('asset', '==', x))
+    .doc('Sugarpine Slots').collection('MaelBook', ref => ref.where('asset', '==', x))
     .snapshotChanges();
   }
 
@@ -98,8 +98,9 @@ export class FirebaseService {
 
   // get Profile Information
   getProfileInfo(x:string){
-    return this.firestore.collection('Company').doc('Sugarpine Software')
-    .collection('Profile', ref => ref.where('email', '==', x)).snapshotChanges();
+    console.log(x);
+    return this.firestore.collection('Company').doc('Sugarpine Slots')
+    .collection('Profiles', ref => ref.where('email', '==', x)).snapshotChanges();
   }
 
   // creates a comment to the current post //

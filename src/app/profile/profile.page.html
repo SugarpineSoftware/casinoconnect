@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>profile</ion-title>
+    <ion-buttons slot="secondary">
+        <ion-button (click)="back()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-item *ngFor="let p of payload">{{p.user}}</ion-item>
+<ion-content *ngFor="let p of payload">
+  <ion-thumbnail>
+      <ion-img [src]="p.pictureURL"></ion-img>
+  </ion-thumbnail>
+  <ion-item >USERNAME = {{p.user}}</ion-item>
+  <ion-item> Email = {{p.email}}</ion-item>
+  <ion-item> Full Name = {{p.fName}} {{p.lName}}</ion-item>
 </ion-content>
