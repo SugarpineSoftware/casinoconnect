@@ -16,6 +16,7 @@ export class DataPassService {
   private l;
   private k;
   private j;
+  private n;
 
   //Passing Object To View Machine
   setDataObject(x) {
@@ -71,6 +72,17 @@ export class DataPassService {
   getDocumentTitleForum() {
     return this.j;
   }
+
+  // setting the main object for passing in a post to comment //
+  setMainObjectToCommentSection(x) {
+    this.n = x;
+  }
+
+  getMainObjectToCommentSection() {
+    return this.n;
+  }
+
+
 
   // Collect Object Post
   setObjectPost(x){

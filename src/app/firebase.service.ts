@@ -78,8 +78,8 @@ export class FirebaseService {
       'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
   }
 
-  // saves a new post (main topic post) // 
-  saveNewPost(asset, content, date, title, topicId, user) {
+  // saves a new post (main topic post) //
+  saveNewPost(asset, content, date, title, topicId, user, bank, machine, area) {
     const uID = this.firestore.createId();
     return  this.firestore.collection('Company')
     .doc('Sugarpine Slots').collection('Forum')
@@ -89,7 +89,10 @@ export class FirebaseService {
       Date: date,
       Title: title,
       Topic_Id: topicId,
-      User: user
+      User: user,
+      Bank: bank,
+      Machine: machine,
+      Area: area
     });
   }
 

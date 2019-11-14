@@ -16,10 +16,12 @@ export class Tab4Page implements OnInit {
  
 
   constructor(
-    private firebase:FirebaseService,
+    private firebase: FirebaseService,
     private DataPass: DataPassService,
-    private Router: Router
-    ) {}
+    private router: Router
+    ) {
+
+    }
   
   ngOnInit(){
 
@@ -27,7 +29,7 @@ export class Tab4Page implements OnInit {
 
   viewPosts(i) {
     this.DataPass.setForumIndex(i);
-    this.Router.navigateByUrl("tabs/tab4/Posts");
+    this.router.navigateByUrl("tabs/tab4/Posts");
   }
 
   ionViewWillEnter() {

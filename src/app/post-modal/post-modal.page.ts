@@ -21,11 +21,14 @@ export class PostModalPage implements OnInit {
     this.topicId = navParams.get('ForumId');
   }
 
+  private bank;
+  private machine;
   private asset;
   private content;
   private title;
   private topicId;
   private user;
+  private area;
   public payload;
 
   ngOnInit() {
@@ -50,7 +53,10 @@ export class PostModalPage implements OnInit {
       new Date(),
       this.title,
       this.topicId,
-      this.user);
+      this.user,
+      this.bank,
+      this.machine,
+      this.area);
     this.modalController.dismiss();
   }
 }
