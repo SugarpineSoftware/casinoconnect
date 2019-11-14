@@ -25,12 +25,28 @@ export class ForumPostPage implements OnInit {
     private id: string;
     public title: string;
     public post;
+    public bank;
+    public machine;
+    public area;
+    public asset;
+    
+
+    public mainObject;
+
     public payload;
 
   ngOnInit() {
-    this.id = this.DataPass.getDocumentIdForum();
-    this.title = this.DataPass.getDocumentTitleForum();
-    this.post = this.DataPass.getObjectPost();
+
+    this.mainObject = this.DataPass.getMainObjectToCommentSection();
+    if (this.mainObject != null) {
+      this.id = this.mainObject.docId;
+      this.title = this.mainObject.title;
+      this.post = this.mainObject.content;
+      this.bank = this.mainObject.bank;
+      this.area = this.mainObject.area;
+      this.asset = this.mainObject.asset;
+      this.machine = this.mainObject.machine;
+    }
 
     this.FirebaseService.getForumCommentsByDocumentId(this.id).subscribe(res => {
       this.payload = res.map(a => {

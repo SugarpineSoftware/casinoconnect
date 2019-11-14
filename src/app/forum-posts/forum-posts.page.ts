@@ -56,7 +56,11 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
               user: a.payload.doc.data().User,
               date: a.payload.doc.data().Date.toDate(),
               topic: a.payload.doc.data().Topic,
-              docId: a.payload.doc.id
+              docId: a.payload.doc.id,
+              machine: a.payload.doc.data().Machine,
+              bank: a.payload.doc.data().Bank,
+              area: a.payload.doc.data().Area,
+              asset: a.payload.doc.data().Asset
             };
           });
         });
@@ -76,8 +80,16 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
               user: a.payload.doc.data().User,
               date: a.payload.doc.data().Date.toDate(),
               topic: a.payload.doc.data().Topic,
-              docId: a.payload.doc.id
+              docId: a.payload.doc.id,
+              machine: a.payload.doc.data().Machine,
+              bank: a.payload.doc.data().Bank,
+              area: a.payload.doc.data().Area,
+              asset: a.payload.doc.data().Asset
             };
+          });
+
+          this.payload.forEach(element => {
+            console.log(element);
           });
         }
       );
@@ -116,9 +128,12 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
     this.location.back();
   }
   goToPost(order) {
-    this.DataPass.setDocumentIdForum(order.docId);
-    this.DataPass.setDocumentTitleForum(order.title);
-    this.DataPass.setObjectPost(order.content);
+
+    this.DataPass.setMainObjectToCommentSection(order);
+
+    // this.DataPass.setDocumentIdForum(order.docId);
+    // this.DataPass.setDocumentTitleForum(order.title);
+    // this.DataPass.setObjectPost(order.content);
     this.router.navigateByUrl('forum-post');
   }
   
