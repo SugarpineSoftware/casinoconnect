@@ -41,6 +41,10 @@ export class ScanModalPage implements OnInit{
     this.modalController.dismiss(returnValue);
   }
 
+  maelOnClick() {
+    
+  }
+
   moreInfoOnClick() {
     const returnValue = 1;
 

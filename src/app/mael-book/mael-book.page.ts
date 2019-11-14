@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataPassService } from '../data-pass.service';
 import { FirebaseService } from '../firebase.service';
 import { Router } from '@angular/router';
+import { ModalController, NavController, NavParams } from '@ionic/angular';
 
 
 @Component({
@@ -14,17 +15,24 @@ export class MaelBookPage implements OnInit {
   constructor(
     private DataPass: DataPassService,
     private FireBase: FirebaseService,
-    private Router:Router
+    private Router:Router,
+    private modalController: ModalController
   ) { }
 
-  private asset:string;
+  private asset: string;
   private payload;
 
 
   ngOnInit() {
     this.asset = this.DataPass.getAsset().toString();
-  
   }
+
+
+  cancel() {
+    console.log('cancelled');
+    this.modalController.dismiss();
+  }
+
   ngAfterViewInit(){
     this.FireBase.pullMael(this.asset).subscribe(
       res =>{
