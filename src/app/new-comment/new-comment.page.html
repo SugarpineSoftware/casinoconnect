@@ -10,6 +10,17 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content>
-
-</ion-content>
+  <ion-content>
+      <ion-card>
+        <ion-card-content>
+          <ion-input [(ngModel)]="user">
+            User
+          </ion-input>
+          <ion-input [(ngModel)]="content">
+            Content
+          </ion-input>
+          <ion-button (click)="savePost()">Save Post</ion-button>
+        </ion-card-content>
+      </ion-card>
+   
+  </ion-content>

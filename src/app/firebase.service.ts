@@ -91,13 +91,15 @@ export class FirebaseService {
   }
 
   // creates a comment to the current post //
-  autoCreatedComment(DocId) {
+  autoCreatedComment(DocId, content, date, user) {
     const uID = this.firestore.createId();
     return this.firestore.collection('Company')
     .doc('Sugarpine Slots').collection('Forum')
     .doc(DocId).collection('Comments').doc(uID).set({
-      
-    })
+      User: user,
+      Comment: content,
+      Date: date
+    });
 
   }
 

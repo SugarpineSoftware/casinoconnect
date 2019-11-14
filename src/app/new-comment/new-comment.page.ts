@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController, NavParams } from '@ionic/angular';
+import { FirebaseService } from '../firebase.service';
 
 @Component({
   selector: 'app-new-comment',
@@ -8,9 +9,26 @@ import { ModalController, NavController, NavParams } from '@ionic/angular';
 })
 export class NewCommentPage implements OnInit {
 
-  constructor(public modalController: ModalController) { }
+  private topicId;
+  private content;
+  private user;
+  private date;
+
+  constructor(public modalController: ModalController,
+              public navController: NavController,
+              public navParams: NavParams,
+              public firebaseService: FirebaseService) { }
 
   ngOnInit() {
+    this.topicId = this.navParams.get('ForumId');
+  }
+
+  savePost() {
+    this.firebaseService.autoCreatedComment(this.topicId,
+                                            this.content,
+                                            new Date(),
+                                            this.user);
+    this.modalController.dismiss();
   }
 
   cancel() {

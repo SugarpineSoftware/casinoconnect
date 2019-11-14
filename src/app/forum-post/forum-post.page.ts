@@ -49,7 +49,7 @@ export class ForumPostPage implements OnInit {
     const modal = await this.modalController.create({
       component: NewCommentPage,
       componentProps: {
-          ForumId: ''
+          ForumId: this.id
       }
     });
     return await modal.present();
