@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { DataPassService } from '../data-pass.service';
 import { FirebaseService } from '../firebase.service';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { ModalController, NavController } from '@ionic/angular';
   templateUrl: './forum-posts.page.html',
   styleUrls: ['./forum-posts.page.scss'],
 })
-export class ForumPostsPage implements OnInit {
+export class ForumPostsPage implements OnInit, AfterContentInit {
 
   constructor(
     private DataPass: DataPassService,
@@ -33,6 +33,10 @@ export class ForumPostsPage implements OnInit {
 
 
   ngOnInit() {
+    this.loadInformation();
+  }
+
+  loadInformation() {
     this.j = this.DataPass.getForumMode();
     this.i = this.DataPass.getForumIndex();
     // passing in true will mean that it DID come from a scan //
@@ -40,6 +44,7 @@ export class ForumPostsPage implements OnInit {
       this.passedInAssetNumber = this.DataPass.getForumAssetNumber();
       if (this.passedInAssetNumber !== null) {
         this.title = 'Forum Posts';
+        this.payload = null;
         this.FirebaseService.getFormPostsBasedOnAssetNumber(this.passedInAssetNumber).subscribe(res => {
           if (res.length === 0) {
             console.log('nothing to display');
@@ -57,7 +62,7 @@ export class ForumPostsPage implements OnInit {
         });
       }
     } else {
-      console.log('forum mode');
+      this.payload = null;
       this.getListOfForumTopics();
       this.FirebaseService.getForumPosts(this.i).subscribe(
         res => {
@@ -65,7 +70,7 @@ export class ForumPostsPage implements OnInit {
             console.log('nothing to display');
           }
           this.payload = res.map(a => {
-            return{
+            return {
               title: a.payload.doc.data().Title,
               content: a.payload.doc.data().Content,
               user: a.payload.doc.data().User,
@@ -79,6 +84,10 @@ export class ForumPostsPage implements OnInit {
     }
   }
 
+
+  ngAfterContentInit() {
+    this.loadInformation();
+  }
 
 
   // getting the title of each forum topic //
@@ -107,12 +116,12 @@ export class ForumPostsPage implements OnInit {
     this.location.back();
   }
   goToPost(order) {
-    console.log(order);
     this.DataPass.setDocumentIdForum(order.docId);
     this.DataPass.setDocumentTitleForum(order.title);
     this.DataPass.setObjectPost(order.content);
     this.router.navigateByUrl('forum-post');
   }
+  
   newPost() {
     this.presentPost();
   }

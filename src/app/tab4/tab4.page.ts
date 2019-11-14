@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class Tab4Page implements OnInit {
 
-  public payload; 
+  public payload;
  
 
   constructor(
@@ -25,20 +25,19 @@ export class Tab4Page implements OnInit {
 
   }
 
-  viewPosts(i){
+  viewPosts(i) {
     this.DataPass.setForumIndex(i);
     this.Router.navigateByUrl("tabs/tab4/Posts");
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.firebase.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res =>{
       this.payload = res.map(a => {
         return{
           topic: a.payload.doc.data().Title,
           id: a.payload.doc.data().Id
-        }
-      })
-    })
+        };
+      });
+    });
   }
-
 }
