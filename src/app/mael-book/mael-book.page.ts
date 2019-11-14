@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataPassService } from '../data-pass.service';
 import { FirebaseService } from '../firebase.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-mael-book',
@@ -11,16 +13,24 @@ export class MaelBookPage implements OnInit {
 
   constructor(
     private DataPass: DataPassService,
-    private FireBase: FirebaseService
+    private FireBase: FirebaseService,
+    private Router:Router
   ) { }
 
-  private asset;
+  private asset:string;
   private payload;
 
+
   ngOnInit() {
-    this.asset = this.DataPass.getAsset();
+    this.asset = this.DataPass.getAsset().toString();
+  
+  }
+  ngAfterViewInit(){
     this.FireBase.pullMael(this.asset).subscribe(
       res =>{
+        if(res.length === 0){
+          console.log('you are fucked');
+        }
         this.payload = res.map(a =>{
           return{
             user: a.payload.doc.data().User,
@@ -30,7 +40,6 @@ export class MaelBookPage implements OnInit {
         })
       }
     )
-    console.log(this.payload);
   }
 
 }
