@@ -108,7 +108,12 @@ export class FirebaseService {
   // we also create a seperate entry for the //
   // user under profile in the database //
   saveUserProfileToDatabase(email, password, firstName, lastName, userName) {
-    
+    const uID = this.firestore.createId();
+    return this.firestore.collection('Company')
+    .doc('Sugarpine Slots').collection('Profiles')
+    .doc(uID).set({
+      
+    });
   }
 
   // creates a comment to the current post //
