@@ -14,11 +14,11 @@ export class FirebaseService {
     return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Wiki');
   }
 
-  pullMael(x){
+  pullMael(x: string){
     console.log(x);
     return this.firestore.collection('Company')
-    .doc('Sugarpine Slots').collection('MealBook')
-    .doc('kGfqWsEFBj8I7yxiEL5r').collection(x).snapshotChanges();
+    .doc('Sugarpine Slots').collection('MealBook', ref => ref.where('asset', '==', x))
+    .snapshotChanges();
   }
 
 
@@ -94,6 +94,12 @@ export class FirebaseService {
       Machine: machine,
       Area: area
     });
+  }
+
+  // get Profile Information
+  getProfileInfo(x:string){
+    return this.firestore.collection('Company').doc('Sugarpine Software')
+    .collection('Profile', ref => ref.where('email', '==', x)).snapshotChanges();
   }
 
   // creates a comment to the current post //

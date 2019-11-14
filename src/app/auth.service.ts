@@ -31,6 +31,11 @@ export class AuthService {
     });
   }
 
+  getUser(){
+    return firebase.auth().currentUser.email;
+
+  }
+
   logout() {
     return new Promise((resolve, reject) => {
       this.auth.auth.signOut()

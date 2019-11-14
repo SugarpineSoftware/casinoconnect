@@ -5,6 +5,7 @@ import { AlertController, ModalController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/firebase.service';
 import { ScanModalPage } from '../scan-modal/scan-modal.page';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 
 
@@ -21,7 +22,8 @@ export class Tab1Page {
               private firebase: FirebaseService,
               public alertController: AlertController,
               public modalController: ModalController,
-              public auth: AngularFireAuth
+              public auth: AngularFireAuth,
+              public router: Router
               ) {
   }
 
@@ -76,7 +78,7 @@ export class Tab1Page {
     });
     return await modal.present();
   }
-
+  
 
   scanCode() {
     this.barcodeScanner.scan().then(
@@ -128,5 +130,8 @@ export class Tab1Page {
 
   logoutOnClick() {
     this.auth.auth.signOut();
+  }
+  profile(){
+   this.router.navigateByUrl('profile');
   }
 }

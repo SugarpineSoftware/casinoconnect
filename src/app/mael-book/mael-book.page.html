@@ -5,9 +5,8 @@
 </ion-header>
 
 <ion-content>
-    <ion-card *ngFor="let order of payload">
-        <ion-card-title>{{order.date}}</ion-card-title>
-        <ion-card-content>
+    <ion-card >
+        <ion-card-content *ngFor="let order of payload">
           Posted by {{order.user}} {{order.content}}
       </ion-card-content>
         
