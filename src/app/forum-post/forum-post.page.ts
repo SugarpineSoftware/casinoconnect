@@ -3,6 +3,8 @@ import { DataPassService } from '../data-pass.service';
 import { FirebaseService } from '../firebase.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { NewCommentPage } from 'src/app/new-comment/new-comment.page';
+import { ModalController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-forum-post',
@@ -15,7 +17,9 @@ export class ForumPostPage implements OnInit {
     private DataPass: DataPassService,
     private FirebaseService: FirebaseService,
     private Router: Router,
-    private location:Location
+    private location:Location,
+    private modalController: ModalController,
+    private navController: NavController
   ) {
   }
     private id: string;
@@ -35,6 +39,20 @@ export class ForumPostPage implements OnInit {
         };
       });
     });
+  }
+
+  newPost() {
+    this.presentPost();
+  }
+
+  async presentPost() {
+    const modal = await this.modalController.create({
+      component: NewCommentPage,
+      componentProps: {
+          ForumId: ''
+      }
+    });
+    return await modal.present();
   }
 
 

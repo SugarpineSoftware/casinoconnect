@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
 import { ScanModalPage } from 'src/app/scan-modal/scan-modal.page';
 import { PostModalPage } from 'src/app/post-modal/post-modal.page';
+import { NewCommentPage } from 'src/app/new-comment/new-comment.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 import { FormsModule } from '@angular/forms';
@@ -29,12 +30,14 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     QRModalPage,
     ScanModalPage,
-    PostModalPage
+    PostModalPage,
+    NewCommentPage
   ],
   entryComponents: [
     QRModalPage,
     ScanModalPage,
-    PostModalPage
+    PostModalPage,
+    NewCommentPage
   ],
 
   imports: [

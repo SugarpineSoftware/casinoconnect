@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'forum-posts', loadChildren: './forum-posts/forum-posts.module#ForumPostsPageModule' },
   { path: 'forum-post', loadChildren: './forum-post/forum-post.module#ForumPostPageModule' },
   { path: 'post-modal', loadChildren: './post-modal/post-modal.module#PostModalPageModule' },
-  { path: 'mael-book', loadChildren: './mael-book/mael-book.module#MaelBookPageModule' }
+  { path: 'mael-book', loadChildren: './mael-book/mael-book.module#MaelBookPageModule' },
+  { path: 'new-comment', loadChildren: './new-comment/new-comment.module#NewCommentPageModule' }
 ];
 @NgModule({
   imports: [
