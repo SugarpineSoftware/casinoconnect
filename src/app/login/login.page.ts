@@ -36,16 +36,6 @@ export class LoginPage {
 
   signUpOnClick() {
 
-    // this needs to present a popup instead of signing up //
-    // the user right away //
-
-    /*
-    this.auth.createUser(this.emailText, this.passwordText).then(
-      () => this.signUpSuccess(),
-      () => this.signUpFailure()
-    );
-    */
-
     this.presentSignUp();
   }
 
@@ -73,20 +63,6 @@ export class LoginPage {
     console.log('failure logging in');
     this.presentAlert('Error Signing in', 'There was an error signing in',
     'Please re-enter your login credentials and try signing in again');
-  }
-
-
-  signUpSuccess() {
-    console.log('success signing up');
-
-    // from here, we need to create the user profile under 'Profile' //
-    // in the database //
-    this.service.saveUserProfileToDatabase();
-  }
-
-  signUpFailure() {
-    this.presentAlert('Error Creating account', 'There was an error creating an account',
-    'Please re-enter your account credentials and try creating an account again');
   }
 
 

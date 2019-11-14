@@ -108,7 +108,7 @@ export class FirebaseService {
   // we also create a seperate entry for the //
   // user under profile in the database //
   saveUserProfileToDatabase(email, password, firstName, lastName, userName) {
-
+    
   }
 
   // creates a comment to the current post //
