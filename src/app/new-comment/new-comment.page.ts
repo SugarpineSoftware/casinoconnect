@@ -12,7 +12,6 @@ export class NewCommentPage implements OnInit {
   private topicId;
   private content;
   private user;
-  private date;
 
   constructor(public modalController: ModalController,
               public navController: NavController,

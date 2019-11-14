@@ -36,8 +36,12 @@ export class ForumPostPage implements OnInit {
       this.payload = res.map(a => {
         return{
           comment: a.payload.doc.data().Comment,
-          user: a.payload.doc.data().User
+          user: a.payload.doc.data().User,
+          date: a.payload.doc.data().Date.toDate()
         };
+      });
+      this.payload.forEach(element => {
+        console.log(element);
       });
     });
   }

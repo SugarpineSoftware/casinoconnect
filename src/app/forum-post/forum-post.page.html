@@ -23,7 +23,7 @@
   </ion-card>
   
   <ion-card *ngFor="let p of payload">
-    <ion-card-title>{{p.user}}</ion-card-title>
-    <ion-card-content>{{p.comment}}</ion-card-content>
+    <ion-card-title>{{p.comment}}</ion-card-title>
+    <ion-card-content>{{p.user}} posted on   {{p.date | date: 'dd/MM/yyyy, h:mm a'}}</ion-card-content>
   </ion-card> 
 </ion-content>
