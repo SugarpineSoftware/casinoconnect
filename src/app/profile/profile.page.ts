@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 export class ProfilePage implements OnInit {
 
   constructor(
-    private authService:AuthService,
+    private authService: AuthService,
     private firebase: FirebaseService,
     private location: Location
   ) { }
@@ -22,6 +22,7 @@ export class ProfilePage implements OnInit {
     this.eMail = this.authService.getUser();
     this.profile(this.eMail);
   }
+
   profile(x){
     this.firebase.getProfileInfo(this.eMail).subscribe(
       res =>{
