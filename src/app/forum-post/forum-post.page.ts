@@ -24,12 +24,13 @@ export class ForumPostPage implements OnInit {
   }
     private id: string;
     public title: string;
-    private post;
+    public post;
     public payload;
 
   ngOnInit() {
     this.id = this.DataPass.getDocumentIdForum();
     this.title = this.DataPass.getDocumentTitleForum();
+    this.post = this.DataPass.getObjectPost();
 
     this.FirebaseService.getForumCommentsByDocumentId(this.id).subscribe(res => {
       this.payload = res.map(a => {

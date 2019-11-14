@@ -107,8 +107,10 @@ export class ForumPostsPage implements OnInit {
     this.location.back();
   }
   goToPost(order) {
+    console.log(order);
     this.DataPass.setDocumentIdForum(order.docId);
     this.DataPass.setDocumentTitleForum(order.title);
+    this.DataPass.setObjectPost(order.content);
     this.router.navigateByUrl('forum-post');
   }
   newPost() {
