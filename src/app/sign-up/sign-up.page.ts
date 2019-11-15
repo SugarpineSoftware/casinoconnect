@@ -42,6 +42,8 @@ export class SignUpPage implements OnInit {
       this.firstName,
       this.lastName,
       this.userName);
+
+    this.modalController.dismiss();
   }
 
   signUpFailure() {

@@ -112,7 +112,11 @@ export class FirebaseService {
     return this.firestore.collection('Company')
     .doc('Sugarpine Slots').collection('Profiles')
     .doc(uID).set({
-      
+      User_F_Name: firstName,
+      User_L_Name: lastName,
+      User_Name: userName,
+      Email: email,
+      Picture: ''
     });
   }
 
