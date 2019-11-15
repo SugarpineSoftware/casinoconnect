@@ -36,16 +36,13 @@ export class Tab1Page implements OnInit{
 
   // holds all the return information from firebase firestore //
   public payload;
-  public email;
+  
   private SECRET_KEY = 'LondonGreen';
   ngOnInit(){
-    this.email = this.authService.getUser();
-    this.getUser();
+  
   }
 
-  getUser(){
-   
-  }
+
   codeDecryption() {
     this.decrypted = CryptoJS.AES.decrypt(this.encrypted, this.SECRET_KEY).toString(CryptoJS.enc.Utf8);
   }

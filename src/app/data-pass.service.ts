@@ -93,11 +93,5 @@ export class DataPassService {
     return this.a;
   }
 
-  setUserName(x){
-    this.userName = x;
-  }
-  getUserName(){
-    return this.userName;
-  }
 
 }
