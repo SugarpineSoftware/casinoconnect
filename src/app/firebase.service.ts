@@ -46,9 +46,12 @@ export class FirebaseService {
   bringUpListOfWikiTopics(companyName) {
     return this.firestore.collection('Company')
     .doc(companyName)
-    .collection('Wiki').snapshotChanges();
+    .collection('Settings').doc('AJDiooJiRB3e7Qa4MPtQ').collection('Wiki_Topics').snapshotChanges();
   }
 
+  getWikiDocs(topicId){
+    return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Wiki', ref => ref.where('Topic_Id', '==',topicId)).snapshotChanges();
+  }
 
   // brings up a list of forum topics //
   bringUpListOfForumTopics(companyName) {

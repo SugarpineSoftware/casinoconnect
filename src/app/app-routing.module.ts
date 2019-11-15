@@ -18,7 +18,9 @@ const routes: Routes = [
   { path: 'mael-book', loadChildren: './mael-book/mael-book.module#MaelBookPageModule' },
   { path: 'new-comment', loadChildren: './new-comment/new-comment.module#NewCommentPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
-  { path: 'sign-up', loadChildren: './sign-up/sign-up.module#SignUpPageModule' }
+  { path: 'sign-up', loadChildren: './sign-up/sign-up.module#SignUpPageModule' },
+  { path: 'wiki', loadChildren: './wiki/wiki.module#WikiPageModule' },
+  { path: 'wiki-doc', loadChildren: './wiki-doc/wiki-doc.module#WikiDocPageModule' }
 ];
 @NgModule({
   imports: [

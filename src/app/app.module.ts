@@ -15,6 +15,7 @@ import { AngularFirestore } from '../../node_modules/@angular/fire/firestore';
 import { AngularFireModule } from '../../node_modules/@angular/fire';
 import { AngularFireDatabaseModule } from '../../node_modules/@angular/fire/database';
 import { AngularFireAuthModule } from '../../node_modules/@angular/fire/auth';
+import { AngularFireStorageModule} from '../../node_modules/@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { QRModalPage } from 'src/app/qrmodal/qrmodal.page';
 import { ScanModalPage } from 'src/app/scan-modal/scan-modal.page';
@@ -51,6 +52,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     NgxQRCodeModule,
     FormsModule
   ],

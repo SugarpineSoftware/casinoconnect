@@ -11,7 +11,7 @@
     
       <!-- dynamic creation of the wiki topics -->
       <ion-card-content >
-        <ion-button *ngFor="let order of payload" expand="full">
+        <ion-button *ngFor="let order of payload" expand="full" (click)="viewDocs(order.id)">
           {{order.name}}
         </ion-button>
     
