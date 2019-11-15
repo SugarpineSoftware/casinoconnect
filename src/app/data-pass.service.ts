@@ -17,6 +17,7 @@ export class DataPassService {
   private k;
   private j;
   private n;
+  private userName;
 
   //Passing Object To View Machine
   setDataObject(x) {
@@ -90,6 +91,13 @@ export class DataPassService {
   }
   getObjectPost(){
     return this.a;
+  }
+
+  setUserName(x){
+    this.userName = x;
+  }
+  getUserName(){
+    return this.userName;
   }
 
 }

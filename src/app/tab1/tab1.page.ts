@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import * as CryptoJS from 'crypto-js';
 import { AlertController, ModalController } from '@ionic/angular';
@@ -6,6 +6,8 @@ import { FirebaseService } from 'src/app/firebase.service';
 import { ScanModalPage } from '../scan-modal/scan-modal.page';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { DataPassService } from '../data-pass.service';
+import { AuthService } from '../auth.service';
 
 
 
@@ -16,14 +18,16 @@ import { Router } from '@angular/router';
 })
 
 
-export class Tab1Page {
+export class Tab1Page implements OnInit{
   qrData = 'Serial Number';
   constructor(private barcodeScanner: BarcodeScanner,
               private firebase: FirebaseService,
               public alertController: AlertController,
               public modalController: ModalController,
               public auth: AngularFireAuth,
-              public router: Router
+              public router: Router,
+              public dataPass: DataPassService,
+              public authService: AuthService
               ) {
   }
 
@@ -32,9 +36,31 @@ export class Tab1Page {
 
   // holds all the return information from firebase firestore //
   public payload;
-
+  public payload2;
+  public email;
   private SECRET_KEY = 'LondonGreen';
+  ngOnInit(){
+    this.email = this.authService.getUser();
+    this.getUser();
+  }
 
+  getUser(){
+    
+ 
+    this.firebase.getProfileInfo(this.email).subscribe(
+      res =>{
+        if(res.length === 0){
+          console.log('you are fucked');
+        }
+        this.payload2 = res.map(a =>{
+          return{
+            user: a.payload.doc.data().User_Name
+          }
+        })
+      }
+    )
+    this.dataPass.setUserName(this.payload2.user.toString());
+  }
   codeDecryption() {
     this.decrypted = CryptoJS.AES.decrypt(this.encrypted, this.SECRET_KEY).toString(CryptoJS.enc.Utf8);
   }

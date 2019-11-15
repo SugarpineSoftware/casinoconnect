@@ -32,6 +32,8 @@ export class PostModalPage implements OnInit {
   public payload;
 
   ngOnInit() {
+    this.user = this.dataPass.getUserName();
+    console.log(this.user);
     this.firebaseService.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res => {
       this.payload = res.map(a => {
         return{
@@ -53,7 +55,7 @@ export class PostModalPage implements OnInit {
       new Date(),
       this.title,
       this.topicId,
-      this.user,
+      this.dataPass.getUserName(),
       this.bank,
       this.machine,
       this.area);
