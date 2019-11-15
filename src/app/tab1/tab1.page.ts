@@ -36,7 +36,6 @@ export class Tab1Page implements OnInit{
 
   // holds all the return information from firebase firestore //
   public payload;
-  public payload2;
   public email;
   private SECRET_KEY = 'LondonGreen';
   ngOnInit(){
@@ -45,21 +44,7 @@ export class Tab1Page implements OnInit{
   }
 
   getUser(){
-    
- 
-    this.firebase.getProfileInfo(this.email).subscribe(
-      res =>{
-        if(res.length === 0){
-          console.log('you are fucked');
-        }
-        this.payload2 = res.map(a =>{
-          return{
-            user: a.payload.doc.data().User_Name
-          }
-        })
-      }
-    )
-    this.dataPass.setUserName(this.payload2.user.toString());
+   
   }
   codeDecryption() {
     this.decrypted = CryptoJS.AES.decrypt(this.encrypted, this.SECRET_KEY).toString(CryptoJS.enc.Utf8);
