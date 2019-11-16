@@ -57,11 +57,17 @@ export class SignUpPage implements OnInit {
 
   signUpOnClick() {
     console.log(this.validationForm.value);
-    /*
+    
+    this.email = this.validationForm.value.email;
+    this.password = this.validationForm.value.password;
+    this.firstName = this.validationForm.value.firstName;
+    this.lastName = this.validationForm.value.lastName;
+    this.userName = this.validationForm.value.userName;
+
     this.auth.createUser(this.email, this.password).then(
       () => this.signUpSuccess(),
       () => this.signUpFailure()
-    );*/
+    );
   }
 
 

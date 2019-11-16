@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/auth.service';
 import { Router} from '@angular/router';
 import { AlertController, ModalController} from '@ionic/angular';
 import { SignUpPage } from 'src/app/sign-up/sign-up.page';
+import { FormBuilder, Validators } from '@angular/forms';
 
 
 
