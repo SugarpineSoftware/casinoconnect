@@ -22,8 +22,9 @@ import { PostModalPage } from 'src/app/post-modal/post-modal.page';
 import { NewCommentPage } from 'src/app/new-comment/new-comment.page';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { SignUpPage } from 'src/app/sign-up/sign-up.page';
+import { FormGroup, FormControl } from '@angular/forms';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { FormsModule } from '@angular/forms';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgxQRCodeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     StatusBar,

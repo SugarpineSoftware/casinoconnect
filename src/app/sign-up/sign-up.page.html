@@ -13,29 +13,32 @@
 <ion-content>
     <ion-card>
         <ion-card-content>
+          <form [formGroup]="validationForm" (ngSubmit)="signUpOnClick()">
             <ion-item>
               <ion-label position="floating">Email</ion-label>
-              <ion-input type="text" placeholder="Email Address" [(ngModel)]="email"></ion-input>
+              <ion-input name="email" formControlName="email" type="email" placeholder="Email Address" [(ngModel)]="email" required ></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Password</ion-label>
-              <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+              <ion-input name="password" formControlName="password" type="password" placeholder="Password" [(ngModel)]="password" required></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">First Name</ion-label>
-              <ion-input type="text" placeholder="First Name" [(ngModel)]="firstName"></ion-input>
+              <ion-input name="firstName" formControlName="firstName" type="text" placeholder="First Name" [(ngModel)]="firstName" required></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Last Name</ion-label>
-              <ion-input type="text" placeholder="Last Name" [(ngModel)]="lastName"></ion-input>
+              <ion-input name="lastName" formControlName="lastName" type="text" placeholder="Last Name" [(ngModel)]="lastName" required></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">User Name</ion-label>
-              <ion-input type="text" placeholder="User Name" [(ngModel)]="userName"></ion-input>
+              <ion-input name="userName" formControlName="userName" type="text" placeholder="User Name" [(ngModel)]="userName" required></ion-input>
             </ion-item>
+
             <div margin-vertical text-right>
-              <ion-button id="signup-btn" (click)="signUpOnClick()">Sign up</ion-button>
+              <ion-button id="signup-btn" type="submit" [disabled]="!validationForm.valid">Sign up</ion-button>
             </div>
+          </form>
         </ion-card-content>
     </ion-card>
 
