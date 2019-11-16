@@ -98,6 +98,17 @@ export class FirebaseService {
       Area: area
     });
   }
+  saveNewMael(asset,user,date,content){
+    const uID = this.firestore.createId();
+    return this.firestore.collection('Company')
+    .doc('Sugarpine Slots').collection('MaelBook').doc(uID).set({
+      asset: asset,
+      user: user,
+      Date: date,
+      content: content
+
+    })
+  }
 
   // get Profile Information
   getProfileInfo(x: string) {

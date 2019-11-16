@@ -119,7 +119,7 @@ export class Tab1Page implements OnInit{
               encrypted: a.payload.doc.data().EncryptedCode,
               inService: a.payload.doc.data().In_Service,
               keychip1: a.payload.doc.data().KeyChip1,
-              keychip2: a.payload.doc.data().KeyChip2,
+              keychip2: a.payload.doc.data().KeyChip_2,
               machineDenom: a.payload.doc.data().Machine_Denom,
               maxBet: a.payload.doc.data().Max_Bet,
               onFloor: a.payload.doc.data().On_Floor,

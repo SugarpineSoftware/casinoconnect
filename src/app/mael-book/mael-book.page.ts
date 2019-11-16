@@ -30,7 +30,7 @@ export class MaelBookPage implements OnInit {
   }
 
   back() {
-    this.location.back();
+    this.router.navigateByUrl('tabs/tab5')
   }
   add(){
     this.DataPass.setAsset(this.asset);
