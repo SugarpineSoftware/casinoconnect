@@ -46,9 +46,12 @@ export class FirebaseService {
   bringUpListOfWikiTopics(companyName) {
     return this.firestore.collection('Company')
     .doc(companyName)
-    .collection('Wiki').snapshotChanges();
+    .collection('Settings').doc('AJDiooJiRB3e7Qa4MPtQ').collection('Wiki_Topics').snapshotChanges();
   }
 
+  getWikiDocs(topicId){
+    return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Wiki', ref => ref.where('Topic_Id', '==',topicId)).snapshotChanges();
+  }
 
   // brings up a list of forum topics //
   bringUpListOfForumTopics(companyName) {
@@ -94,6 +97,17 @@ export class FirebaseService {
       Machine: machine,
       Area: area
     });
+  }
+  saveNewMael(asset,user,date,content){
+    const uID = this.firestore.createId();
+    return this.firestore.collection('Company')
+    .doc('Sugarpine Slots').collection('MaelBook').doc(uID).set({
+      asset: asset,
+      user: user,
+      Date: date,
+      content: content
+
+    })
   }
 
   // get Profile Information

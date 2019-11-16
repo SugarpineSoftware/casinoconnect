@@ -18,6 +18,9 @@ export class DataPassService {
   private j;
   private n;
   private userName;
+  private wikiIndex;
+  private wikiUrl;
+ 
 
   //Passing Object To View Machine
   setDataObject(x) {
@@ -32,6 +35,20 @@ export class DataPassService {
   }
   getAsset(){
     return this.b;
+  }
+  //Wiki Index
+  setWikiIndex(x){
+    this.wikiIndex = x;
+  }
+  getWikiIndex(){
+    return this.wikiIndex;
+  }
+  //Wiki Doc
+  setWikiDoc(x){
+    this.wikiUrl = x;
+  }
+  getWikiDoc(){
+    return this.wikiUrl;
   }
 
   //Get correct topic for forum posts

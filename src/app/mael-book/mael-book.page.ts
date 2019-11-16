@@ -30,7 +30,11 @@ export class MaelBookPage implements OnInit {
   }
 
   back() {
-    this.location.back();
+    this.router.navigateByUrl('tabs/tab5')
+  }
+  add(){
+    this.DataPass.setAsset(this.asset);
+    this.router.navigateByUrl('new-meal-entry');
   }
 
   ngAfterViewInit() {
@@ -42,10 +46,12 @@ export class MaelBookPage implements OnInit {
         this.payload = res.map(a =>{
           return{
             user: a.payload.doc.data().user,
-            content: a.payload.doc.data().content
+            content: a.payload.doc.data().content,
+            date: a.payload.doc.data().Date.toDate()
           }
         })
       }
     )
   }
+
 }

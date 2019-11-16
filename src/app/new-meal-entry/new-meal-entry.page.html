@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>NewMealEntry</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-label>User</ion-label>
+  <ion-input [(ngModel)]="user"></ion-input>
+  <ion-label>Content</ion-label>
+  <ion-input [(ngModel)]="content"></ion-input>
+  <ion-button (click)="saveNewPost()">Save Post</ion-button>
+</ion-content>

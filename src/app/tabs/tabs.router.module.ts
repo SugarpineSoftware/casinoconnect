@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { WikiDocPage } from '../wiki-doc/wiki-doc.page';
 
 const routes: Routes = [
   {
@@ -34,6 +35,16 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+          },
+          {
+            path: 'Wiki',
+            loadChildren: () =>
+            import('src/app/wiki/wiki.module').then(m => m.WikiPageModule)
+          },
+          {
+            path:'Doc',
+            loadChildren: () =>
+            import('src/app/wiki-doc/wiki-doc.module').then(m => m.WikiDocPageModule)
           }
         ]
       },

@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>wiki</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-button (click)="pushDoc(p.url)" *ngFor="let p of payload" expand="full" >
+  {{p.title}} Manufacturer - {{p.manufacturer}} Cabinet - {{p.cabinet}}
+</ion-button>
+</ion-content>

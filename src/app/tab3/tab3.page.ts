@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/firebase.service';
+import { Router } from '@angular/router';
+import { DataPassService } from '../data-pass.service';
 
 
 @Component({
@@ -12,7 +14,11 @@ export class Tab3Page implements OnInit {
 
     public payload;
 
-  constructor(private firebase: FirebaseService) {
+  constructor(
+    private firebase: FirebaseService,
+    private router: Router,
+    private dataPass: DataPassService
+    ) {
     }
 
     ngOnInit() {
@@ -24,9 +30,16 @@ export class Tab3Page implements OnInit {
       this.firebase.bringUpListOfWikiTopics('Sugarpine Slots').subscribe(res => {
         this.payload = res.map(a => {
           return {
-            name: a.payload.doc.data().name
+            name: a.payload.doc.data().Title,
+            id: a.payload.doc.data().Id
           };
         });
     });
+  }
+
+  viewDocs(i){
+    this.dataPass.setWikiIndex(i);
+    this.router.navigateByUrl('tabs/tab3/Wiki');
+    
   }
 }

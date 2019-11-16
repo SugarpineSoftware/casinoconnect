@@ -1,8 +1,12 @@
 <ion-header>
   <ion-toolbar>
       <ion-buttons slot="primary">
+        
         <ion-button (click)="back()">
           <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+        <ion-button (click)="add()">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
         </ion-button>
       </ion-buttons>
 
@@ -11,9 +15,11 @@
 </ion-header>
 
 <ion-content>
-    <ion-card >
-        <ion-card-content *ngFor="let order of payload">
-          Posted by {{order.user}} {{order.content}}
+    <ion-card *ngFor="let p of payload">
+      <ion-card-title>{{p.user}}</ion-card-title>
+      <ion-card-subtitle>{{p.date}}</ion-card-subtitle>
+        <ion-card-content>
+          {{p.content}}
       </ion-card-content>
         
       </ion-card>
