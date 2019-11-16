@@ -21,7 +21,8 @@ const routes: Routes = [
   { path: 'sign-up', loadChildren: './sign-up/sign-up.module#SignUpPageModule' },
   { path: 'wiki', loadChildren: './wiki/wiki.module#WikiPageModule' },
   { path: 'wiki-doc', loadChildren: './wiki-doc/wiki-doc.module#WikiDocPageModule' },
-  { path: 'new-meal-entry', loadChildren: './new-meal-entry/new-meal-entry.module#NewMealEntryPageModule' }
+  { path: 'new-meal-entry', loadChildren: './new-meal-entry/new-meal-entry.module#NewMealEntryPageModule' },
+  { path: 'break-timer', loadChildren: './break-timer/break-timer.module#BreakTimerPageModule' }
 ];
 @NgModule({
   imports: [
