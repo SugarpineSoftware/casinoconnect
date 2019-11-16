@@ -20,7 +20,8 @@ const routes: Routes = [
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'sign-up', loadChildren: './sign-up/sign-up.module#SignUpPageModule' },
   { path: 'wiki', loadChildren: './wiki/wiki.module#WikiPageModule' },
-  { path: 'wiki-doc', loadChildren: './wiki-doc/wiki-doc.module#WikiDocPageModule' }
+  { path: 'wiki-doc', loadChildren: './wiki-doc/wiki-doc.module#WikiDocPageModule' },
+  { path: 'new-meal-entry', loadChildren: './new-meal-entry/new-meal-entry.module#NewMealEntryPageModule' }
 ];
 @NgModule({
   imports: [

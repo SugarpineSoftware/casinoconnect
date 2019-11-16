@@ -20,6 +20,7 @@ export class DataPassService {
   private userName;
   private wikiIndex;
   private wikiUrl;
+ 
 
   //Passing Object To View Machine
   setDataObject(x) {
