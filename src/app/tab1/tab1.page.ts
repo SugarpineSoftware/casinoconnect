@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import * as CryptoJS from 'crypto-js';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController, MenuController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/firebase.service';
 import { ScanModalPage } from '../scan-modal/scan-modal.page';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -27,7 +27,8 @@ export class Tab1Page implements OnInit{
               public auth: AngularFireAuth,
               public router: Router,
               public dataPass: DataPassService,
-              public authService: AuthService
+              public authService: AuthService,
+              public menu:MenuController
               ) {
   }
 
@@ -38,6 +39,12 @@ export class Tab1Page implements OnInit{
   public payload;
   
   private SECRET_KEY = 'LondonGreen';
+
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
+
   ngOnInit(){
   
   }

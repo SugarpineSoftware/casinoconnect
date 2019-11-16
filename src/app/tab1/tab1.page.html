@@ -1,15 +1,30 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="primary">
-      <ion-button (click)="logoutOnClick()" color="danger">Logout</ion-button>
-      <ion-button (click)="profile()" color="primary">Profile</ion-button>
+            <ion-button (click)="openFirst()">
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
     </ion-buttons>
     <ion-title>
       QR Reader
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ion-menu side="start" menuId="first">
+    <ion-header>
+      <ion-toolbar color="secondary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-button expand="full" fill="clear" color="dark" >Settings</ion-button>
+        <ion-button expand="full" fill="clear" color="dark" (click)="profile()">Profile</ion-button>
+        <ion-button expand="full" fill="clear" color="danger" (click)="logoutOnClick()">Logout</ion-button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
 <ion-content>
   
     <ion-button (click)="scanCode()" color="warning" id="scan-button">
