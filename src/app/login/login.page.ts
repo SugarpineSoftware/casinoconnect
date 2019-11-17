@@ -51,6 +51,7 @@ export class LoginPage {
   }
 
   signUpOnClick() {
+
     this.presentSignUp();
   }
 

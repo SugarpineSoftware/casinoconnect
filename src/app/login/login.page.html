@@ -19,7 +19,8 @@
             </ion-item>
 
             <div margin-vertical text-right>
-                <ion-button id="signup-btn" type="submit" [disabled]="!validationForm.valid">Sign up</ion-button>
+                <ion-button id="login-btn" type="submit" [disabled]="!validationForm.valid">Login</ion-button>
+                <ion-button  id="signup-btn" (click)="signUpOnClick()">Sign Up</ion-button>
             </div>
             </form>
         </ion-card-content>
