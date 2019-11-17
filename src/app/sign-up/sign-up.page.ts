@@ -55,8 +55,6 @@ export class SignUpPage implements OnInit {
 
 
   signUpOnClick() {
-    console.log(this.validationForm.value);
-    
     this.email = this.validationForm.value.email;
     this.password = this.validationForm.value.password;
     this.firstName = this.validationForm.value.firstName;
