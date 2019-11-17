@@ -60,7 +60,6 @@ export class FirebaseService {
     .collection('Settings').doc('4dPG1ij10lXO2dalG7Lt').collection('Forum_Topics').snapshotChanges();
   }
 
-
   // gets a forum post by topic id //
   getForumPosts(topicId) {
     return this.firestore.collection(
@@ -150,7 +149,7 @@ export class FirebaseService {
   // saves a new QR code to the database // 
   // takes in a ton of parameters //
   saveQRToDataBase(companyName, encryptedQrCode, manufacture, cabinet, area, bank, machineNumber, asset, serialNumber,
-    billValidator, billValidatorFirmware, inService, keyChip1, keyChip2, machineDenom, maxBet, onFloor, payTableId,
+    billValidator, billValidatorFirmware, inService,isLeased, keyChip1, keyChip2, machineDenom, maxBet, onFloor, payTableId,
     printer, printerFirmware, theme) {
 
       companyName = this.checkForNullOrUndefined(companyName);
@@ -174,6 +173,7 @@ export class FirebaseService {
       encryptedQrCode = this.checkForNullOrUndefined(encryptedQrCode);
       onFloor = this.checkForToggleUndefined(onFloor);
       inService = this.checkForToggleUndefined(inService);
+      isLeased = this.checkForToggleUndefined(isLeased);
 
       return this.firestore.collection('Company')
        .doc(companyName)
@@ -198,7 +198,8 @@ export class FirebaseService {
         PayTable_Id: payTableId,
         Printer: printer,
         Printer_Firmware: printerFirmware,
-        Theme: theme
+        Theme: theme,
+        Is_Leased: isLeased,
       }, {merge: true})
       .then(() => {
         return true;
@@ -224,6 +225,7 @@ export class FirebaseService {
         return value;
       }
     }
+    
 
   }
 

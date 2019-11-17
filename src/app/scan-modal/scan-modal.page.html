@@ -13,14 +13,12 @@
               <ion-card-subtitle>Bank: {{info.bank}}, Machine: {{info.machineNumber}}, Asset: {{info.assetNumber}}</ion-card-subtitle>
               <ion-card-subtitle>{{info.manufacturer}}, {{info.cabinet}}</ion-card-subtitle>
           </ion-card-header>
-      </ion-card>
-      <ion-card>   
+
 
           <ion-button expand="full" id="forum-button" (click)="forumOnClick()">Forum</ion-button>
-          <ion-button expand="full" id="mael-button" (click)="maelOnClick()">Misc</ion-button>
+          <ion-button expand="full" id="mael-button" (click)="maelOnClick(info.assetNumber)">Mael Book</ion-button>
           <ion-button expand="full" id="more-info-button" (click)="moreInfoOnClick()">More Info</ion-button>
           <ion-button expand="full" id="wiki-button" (click)="wikiOnClick()">Wiki</ion-button>
-          <ion-button expand="full" id="misc-button" (click)="miscOnClick()">Misc</ion-button>
           <ion-button expand="full" id="cancel-button" (click)="cancelOnClick()">Cancel</ion-button>
       </ion-card>
     </div>

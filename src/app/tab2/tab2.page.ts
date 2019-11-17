@@ -111,6 +111,7 @@ export class Tab2Page {
   printerFirmware: string;
   serial: string;
   theme: string;
+  isLeased: boolean;
 
   dataReturned: any;
 
@@ -175,6 +176,7 @@ export class Tab2Page {
   this.cabinet = null;
   this.encrypted = null;
   this.inService = false;
+  this.isLeased = false;
   this.keychip = null;
   this.keychip2 = null;
   this.machine = null;
@@ -208,6 +210,7 @@ export class Tab2Page {
       this.billValidator,
       this.billValidatorFirmware,
       this.inService,
+      this.isLeased,
       this.keychip,
       this.keychip2,
       this.machineDenom,

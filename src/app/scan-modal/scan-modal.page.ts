@@ -41,8 +41,10 @@ export class ScanModalPage implements OnInit{
     this.modalController.dismiss(returnValue);
   }
 
-  maelOnClick() {
-    
+  maelOnClick(x) {
+    this.DataPass.setAsset(x);
+    this.modalController.dismiss();
+    this.router.navigateByUrl('mael-book');
   }
 
   moreInfoOnClick() {

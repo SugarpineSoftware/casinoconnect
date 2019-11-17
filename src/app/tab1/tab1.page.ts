@@ -133,7 +133,8 @@ export class Tab1Page implements OnInit{
               payTableId: a.payload.doc.data().PayTable_Id,
               printer: a.payload.doc.data().Printer,
               printerFirmware: a.payload.doc.data().Printer_Firmware,
-              serial: a.payload.doc.data().Serial
+              serial: a.payload.doc.data().Serial,
+              isLeased: a.payload.doc.data().Is_Leased
             };
           });
           // presenting the information //

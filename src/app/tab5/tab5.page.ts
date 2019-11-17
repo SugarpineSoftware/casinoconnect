@@ -41,7 +41,8 @@ export class Tab5Page {
     {id:5, field:"Serial",placeholder:"Serial Number"},
     {id:6, field:"Theme",placeholder:"Theme"},
     {id:7, field:"In_Service",placeholder:"In Service True or False"},
-    {id:8, field:"On_Floor",placeholder:"On Floor True or False"}
+    {id:8, field:"On_Floor",placeholder:"On Floor True or False"},
+    {id:9, field:"Is_Leased",placeholder:"Is Leased True or False"}
   ]
 
     // Uses The Value Of The Manufacturer Dropdown To Create The Type Array
@@ -98,7 +99,8 @@ export class Tab5Page {
               payTableId: a.payload.doc.data().PayTable_Id,
               printer: a.payload.doc.data().Printer,
               printerFirmware: a.payload.doc.data().Printer_Firmware,
-              serial: a.payload.doc.data().Serial
+              serial: a.payload.doc.data().Serial,
+              isLeased: a.payload.doc.data().Is_Leased
           }
         })
       });

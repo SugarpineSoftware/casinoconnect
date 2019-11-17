@@ -89,7 +89,6 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
           });
 
           this.payload.forEach(element => {
-            console.log(element);
           });
         }
       );
