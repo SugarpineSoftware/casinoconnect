@@ -34,10 +34,10 @@ export class LoginPage {
   }
 
  // this is the validation group for the input text fields //
- validationForm = this.formBuilder.group({
-  email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%-]+@[a-zA-Z0-9*-]+.[a-zA-Z]{2,4}$')]],
-  password: ['', [Validators.required, Validators.maxLength(100)]]
-});
+  validationForm = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%-]+@[a-zA-Z0-9*-]+.[a-zA-Z]{2,4}$')]],
+    password: ['', [Validators.required, Validators.maxLength(100)]]
+  });
 
 
   loginOnClick() {
@@ -51,7 +51,6 @@ export class LoginPage {
   }
 
   signUpOnClick() {
-
     this.presentSignUp();
   }
 
@@ -68,7 +67,7 @@ export class LoginPage {
       }
     });
     return await modal.present();
-  } 
+  }
 
 
   loginSuccess() {
