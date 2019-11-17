@@ -23,16 +23,31 @@ export class LoginPage {
               public auth: AuthService,
               public router: Router,
               public alertController: AlertController,
-              public modalController: ModalController) {}
+              public modalController: ModalController,
+              public formBuilder: FormBuilder) {}
 
+  get emailProperty() {
+    return this.validationForm.get('email');
+  }
+  get passwordProperty() {
+    return this.validationForm.get('password');
+  }
 
+ // this is the validation group for the input text fields //
+ validationForm = this.formBuilder.group({
+  email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%-]+@[a-zA-Z0-9*-]+.[a-zA-Z]{2,4}$')]],
+  password: ['', [Validators.required, Validators.maxLength(100)]]
+});
 
 
   loginOnClick() {
-     this.auth.loginUser(this.emailText, this.passwordText).then(
-       () => this.loginSuccess(),
-       () => this.loginFailure()
-     );
+    this.emailText = this.validationForm.value.email;
+    this.passwordText = this.validationForm.value.password;
+
+    this.auth.loginUser(this.emailText, this.passwordText).then(
+      () => this.loginSuccess(),
+      () => this.loginFailure()
+    );
   }
 
   signUpOnClick() {
