@@ -9,7 +9,21 @@ export class BreakTimerPage implements OnInit {
 
   constructor() { }
 
+  private remainingTime;
+  private startTime;
+  private endTime;
+  private timeLimit: number = 5;
+  private currentTime;
+
+
   ngOnInit() {
+  }
+
+  startTimer(){
+    this.startTime = new Date().getSeconds;
+    this.endTime = this.startTime + this.timeLimit;
+    this.remainingTime = this.currentTime - this.endTime;
+
   }
 
 }
