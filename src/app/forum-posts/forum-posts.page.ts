@@ -50,6 +50,14 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
           if (res.length === 0) {
             console.log('nothing to display');
           }
+
+          this.payload = res.map(a => {
+            // return a.payload.doc.data();
+            return {
+              id: a.payload.doc.id,
+              info: a.payload.doc.data()
+            };
+          });
           /*
           this.payload = res.map(a => {
             return {
@@ -77,6 +85,9 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
             console.log('nothing to display');
           }
 
+          this.payload = res.map(a => {
+            a.payload.doc.data();
+          });
           /*
           this.payload = res.map(a => {
             return {
@@ -93,9 +104,6 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
             };
           });
           */
-
-          this.payload.forEach(element => {
-          });
         }
       );
     }
@@ -113,12 +121,11 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
   getListOfForumTopics() {
     this.FirebaseService.bringUpListOfForumTopics().subscribe(res => {
       this.listOfTopics = res.map(a => {
-        /*
         return{
           topic: a.payload.doc.data().Title,
           id: a.payload.doc.data().Id
         };
-        */
+        
 
       });
 
@@ -135,8 +142,8 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
   back() {
     this.location.back();
   }
-  goToPost(order) {
 
+  goToPost(order) {
     this.DataPass.setMainObjectToCommentSection(order);
 
     // this.DataPass.setDocumentIdForum(order.docId);

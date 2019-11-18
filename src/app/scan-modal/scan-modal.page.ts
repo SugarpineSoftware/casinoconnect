@@ -35,7 +35,9 @@ export class ScanModalPage implements OnInit {
     // we can pass in an asset number to search the //
     // forum for //
     this.DataPass.setForumMode(true);
-    this.DataPass.setForumAssetNumber(this.encryptedData[0].assetNumber);
+
+    console.log(this.encryptedData[0].Asset);
+    this.DataPass.setForumAssetNumber(this.encryptedData[0].Asset);
 
     this.router.navigateByUrl("tabs/tab4/Posts");
     this.modalController.dismiss(returnValue);
