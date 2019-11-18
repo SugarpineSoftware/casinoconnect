@@ -42,13 +42,16 @@ export class FirebaseService {
   }
 
   getWikiDocs(topicId){
-    return this.firestore.collection('Wiki', ref => ref.where('Topic_Id', '==',topicId)).snapshotChanges();
+    return this.firestore.collection('Wiki', ref => ref.where('Topic_Id', '==', topicId)).snapshotChanges();
   }
 
   // brings up a list of forum topics //
   bringUpListOfForumTopics() {
     return this.firestore.collection('Settings').doc('Forum_Topic').collection('Forum_Topic').snapshotChanges();
   }
+
+
+
 
   // gets a forum post by topic id //
   getForumPosts(topicId) {
@@ -63,7 +66,7 @@ export class FirebaseService {
 
 
   // gets forum post based on asset number 
-  getForumPostsBasedOnAssetNumber(assetNumber:string) {
+  getForumPostsBasedOnAssetNumber(assetNumber: string) {
     return this.firestore.collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
   }
 

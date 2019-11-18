@@ -50,6 +50,7 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
           if (res.length === 0) {
             console.log('nothing to display');
           }
+          /*
           this.payload = res.map(a => {
             return {
               title: a.payload.doc.data().Title,
@@ -64,6 +65,7 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
               asset: a.payload.doc.data().Asset
             };
           });
+          */
         });
       }
     } else {
@@ -74,6 +76,8 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
           if (res.length === 0) {
             console.log('nothing to display');
           }
+
+          /*
           this.payload = res.map(a => {
             return {
               title: a.payload.doc.data().Title,
@@ -88,6 +92,7 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
               asset: a.payload.doc.data().Asset
             };
           });
+          */
 
           this.payload.forEach(element => {
           });
@@ -108,10 +113,13 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
   getListOfForumTopics() {
     this.FirebaseService.bringUpListOfForumTopics().subscribe(res => {
       this.listOfTopics = res.map(a => {
+        /*
         return{
           topic: a.payload.doc.data().Title,
           id: a.payload.doc.data().Id
         };
+        */
+
       });
 
       // going through the array to see which ones match up with //

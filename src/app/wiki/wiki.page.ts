@@ -31,6 +31,7 @@ export class WikiPage implements OnInit {
       if(res.length === 0) {
         console.log( 'No Wiki Entries Under This Topic');
       }
+      /*
       this.payload = res.map(a => {
         return {
           cabinet: a.payload.doc.data().Cabinet,
@@ -39,6 +40,7 @@ export class WikiPage implements OnInit {
           url: a.payload.doc.data().URL
         }
       })
+      */
     })
   }
 

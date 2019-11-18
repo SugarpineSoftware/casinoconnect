@@ -43,6 +43,7 @@ export class MaelBookPage implements OnInit {
         if(res.length === 0){
           console.log('you are fucked');
         }
+        /*
         this.payload = res.map(a =>{
           return{
             user: a.payload.doc.data().User,
@@ -50,6 +51,7 @@ export class MaelBookPage implements OnInit {
             date: a.payload.doc.data().Date.toDate()
           }
         })
+        */
       }
     )
   }

@@ -112,6 +112,7 @@ export class Tab1Page implements OnInit{
             'There was no entry found in the database.  Please try again');
           }
 
+          
           this.payload = res.map(a => {
             return {
               cabinet: a.payload.doc.data().Cabinet,
@@ -139,6 +140,7 @@ export class Tab1Page implements OnInit{
           });
           // presenting the information //
           this.presentQR(this.payload);
+          
         });
       }
     );
