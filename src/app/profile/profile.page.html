@@ -13,7 +13,14 @@
   <ion-thumbnail>
       <ion-img [src]="p.pictureURL"></ion-img>
   </ion-thumbnail>
-  <ion-item >USERNAME = {{p.user}}</ion-item>
+
+  <!-- The pattern used to be 
+  user: a.payload.doc.data().User_Name,
+            fName: a.payload.doc.data().User_F_Name,
+            lName: a.payload.doc.data().User_L_Name,
+            email: a.payload.doc.data().email,
+            pictureURL: a.payload.doc.data().Picture-->
+  <ion-item >USERNAME = {{p.User_Name}}</ion-item>
   <ion-item> Email = {{p.email}}</ion-item>
-  <ion-item> Full Name = {{p.fName}} {{p.lName}}</ion-item>
+  <ion-item> Full Name = {{p.User_F_Name}} {{p.User_L_Name}}</ion-item>
 </ion-content>

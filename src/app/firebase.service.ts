@@ -22,6 +22,9 @@ export class FirebaseService {
 
   // brings up the information about the scanned QR code //
   newScan(newScanString) {
+    console.log('in here');
+    // return this.firestore.collection('Machine').snapshotChanges();
+
     return this.firestore.collection('Machine', ref => ref.where('Serial', '==', newScanString)).snapshotChanges();
   }
 

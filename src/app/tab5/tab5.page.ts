@@ -80,6 +80,9 @@ export class Tab5Page {
           this.presentAlert('No Data Found', "Search Failed", "Please Try Again")
         }
 
+        this.payload = res.map(a => {
+          return a.payload.doc.data();
+        });
         /*
         this.payload = res.map(a =>{
           return{
@@ -108,7 +111,6 @@ export class Tab5Page {
         })
         */
       });
-      console.log(this.payload);
     }
    
 }
