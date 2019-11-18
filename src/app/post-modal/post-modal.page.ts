@@ -17,7 +17,9 @@ export class PostModalPage implements OnInit {
   private title;
   private topicId;
   private forumMode = false;
-  private user;
+
+  // the user information will need to be brought up dynamically //
+  private user = 'Cory';
   private area;
   public payload;
 
@@ -49,7 +51,6 @@ export class PostModalPage implements OnInit {
   ];
 
   ngOnInit() {
-    
     this.firebaseService.bringUpListOfForumTopics().subscribe(res => {
       this.payload = res.map(a => {
         return{
@@ -80,9 +81,6 @@ export class PostModalPage implements OnInit {
 
     // the topic id is going to need to be set for //
     // when we are coming from a scan //
-    console.log('forum id ' + this.topicId);
-    console.log('forum Mode ' + this.forumMode);
-    /*
     this.firebaseService.saveNewPost(this.asset,
       this.content,
       new Date(),
@@ -93,7 +91,6 @@ export class PostModalPage implements OnInit {
       this.machine,
       this.area);
     this.modalController.dismiss();
-    */
   }
 }
 

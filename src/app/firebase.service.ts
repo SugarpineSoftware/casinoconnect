@@ -89,6 +89,7 @@ export class FirebaseService {
       Area: area
     });
   }
+  
   saveNewMael(asset,user,date,content){
     const uID = this.firestore.createId();
     return this.firestore.collection('MaelBook').doc(uID).set({
