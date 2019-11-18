@@ -3,7 +3,6 @@ import { ModalController, AlertController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/firebase.service';
 import { AuthService } from 'src/app/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ValueConverter } from '../../../node_modules/@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-sign-up',
@@ -56,8 +55,6 @@ export class SignUpPage implements OnInit {
 
 
   signUpOnClick() {
-    console.log(this.validationForm.value);
-    
     this.email = this.validationForm.value.email;
     this.password = this.validationForm.value.password;
     this.firstName = this.validationForm.value.firstName;

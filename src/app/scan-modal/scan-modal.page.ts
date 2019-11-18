@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './scan-modal.page.html',
   styleUrls: ['./scan-modal.page.scss'],
 })
-export class ScanModalPage implements OnInit{
+export class ScanModalPage implements OnInit {
 
   title = '';
   encryptedData = null;
