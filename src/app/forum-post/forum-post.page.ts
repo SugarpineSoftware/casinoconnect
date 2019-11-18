@@ -39,7 +39,6 @@ export class ForumPostPage implements OnInit {
 
     this.mainObject = this.DataPass.getMainObjectToCommentSection();
     if (this.mainObject != null) {
-      //console.log(this.mainObject.docId);
       this.id = this.mainObject.id;
       this.title = this.mainObject.info.Title;
       this.post = this.mainObject.info.Content;
