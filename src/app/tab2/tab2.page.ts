@@ -198,7 +198,7 @@ export class Tab2Page {
 
   // uploading the QR code to the database
   uploadQR() {
-    const returnValue = this.firebaseService.saveQRToDataBase('Sugarpine Slots',
+    const returnValue = this.firebaseService.saveQRToDataBase(
       this.encryptQrData,
       this.sManu.manufacture,
       this.sType.type,

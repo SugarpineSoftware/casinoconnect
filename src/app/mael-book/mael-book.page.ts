@@ -45,8 +45,8 @@ export class MaelBookPage implements OnInit {
         }
         this.payload = res.map(a =>{
           return{
-            user: a.payload.doc.data().user,
-            content: a.payload.doc.data().content,
+            user: a.payload.doc.data().User,
+            content: a.payload.doc.data().Content,
             date: a.payload.doc.data().Date.toDate()
           }
         })

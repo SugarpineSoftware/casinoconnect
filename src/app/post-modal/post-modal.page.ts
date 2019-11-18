@@ -33,7 +33,7 @@ export class PostModalPage implements OnInit {
 
   ngOnInit() {
 
-    this.firebaseService.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res => {
+    this.firebaseService.bringUpListOfForumTopics().subscribe(res => {
       this.payload = res.map(a => {
         return{
           topic: a.payload.doc.data().Title,

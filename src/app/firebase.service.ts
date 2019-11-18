@@ -11,24 +11,18 @@ export class FirebaseService {
 
   // pulls the topics from the wiki //
   pullWiki() {
-    return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Wiki');
+    return this.firestore.collection('Wiki').snapshotChanges();
   }
 
-  pullMael(x: string){
-    console.log(x);
-    return this.firestore.collection('Company')
-    .doc('Sugarpine Slots').collection('MaelBook', ref => ref.where('asset', '==', x))
+  pullMael(x){
+    return this.firestore.collection('MaelBook', ref => ref.where('Asset', '==', x))
     .snapshotChanges();
   }
 
 
-
-
   // brings up the information about the scanned QR code //
   newScan(newScanString) {
-    return this.firestore.collection('Company')
-    .doc('Sugarpine Slots')
-    .collection('Machine', ref => ref.where('Serial', '==', newScanString)).snapshotChanges();
+    return this.firestore.collection('Machine', ref => ref.where('Serial', '==', newScanString)).snapshotChanges();
   }
 
 
@@ -37,54 +31,46 @@ export class FirebaseService {
   // new search - the field is the drop down menu item for which to search by //
   // and the value is the actual value to search //
   newSearch(value, field) {
-    return this.firestore.collection(
-      'Company').doc('Sugarpine Slots').collection('Machine', ref => ref.where(field, '==', value)).snapshotChanges();
+    return this.firestore.collection('Machine', ref => ref.where(field, '==', value)).snapshotChanges();
     }
 
 
   // brings up a list of wiki topics //
-  bringUpListOfWikiTopics(companyName) {
-    return this.firestore.collection('Company')
-    .doc(companyName)
-    .collection('Settings').doc('AJDiooJiRB3e7Qa4MPtQ').collection('Wiki_Topics').snapshotChanges();
+  bringUpListOfWikiTopics() {
+    return this.firestore
+    .collection('Settings').doc('Wiki_Topic').collection('Wiki_Topic').snapshotChanges();
   }
 
   getWikiDocs(topicId){
-    return this.firestore.collection('Company').doc('Sugarpine Slots').collection('Wiki', ref => ref.where('Topic_Id', '==',topicId)).snapshotChanges();
+    return this.firestore.collection('Wiki', ref => ref.where('Topic_Id', '==',topicId)).snapshotChanges();
   }
 
   // brings up a list of forum topics //
-  bringUpListOfForumTopics(companyName) {
-    return this.firestore.collection('Company')
-    .doc(companyName)
-    .collection('Settings').doc('4dPG1ij10lXO2dalG7Lt').collection('Forum_Topics').snapshotChanges();
+  bringUpListOfForumTopics() {
+    return this.firestore.collection('Settings').doc('Forum_Topic').collection('Forum_Topic').snapshotChanges();
   }
 
   // gets a forum post by topic id //
   getForumPosts(topicId) {
-    return this.firestore.collection(
-      'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Topic_Id', '==', topicId)).snapshotChanges();
+    return this.firestore.collection('Forum', ref => ref.where('Topic_Id', '==', topicId)).snapshotChanges();
   }
 
 
   // gets the forum comments by document ID //
   getForumCommentsByDocumentId(docId){
-    return this.firestore.collection(
-      'Company').doc('Sugarpine Slots').collection('Forum').doc(docId).collection('Comments').snapshotChanges();
+    return this.firestore.collection('Forum').doc(docId).collection('Comments').snapshotChanges();
   }
 
 
   // gets forum post based on asset number 
-  getFormPostsBasedOnAssetNumber(assetNumber) {
-    return this.firestore.collection(
-      'Company').doc('Sugarpine Slots').collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
+  getForumPostsBasedOnAssetNumber(assetNumber:string) {
+    return this.firestore.collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
   }
 
   // saves a new post (main topic post) //
   saveNewPost(asset, content, date, title, topicId, user, bank, machine, area) {
     const uID = this.firestore.createId();
-    return  this.firestore.collection('Company')
-    .doc('Sugarpine Slots').collection('Forum')
+    return  this.firestore.collection('Forum')
     .doc(uID).set({
       Asset: asset,
       Content: content,
@@ -99,20 +85,18 @@ export class FirebaseService {
   }
   saveNewMael(asset,user,date,content){
     const uID = this.firestore.createId();
-    return this.firestore.collection('Company')
-    .doc('Sugarpine Slots').collection('MaelBook').doc(uID).set({
-      asset: asset,
-      user: user,
+    return this.firestore.collection('MaelBook').doc(uID).set({
+      Asset: asset,
+      User: user,
       Date: date,
-      content: content
+      Content: content
 
     })
   }
 
   // get Profile Information
   getProfileInfo(x: string) {
-    console.log(x);
-    return this.firestore.collection('Company').doc('Sugarpine Slots')
+    return this.firestore
     .collection('Profiles', ref => ref.where('email', '==', x)).snapshotChanges();
   }
 
@@ -122,22 +106,20 @@ export class FirebaseService {
   // user under profile in the database //
   saveUserProfileToDatabase(email, password, firstName, lastName, userName) {
     const uID = this.firestore.createId();
-    return this.firestore.collection('Company')
-    .doc('Sugarpine Slots').collection('Profiles')
+    return this.firestore.collection('Profiles')
     .doc(uID).set({
       User_F_Name: firstName,
       User_L_Name: lastName,
       User_Name: userName,
       Email: email,
-      Picture: ''
+      Img_Url: ''
     });
   }
 
   // creates a comment to the current post //
   autoCreatedComment(DocId, content, date, user) {
     const uID = this.firestore.createId();
-    return this.firestore.collection('Company')
-    .doc('Sugarpine Slots').collection('Forum')
+    return this.firestore.collection('Forum')
     .doc(DocId).collection('Comments').doc(uID).set({
       User: user,
       Comment: content,
@@ -148,11 +130,10 @@ export class FirebaseService {
 
   // saves a new QR code to the database // 
   // takes in a ton of parameters //
-  saveQRToDataBase(companyName, encryptedQrCode, manufacture, cabinet, area, bank, machineNumber, asset, serialNumber,
+  saveQRToDataBase(encryptedQrCode, manufacture, cabinet, area, bank, machineNumber, asset, serialNumber,
     billValidator, billValidatorFirmware, inService,isLeased, keyChip1, keyChip2, machineDenom, maxBet, onFloor, payTableId,
     printer, printerFirmware, theme) {
 
-      companyName = this.checkForNullOrUndefined(companyName);
       manufacture = this.checkForNullOrUndefined(manufacture);
       serialNumber = this.checkForNullOrUndefined(serialNumber);
       area = this.checkForNullOrUndefined(area);
@@ -175,8 +156,7 @@ export class FirebaseService {
       inService = this.checkForToggleUndefined(inService);
       isLeased = this.checkForToggleUndefined(isLeased);
 
-      return this.firestore.collection('Company')
-       .doc(companyName)
+      return this.firestore
        .collection('Machine')
        .doc(serialNumber)
        .set({Manufacturer: manufacture,
@@ -191,7 +171,7 @@ export class FirebaseService {
         Bill_Validator_Firmware: billValidatorFirmware,
         In_Service: inService,
         KeyChip1: keyChip1,
-        KeyChip_2: keyChip2,
+        KeyChip2: keyChip2,
         Machine_Denom: machineDenom,
         Max_Bet: maxBet,
         On_Floor: onFloor,

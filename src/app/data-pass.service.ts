@@ -9,7 +9,7 @@ export class DataPassService {
   constructor() { }
 
   private a;
-  private b;
+  private b: string;
   private f;
   private m;
   private i;

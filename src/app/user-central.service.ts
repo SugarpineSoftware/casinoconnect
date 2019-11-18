@@ -22,7 +22,7 @@ export class UserCentralService {
     this.firebase.getProfileInfo(this.authService.getUser()).subscribe(res => {
       this.payload = res.map(a => {
         return{
-          user: a.payload.doc.data().User_Name,
+          
           
         };
       });

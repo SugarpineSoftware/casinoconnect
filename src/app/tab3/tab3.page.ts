@@ -27,7 +27,7 @@ export class Tab3Page implements OnInit {
     // called when the view loads //
     ionViewWillEnter() {
       // brings up a list of wiki topics for the buttons //
-      this.firebase.bringUpListOfWikiTopics('Sugarpine Slots').subscribe(res => {
+      this.firebase.bringUpListOfWikiTopics().subscribe(res => {
         this.payload = res.map(a => {
           return {
             name: a.payload.doc.data().Title,

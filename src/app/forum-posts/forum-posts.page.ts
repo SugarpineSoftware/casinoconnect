@@ -25,7 +25,7 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
 
   public i;
   public j = false;
-  public passedInAssetNumber;
+  public passedInAssetNumber:string;
   public payload;
   public listOfTopics;
 
@@ -34,6 +34,7 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
 
   ngOnInit() {
     this.loadInformation();
+    
   }
 
   loadInformation() {
@@ -45,7 +46,7 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
       if (this.passedInAssetNumber !== null) {
         this.title = 'Forum Posts';
         this.payload = null;
-        this.FirebaseService.getFormPostsBasedOnAssetNumber(this.passedInAssetNumber).subscribe(res => {
+        this.FirebaseService.getForumPostsBasedOnAssetNumber(this.passedInAssetNumber).subscribe(res => {
           if (res.length === 0) {
             console.log('nothing to display');
           }
@@ -105,7 +106,7 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
   // having to do it this way so that we can keep //
   // the list of topic names dynamic //
   getListOfForumTopics() {
-    this.FirebaseService.bringUpListOfForumTopics('Sugarpine Slots').subscribe(res => {
+    this.FirebaseService.bringUpListOfForumTopics().subscribe(res => {
       this.listOfTopics = res.map(a => {
         return{
           topic: a.payload.doc.data().Title,
