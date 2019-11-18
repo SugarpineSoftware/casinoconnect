@@ -39,6 +39,8 @@ export class ForumPostPage implements OnInit {
 
     this.mainObject = this.DataPass.getMainObjectToCommentSection();
     if (this.mainObject != null) {
+
+      console.log(this.mainObject);
       this.id = this.mainObject.id;
       this.title = this.mainObject.info.Title;
       this.post = this.mainObject.info.Content;
@@ -48,20 +50,10 @@ export class ForumPostPage implements OnInit {
       this.machine = this.mainObject.info.Machine;
     }
 
-
-    // the problem im sure has to do with the document ID //
-    // will come back to //
     this.FirebaseService.getForumCommentsByDocumentId(this.id).subscribe(res => {
       this.payload = res.map(a => {
 
         return a.payload.doc.data();
-        /*
-        return{
-          comment: a.payload.doc.data().Comment,
-          user: a.payload.doc.data().User,
-          date: a.payload.doc.data().Date.toDate()
-        };
-        */
       });
     });
   }

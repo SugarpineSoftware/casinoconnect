@@ -34,7 +34,6 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
 
   ngOnInit() {
     this.loadInformation();
-    
   }
 
   loadInformation() {
@@ -84,9 +83,11 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
           if (res.length === 0) {
             console.log('nothing to display');
           }
-
           this.payload = res.map(a => {
-            a.payload.doc.data();
+            return {
+              id: a.payload.doc.id,
+              info: a.payload.doc.data()
+            };
           });
           /*
           this.payload = res.map(a => {

@@ -23,7 +23,7 @@
           <h3>{{order.info.Area}}-{{order.info.Bank}}-{{order.info.Machine}} {{order.info.Asset}}</h3>
         </ion-item>
         <ion-card-title>{{order.info.Title}}</ion-card-title>
-        <ion-card-subtitle>Posted by {{order.info.User}} on {{order.info.Date | date: 'dd/MM/yyyy, h:mm a'}}</ion-card-subtitle>
+        <ion-card-subtitle>Posted by {{order.info.User}} on {{order.info.Date.toDate() | date: 'dd/MM/yyyy, h:mm a'}}</ion-card-subtitle>
         <ion-card-content>{{order.info.Content}}</ion-card-content>
         
         
