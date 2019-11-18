@@ -10,6 +10,22 @@ import { DataPassService } from '../data-pass.service';
 })
 export class PostModalPage implements OnInit {
 
+  private bank;
+  private machine;
+  private asset;
+  private content;
+  private title;
+  private topicId;
+  private forumMode = false;
+  private user;
+  private area;
+  public payload;
+
+  public sValue: string;
+  public sSearch: any;
+  public sPlaceholder: string;
+  public sField: string;
+
   constructor(
     public modalController: ModalController,
     public firebaseService: FirebaseService,
@@ -19,20 +35,21 @@ export class PostModalPage implements OnInit {
 
   ) {
     this.topicId = navParams.get('ForumId');
+    this.forumMode = navParams.get('ForumMode');
   }
 
-  private bank;
-  private machine;
-  private asset;
-  private content;
-  private title;
-  private topicId;
-  private user;
-  private area;
-  public payload;
+  
+
+  searchOptions: any[] = [
+    {id: 0, field: 'Down Machines', placeholder: 'Down Machines'},
+    {id: 1, field: 'Purchase Requests', placeholder: 'Purchase Requests'},
+    {id: 2, field: 'Pass Down', placeholder: 'Pass Down'},
+    {id: 3, field: 'Memos', placeholder: 'Memos'},
+    {id: 4, field: 'Questions & Suggestions', placeholder: 'Questions & Suggestions'}
+  ];
 
   ngOnInit() {
-
+    
     this.firebaseService.bringUpListOfForumTopics().subscribe(res => {
       this.payload = res.map(a => {
         return{
@@ -43,12 +60,29 @@ export class PostModalPage implements OnInit {
     });
   }
 
+
   // dismisses the modal view //
   cancel() {
     this.modalController.dismiss();
   }
 
+  
+
+    // When the topic drop down changes... //
+    // this stuff gets changed //
+    setSearchValue(sSearch) {
+      this.sPlaceholder = this.searchOptions[sSearch.id].placeholder;
+      this.sField = this.searchOptions[sSearch.id].field;
+      this.topicId = sSearch.id;
+    }
+
   savePost() {
+
+    // the topic id is going to need to be set for //
+    // when we are coming from a scan //
+    console.log('forum id ' + this.topicId);
+    console.log('forum Mode ' + this.forumMode);
+    /*
     this.firebaseService.saveNewPost(this.asset,
       this.content,
       new Date(),
@@ -59,6 +93,7 @@ export class PostModalPage implements OnInit {
       this.machine,
       this.area);
     this.modalController.dismiss();
+    */
   }
 }
 

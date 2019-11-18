@@ -13,7 +13,14 @@
 <ion-content>
     <ion-card>
       <ion-card-content>
+        <div [hidden]="!forumMode">
         <ion-input [(ngModel)]= "title">Subject:</ion-input>
+          <ion-select (ionChange)= "setSearchValue(sSearch)" [(ngModel)] ="sSearch">
+            <ion-select-option [value]="sSearch" *ngFor="let sSearch of searchOptions">
+              {{sSearch.field}}
+            </ion-select-option>
+          </ion-select>
+        </div>
         <ion-input [(ngModel)]="area">
           Area:
         </ion-input>
