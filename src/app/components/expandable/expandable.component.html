@@ -1,0 +1,9 @@
+<ion-button expand="full" (click)="toggleAccordion()">
+    {{ name }}
+     <span *ngIf="isMenuOpen">&#9650;</span>
+     <span *ngIf="!isMenuOpen">&#9660;</span>
+</ion-button>
+  <div
+     [ngClass]="this.isMenuOpen ? 'active' : 'inactive'">
+     <p>{{ description }}</p>
+    </div>

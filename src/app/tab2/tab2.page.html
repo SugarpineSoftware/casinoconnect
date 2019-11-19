@@ -8,8 +8,12 @@
   
   <ion-content>
       
-
-  
+          <app-expandable
+          name="More Information"
+          description="This is the content"
+          ></app-expandable>
+       
+ 
     <ion-item>
       <ion-label>Manufacture</ion-label>
       <ion-select (ionChange)= "setTypeValue(sManu)" [(ngModel)] ="sManu">

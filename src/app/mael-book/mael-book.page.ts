@@ -43,15 +43,9 @@ export class MaelBookPage implements OnInit {
         if(res.length === 0){
           console.log('you are fucked');
         }
-        /*
-        this.payload = res.map(a =>{
-          return{
-            user: a.payload.doc.data().User,
-            content: a.payload.doc.data().Content,
-            date: a.payload.doc.data().Date.toDate()
-          }
-        })
-        */
+        this.payload = res.map(a => {
+          return a.payload.doc.data();
+        });
       }
     )
   }

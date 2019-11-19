@@ -16,10 +16,10 @@
 
 <ion-content>
     <ion-card *ngFor="let p of payload">
-      <ion-card-title>{{p.user}}</ion-card-title>
-      <ion-card-subtitle>{{p.date}}</ion-card-subtitle>
+      <ion-card-title>{{p.User}}</ion-card-title>
+      <ion-card-subtitle>{{p.Date.toDate()}}</ion-card-subtitle>
         <ion-card-content>
-          {{p.content}}
+          {{p.Content}}
       </ion-card-content>
         
       </ion-card>
