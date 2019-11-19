@@ -34,7 +34,7 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
 
   ngOnInit() {
     this.loadInformation();
-    
+
   }
 
   loadInformation() {
@@ -86,6 +86,7 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
               bank: a.payload.doc.data().Bank,
               area: a.payload.doc.data().Area,
               asset: a.payload.doc.data().Asset
+              
             };
           });
 
