@@ -25,10 +25,36 @@
     </ion-row>
   </ion-grid>
   <ion-item *ngFor="let m of payload"> 
-    Location={{m.area}}-{{m.bank}}-{{m.machineNumber}} {{m.assetNumber}}
+    Location={{m.Area}}-{{m.Bank}}-{{m.Machine_Number}} {{m.Asset}}
     <ion-buttons slot="end">
-      <ion-button (click)=viewMaelBook(m.assetNumber)>Mael Book</ion-button>
+      <ion-button (click)=viewMaelBook(m.Asset)>Mael Book</ion-button>
       <ion-button (click)="viewMachine(m)"> View </ion-button>
     </ion-buttons>
   </ion-item>
    </ion-content>
+
+
+
+   <!-- this used to be the old way of getting data
+  
+  cabinet: a.payload.doc.data().Cabinet,
+              theme: a.payload.doc.data().Theme,
+              machineNumber: a.payload.doc.data().Machine_Number,
+              bank: a.payload.doc.data().Bank,
+              assetNumber: a.payload.doc.data().Asset,
+              manufacturer: a.payload.doc.data().Manufacturer,
+              area: a.payload.doc.data().Area,
+              billValidator: a.payload.doc.data().Bill_Validator,
+              billValidatorFirmware: a.payload.doc.data().Bill_Validator_Firmware,
+              encrypted: a.payload.doc.data().EncryptedCode,
+              inService: a.payload.doc.data().In_Service,
+              keychip1: a.payload.doc.data().KeyChip1,
+              keychip2: a.payload.doc.data().KeyChip2,
+              machineDenom: a.payload.doc.data().Machine_Denom,
+              maxBet: a.payload.doc.data().Max_Bet,
+              onFloor: a.payload.doc.data().On_Floor,
+              payTableId: a.payload.doc.data().PayTable_Id,
+              printer: a.payload.doc.data().Printer,
+              printerFirmware: a.payload.doc.data().Printer_Firmware,
+              serial: a.payload.doc.data().Serial,
+              isLeased: a.payload.doc.data().Is_Leased-->

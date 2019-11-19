@@ -20,12 +20,10 @@
 <ion-content>
     <ion-card *ngFor="let order of payload" (click)="goToPost(order)">
         <ion-item>
-          <h3>{{order.area}}-{{order.bank}}-{{order.machine}} {{order.asset}}</h3>
+          <h3>{{order.info.Area}}-{{order.info.Bank}}-{{order.info.Machine}} {{order.info.Asset}}</h3>
         </ion-item>
-        <ion-card-title>{{order.title}}</ion-card-title>
-        <ion-card-subtitle>Posted by {{order.user}} on {{order.date | date: 'dd/MM/yyyy, h:mm a'}}</ion-card-subtitle>
-        <ion-card-content>{{order.content}}</ion-card-content>
-        
-        
+        <ion-card-title>{{order.info.Title}}</ion-card-title>
+        <ion-card-subtitle>Posted by {{order.info.User}} on {{order.info.Date.toDate() | date: 'dd/MM/yyyy, h:mm a'}}</ion-card-subtitle>
+        <ion-card-content>{{order.info.Content}}</ion-card-content>
     </ion-card>
 </ion-content>

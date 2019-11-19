@@ -29,6 +29,11 @@ export class ProfilePage implements OnInit {
         if(res.length === 0){
           console.log('you are fucked');
         }
+
+        this.payload = res.map(a => {
+          return a.payload.doc.data();
+        }) 
+        /*
         this.payload = res.map(a =>{
           return{
             user: a.payload.doc.data().User_Name,
@@ -38,6 +43,7 @@ export class ProfilePage implements OnInit {
             pictureURL: a.payload.doc.data().Picture
           }
         })
+        */
       }
     )
   }

@@ -27,27 +27,54 @@
 <ion-card>
   <ion-card-content>
     
-    <ion-item>Serial Number = {{m.serial}}</ion-item>
-    <ion-item>Area = {{m.area}}</ion-item>
-    <ion-item>Bank = {{m.bank}}</ion-item>
-    <ion-item>Machine = {{m.machineNumber}}</ion-item>
-    <ion-item>Asset = {{m.assetNumber}}</ion-item>
-    <ion-item>Manufacturer = {{m.manufacturer}}</ion-item>
-    <ion-item>Cabinet Style = {{m.cabinet}}</ion-item>
-    <ion-item>Theme = {{m.theme}}</ion-item>
-    <ion-item>In Service = {{m.inService}}</ion-item>
-    <ion-item>Is Leased = {{m.isLeased}}</ion-item>
-    <ion-item>On Floor = {{m.onFloor}}</ion-item>
-    <ion-item>Paytable Id = {{m.payTableId}}</ion-item>
-    <ion-item>Max Bet = {{m.maxBet}}</ion-item>
-    <ion-item>Machine Denomination = {{m.machineDenom}}</ion-item>
-    <ion-item>Bill Validator = {{m.billValidator}}</ion-item>
-    <ion-item>Bill Validator Firmware = {{m.billValidatorFirmware}}</ion-item>
-    <ion-item>Printer = {{m.printer}}</ion-item>
-    <ion-item>Printer Firmware = {{m.printerFirmware}}</ion-item>
-    <ion-item>Keychip 1 = {{m.keychip1}}</ion-item>
-    <ion-item>Keychip 2 = {{m.keychip2}}</ion-item>
+    <ion-item>Serial Number = {{m.Serial}}</ion-item>
+    <ion-item>Area = {{m.Area}}</ion-item>
+    <ion-item>Bank = {{m.Bank}}</ion-item>
+    <ion-item>Machine = {{m.Machine_Number}}</ion-item>
+    <ion-item>Asset = {{m.Asset}}</ion-item>
+    <ion-item>Manufacturer = {{m.Manufacturer}}</ion-item>
+    <ion-item>Cabinet Style = {{m.Cabinet}}</ion-item>
+    <ion-item>Theme = {{m.Theme}}</ion-item>
+    <ion-item>In Service = {{m.In_Service}}</ion-item>
+    <ion-item>Is Leased = {{m.Is_Leased}}</ion-item>
+    <ion-item>On Floor = {{m.On_Floor}}</ion-item>
+    <ion-item>Paytable Id = {{m.PayTable_Id}}</ion-item>
+    <ion-item>Max Bet = {{m.Max_Bet}}</ion-item>
+    <ion-item>Machine Denomination = {{m.Machine_Denom}}</ion-item>
+    <ion-item>Bill Validator = {{m.Bill_Validator}}</ion-item>
+    <ion-item>Bill Validator Firmware = {{m.Bill_Validator_Firmware}}</ion-item>
+    <ion-item>Printer = {{m.Printer}}</ion-item>
+    <ion-item>Printer Firmware = {{m.Printer_Firmware}}</ion-item>
+    <ion-item>Keychip 1 = {{m.KeyChip1}}</ion-item>
+    <ion-item>Keychip 2 = {{m.KeyChip2}}</ion-item>
   </ion-card-content>
 </ion-card>
 
 </ion-content>
+
+
+<!-- old info 
+  return{
+            cabinet: a.payload.doc.data().Cabinet,
+              theme: a.payload.doc.data().Theme,
+              machineNumber: a.payload.doc.data().Machine_Number,
+              bank: a.payload.doc.data().Bank,
+              assetNumber: a.payload.doc.data().Asset,
+              manufacturer: a.payload.doc.data().Manufacturer,
+              area: a.payload.doc.data().Area,
+              billValidator: a.payload.doc.data().Bill_Validator,
+              billValidatorFirmware: a.payload.doc.data().Bill_Validator_Firmware,
+              encrypted: a.payload.doc.data().EncryptedCode,
+              inService: a.payload.doc.data().In_Service,
+              keychip1: a.payload.doc.data().KeyChip1,
+              keychip2: a.payload.doc.data().KeyChip2,
+              machineDenom: a.payload.doc.data().Machine_Denom,
+              maxBet: a.payload.doc.data().Max_Bet,
+              onFloor: a.payload.doc.data().On_Floor,
+              payTableId: a.payload.doc.data().PayTable_Id,
+              printer: a.payload.doc.data().Printer,
+              printerFirmware: a.payload.doc.data().Printer_Firmware,
+              serial: a.payload.doc.data().Serial,
+              isLeased: a.payload.doc.data().Is_Leased
+          }
+-->

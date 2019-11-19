@@ -22,6 +22,9 @@ export class FirebaseService {
 
   // brings up the information about the scanned QR code //
   newScan(newScanString) {
+    console.log('in here');
+    // return this.firestore.collection('Machine').snapshotChanges();
+
     return this.firestore.collection('Machine', ref => ref.where('Serial', '==', newScanString)).snapshotChanges();
   }
 
@@ -42,13 +45,16 @@ export class FirebaseService {
   }
 
   getWikiDocs(topicId){
-    return this.firestore.collection('Wiki', ref => ref.where('Topic_Id', '==',topicId)).snapshotChanges();
+    return this.firestore.collection('Wiki', ref => ref.where('Topic_Id', '==', topicId)).snapshotChanges();
   }
 
   // brings up a list of forum topics //
   bringUpListOfForumTopics() {
     return this.firestore.collection('Settings').doc('Forum_Topic').collection('Forum_Topic').snapshotChanges();
   }
+
+
+
 
   // gets a forum post by topic id //
   getForumPosts(topicId) {
@@ -63,7 +69,7 @@ export class FirebaseService {
 
 
   // gets forum post based on asset number 
-  getForumPostsBasedOnAssetNumber(assetNumber:string) {
+  getForumPostsBasedOnAssetNumber(assetNumber: string) {
     return this.firestore.collection('Forum', ref => ref.where('Asset', '==', assetNumber)).snapshotChanges();
   }
 
@@ -83,6 +89,7 @@ export class FirebaseService {
       Area: area
     });
   }
+  
   saveNewMael(asset,user,date,content){
     const uID = this.firestore.createId();
     return this.firestore.collection('MaelBook').doc(uID).set({

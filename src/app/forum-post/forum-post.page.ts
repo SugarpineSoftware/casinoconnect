@@ -39,25 +39,21 @@ export class ForumPostPage implements OnInit {
 
     this.mainObject = this.DataPass.getMainObjectToCommentSection();
     if (this.mainObject != null) {
-      this.id = this.mainObject.docId;
-      this.title = this.mainObject.title;
-      this.post = this.mainObject.content;
-      this.bank = this.mainObject.bank;
-      this.area = this.mainObject.area;
-      this.asset = this.mainObject.asset;
-      this.machine = this.mainObject.machine;
+
+      console.log(this.mainObject);
+      this.id = this.mainObject.id;
+      this.title = this.mainObject.info.Title;
+      this.post = this.mainObject.info.Content;
+      this.bank = this.mainObject.info.Bank;
+      this.area = this.mainObject.info.Area;
+      this.asset = this.mainObject.info.Asset;
+      this.machine = this.mainObject.info.Machine;
     }
 
     this.FirebaseService.getForumCommentsByDocumentId(this.id).subscribe(res => {
       this.payload = res.map(a => {
-        return{
-          comment: a.payload.doc.data().Comment,
-          user: a.payload.doc.data().User,
-          date: a.payload.doc.data().Date.toDate()
-        };
-      });
-      this.payload.forEach(element => {
-        console.log(element);
+
+        return a.payload.doc.data();
       });
     });
   }

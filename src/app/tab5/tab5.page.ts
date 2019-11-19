@@ -79,6 +79,11 @@ export class Tab5Page {
         if(res.length === 0){
           this.presentAlert('No Data Found', "Search Failed", "Please Try Again")
         }
+
+        this.payload = res.map(a => {
+          return a.payload.doc.data();
+        });
+        /*
         this.payload = res.map(a =>{
           return{
             cabinet: a.payload.doc.data().Cabinet,
@@ -104,8 +109,8 @@ export class Tab5Page {
               isLeased: a.payload.doc.data().Is_Leased
           }
         })
+        */
       });
-      console.log(this.payload);
     }
    
 }

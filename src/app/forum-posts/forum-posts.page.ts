@@ -25,7 +25,7 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
 
   public i;
   public j = false;
-  public passedInAssetNumber:string;
+  public passedInAssetNumber: string;
   public payload;
   public listOfTopics;
 
@@ -34,7 +34,6 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
 
   ngOnInit() {
     this.loadInformation();
-
   }
 
   loadInformation() {
@@ -50,18 +49,14 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
           if (res.length === 0) {
             console.log('nothing to display');
           }
+
+          // having to pass in the id of the post //
+          // and the payload data //
           this.payload = res.map(a => {
+            // return a.payload.doc.data();
             return {
-              title: a.payload.doc.data().Title,
-              content: a.payload.doc.data().Content,
-              user: a.payload.doc.data().User,
-              date: a.payload.doc.data().Date.toDate(),
-              topic: a.payload.doc.data().Topic,
-              docId: a.payload.doc.id,
-              machine: a.payload.doc.data().Machine,
-              bank: a.payload.doc.data().Bank,
-              area: a.payload.doc.data().Area,
-              asset: a.payload.doc.data().Asset
+              id: a.payload.doc.id,
+              info: a.payload.doc.data()
             };
           });
         });
@@ -69,28 +64,18 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
     } else {
       this.payload = null;
       this.getListOfForumTopics();
-      this.FirebaseService.getForumPosts(this.i).subscribe(
-        res => {
+      this.FirebaseService.getForumPosts(this.i).subscribe(res => {
           if (res.length === 0) {
             console.log('nothing to display');
           }
+
+          // having to pass in the id of the post //
+          // and the payload data //
           this.payload = res.map(a => {
             return {
-              title: a.payload.doc.data().Title,
-              content: a.payload.doc.data().Content,
-              user: a.payload.doc.data().User,
-              date: a.payload.doc.data().Date.toDate(),
-              topic: a.payload.doc.data().Topic,
-              docId: a.payload.doc.id,
-              machine: a.payload.doc.data().Machine,
-              bank: a.payload.doc.data().Bank,
-              area: a.payload.doc.data().Area,
-              asset: a.payload.doc.data().Asset
-              
+              id: a.payload.doc.id,
+              info: a.payload.doc.data()
             };
-          });
-
-          this.payload.forEach(element => {
           });
         }
       );
@@ -108,8 +93,11 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
   // the list of topic names dynamic //
   getListOfForumTopics() {
     this.FirebaseService.bringUpListOfForumTopics().subscribe(res => {
+
       this.listOfTopics = res.map(a => {
         return{
+          // passing into the list of topics are the //
+          // title and ID //
           topic: a.payload.doc.data().Title,
           id: a.payload.doc.data().Id
         };
@@ -128,30 +116,54 @@ export class ForumPostsPage implements OnInit, AfterContentInit {
   back() {
     this.location.back();
   }
+
   goToPost(order) {
-
     this.DataPass.setMainObjectToCommentSection(order);
-
-    // this.DataPass.setDocumentIdForum(order.docId);
-    // this.DataPass.setDocumentTitleForum(order.title);
-    // this.DataPass.setObjectPost(order.content);
     this.router.navigateByUrl('forum-post');
   }
   
+
+  // need to tell the modal popup if this came from a scan //
+  // in which case the user can choose which topic to post //
+  // under.  Otherwise, dont give them the option to do so //
+  // as we are coming from one of the topics already //
   newPost() {
-    this.presentPost();
+    this.presentPost(this.j);
   }
 
-  async presentPost() {
+
+  // if the forum mode is false, we are coming from the //
+  // regular means of getting to the forum (i.e. clicking //
+  // on the tab button as opposed to scanning a qr code //
+  // and clicking on the forum button) //
+  async presentPost(forumMode) {
     const modal = await this.modalController.create({
       component: PostModalPage,
       componentProps: {
-          ForumId: this.i
+          ForumId: this.i,
+          ForumMode: forumMode
       }
     });
     return await modal.present();
   }
-
 }
 
 
+
+
+          /* Original data structure 
+          this.payload = res.map(a => {
+            return {
+              title: a.payload.doc.data().Title,
+              content: a.payload.doc.data().Content,
+              user: a.payload.doc.data().User,
+              date: a.payload.doc.data().Date.toDate(),
+              topic: a.payload.doc.data().Topic,
+              docId: a.payload.doc.id,
+              machine: a.payload.doc.data().Machine,
+              bank: a.payload.doc.data().Bank,
+              area: a.payload.doc.data().Area,
+              asset: a.payload.doc.data().Asset
+            };
+          });
+          */

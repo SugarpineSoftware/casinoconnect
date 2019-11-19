@@ -28,7 +28,7 @@ export class Tab1Page implements OnInit{
               public router: Router,
               public dataPass: DataPassService,
               public authService: AuthService,
-              public menu:MenuController
+              public menu: MenuController
               ) {
   }
 
@@ -112,6 +112,12 @@ export class Tab1Page implements OnInit{
             'There was no entry found in the database.  Please try again');
           }
 
+          // this is what has changed.... //
+          this.payload = res.map(a => {
+            return a.payload.doc.data();
+          });
+
+          /* this was the old way of doing retrieving the data
           this.payload = res.map(a => {
             return {
               cabinet: a.payload.doc.data().Cabinet,
@@ -136,7 +142,7 @@ export class Tab1Page implements OnInit{
               serial: a.payload.doc.data().Serial,
               isLeased: a.payload.doc.data().Is_Leased
             };
-          });
+          }); */
           // presenting the information //
           this.presentQR(this.payload);
         });
